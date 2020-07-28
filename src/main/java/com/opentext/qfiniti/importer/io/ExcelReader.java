@@ -13,7 +13,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.opentext.qfiniti.helper.DateHelper;
-import com.opentext.qfiniti.helper.IberdrolaHelper;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 /**
@@ -170,7 +169,7 @@ public class ExcelReader {
 			            		break;
 			            	case  COL_INDEX_12_INTERACTION_ID_KEY:
 			            		call.addExtendedField(COL_TITLE_INTERACTION_ID_KEY, cell.getStringCellValue());
-			            		call.setFileName(IberdrolaHelper.generateNameFromId(cell.getStringCellValue()));			            					            	
+			            		//call.setFileName(IberdrolaHelper.generateNameFromId(cell.getStringCellValue()));			            					            	
 			            		break;
 			            	case  COL_INDEX_13_INITIATION_POLICY:
 			            		call.addExtendedField(COL_TITLE_INITIATION_POLICY, cell.getStringCellValue());			            		

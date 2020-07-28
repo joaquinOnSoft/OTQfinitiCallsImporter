@@ -22,6 +22,10 @@ package com.opentext.qfiniti.importer.io;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
+import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractorTest;
+import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractorTest;
+
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({

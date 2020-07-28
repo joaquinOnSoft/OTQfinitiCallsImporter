@@ -28,12 +28,11 @@ import java.util.Map;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import com.opentext.qfiniti.helper.IberdrolaHelper;
 import com.opentext.qfiniti.importer.io.ExcelReader;
 import com.opentext.qfiniti.importer.io.ExcelWritter;
-import com.opentext.qfiniti.importer.io.FolderFilter;
-import com.opentext.qfiniti.importer.io.WavFilter;
-import com.opentext.qfiniti.importer.io.XlsFilter;
+import com.opentext.qfiniti.importer.io.filter.FolderFilter;
+import com.opentext.qfiniti.importer.io.filter.WavFilter;
+import com.opentext.qfiniti.importer.io.filter.XlsFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 /**
@@ -135,8 +134,8 @@ public class QfinitiICG {
 			for (File file : wavFiles) {
 				System.out.println(file.getPath());
 
-				id = IberdrolaHelper.getIdFromFileName(file.getName());
-				call = recordings.get(id);
+				//id = IberdrolaHelper.getIdFromFileName(file.getName());
+				//call = recordings.get(id);
 				
 				if(call != null) {
 					try {
