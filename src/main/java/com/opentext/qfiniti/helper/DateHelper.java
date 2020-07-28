@@ -1,8 +1,8 @@
 package com.opentext.qfiniti.helper;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class DateHelper {
 	public static final String DATE_FORMAT_IBERDROLA = "MM/dd/yyyy hh:mm:ss a";
@@ -47,13 +47,14 @@ public class DateHelper {
 		return totalSeconds;
 	}
 	
-	public static Date strToDate(String strDate, String format) {
-		Date date =null;
+	public static LocalDate strToDate(String strDate, String format) {
+		LocalDate date =null;
 		
 		if(strDate != null) {
 			try {
-				date=new SimpleDateFormat(format).parse(strDate);
-			} catch (ParseException e) {
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format, Locale.ENGLISH);
+				date = LocalDate.parse(strDate, formatter);
+			} catch (IllegalArgumentException e) {
 				System.err.println(e.getLocalizedMessage());
 			} 	
 		}

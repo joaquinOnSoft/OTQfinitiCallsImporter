@@ -22,16 +22,23 @@ package com.opentext.qfiniti.importer.io;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
+import com.opentext.qfiniti.importer.io.filter.XlsFilterTest;
 import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractorTest;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractorTest;
 
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
+	   //com.opentext.qfiniti.importer.io.filter
+	   FolderFilterTest.class,
+	   WavFilterTest.class,
+	   XlsFilterTest.class,
+
+	//com.opentext.qfiniti.importer.io.metadata
    JaudiotaggerMetadataExtractorTest.class,
-   TikaMetadataExtractorTest.class,
-   WavFilterTest.class
+   TikaMetadataExtractorTest.class
 })
 
 public class IOTestSuite {

@@ -19,10 +19,9 @@
  */
 package com.opentext.qfiniti.importer.pojo;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,7 +43,7 @@ public class CallRecording {
 	private String fileName;
 	/** Duration in seconds */
 	private int duration;	
-	private Date dateTime;
+	private LocalDate dateTime;
 	private String teamMemberName;
 	private String groupHierachy;
 	private String ani;
@@ -57,7 +56,7 @@ public class CallRecording {
 	}
 
 	public CallRecording(String pathName, String fileName, int duration) {
-		this(pathName, fileName, duration, GregorianCalendar.getInstance().getTime());
+		this(pathName, fileName, duration, LocalDate.now());
 	}
 
 	public CallRecording(String pathName, String fileName, String duration) throws NumberFormatException{
@@ -65,12 +64,12 @@ public class CallRecording {
 		setDuration(duration);
 	}	
 
-	public CallRecording(String pathName, String fileName, String duration, Date dateTime) {
+	public CallRecording(String pathName, String fileName, String duration, LocalDate dateTime) {
 		this(pathName, fileName, 0, dateTime);
 		setDuration(duration);
 	}	
 
-	public CallRecording(String pathName, String fileName, int duration, Date dateTime) {
+	public CallRecording(String pathName, String fileName, int duration, LocalDate dateTime) {
 		this.pathName = pathName;
 		this.fileName = fileName;
 		this.duration = duration;
@@ -116,7 +115,7 @@ public class CallRecording {
 		}
 	}
 
-	public Date getDateTime() {
+	public LocalDate getDateTime() {
 		return dateTime;
 	}
 
@@ -133,12 +132,13 @@ public class CallRecording {
 	 *    yyyy: Year
 	 * @return
 	 */
-	public String getDateTimeAsString() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-		return dateFormat.format(dateTime); 
+	public String getDateTimeAsString() {  
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+		return dateTime.format(formatter); 
 	}	
 
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(LocalDate dateTime) {
 		this.dateTime = dateTime;
 	}
 

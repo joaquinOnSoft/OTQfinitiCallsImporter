@@ -28,7 +28,7 @@ import org.junit.Test;
 import com.opentext.qfiniti.importer.io.filter.XlsFilter;
 
 public class XlsFilterTest {
-	public static String EXCEL_SAMPLE = "iberdrola/20191021.xls";
+	public static String EXCEL_SAMPLE = "client-i/20191021.xls";
 
 	@Test
 	public void testFinder() {

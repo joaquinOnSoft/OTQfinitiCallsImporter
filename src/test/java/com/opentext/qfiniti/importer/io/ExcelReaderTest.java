@@ -11,7 +11,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 public class ExcelReaderTest {
 
-	public static String EXCEL_SAMPLE = "iberdrola/20191021.xls";
+	public static String EXCEL_SAMPLE = "client-i/20191021.xls";
 	private ExcelReader reader;
 
 	@Before

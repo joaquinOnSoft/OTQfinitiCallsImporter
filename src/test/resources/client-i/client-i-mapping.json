@@ -1,0 +1,107 @@
+{
+	"inputType": "xls",
+	"fieldMapping": [{
+			"iname": "Media Type",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Recording Type",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Recording ID",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Date/Time",
+			"itype": "String",
+		    "iformat": "MM/dd/yyy hh:mm:ss a",
+			"mapped": "true",
+			"oname": "Date_Time",
+			"otype": "String",
+			"oformat": "dd/mm/yyyy hh:mm:ss"
+		},
+		{
+			"iname": "Recording Length",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "duration",
+			"otype": "String"
+		},
+		{
+			"iname": "Direction",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Initiator Interaction Address",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "ani",
+			"otype": "String" 
+		},
+		{
+			"iname": "Interaction Address",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "dnis",
+			"otype": "String"  
+		},
+		{
+			"iname": "Local Party Name",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "Team_Member_Name",
+			"otype": "String"		
+		},
+		{
+			"iname": "Scoring User",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Scoring Status",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Queue",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Interaction ID Key",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Initiation Policy",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Related Recordings",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Customer Keyword Score",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Agent Keyword Score",
+			"itype": "string",
+			"mapped": "false"  
+		},
+		{
+			"iname": "Total Keyword Score",
+			"itype": "string",
+			"mapped": "false"  
+		}
+		
+	]
+}
