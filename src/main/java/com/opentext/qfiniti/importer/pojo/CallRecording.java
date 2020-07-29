@@ -105,7 +105,7 @@ public class CallRecording {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-
+	
 	public void setDuration(String duration) throws NumberFormatException{
 		try {
 			this.duration = Integer.parseInt(duration);
