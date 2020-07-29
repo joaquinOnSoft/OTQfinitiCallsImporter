@@ -1,10 +1,10 @@
-package com.opentext.qfiniti.importer.io.adapter;
+package com.opentext.qfiniti.importer.io.transformer;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class DateMMddyyyyhhmmssaAdapter implements IAdapter {
+public class DateMMddyyyyhhmmssaTransformer implements ITransformer {
 
 	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A = "MM/dd/yyyy hh:mm:ss a";
 	private static final String DATE_FORMAT_QFINITI = "dd/MM/yyyy HH:mm:ss";

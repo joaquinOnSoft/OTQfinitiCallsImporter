@@ -1,6 +1,6 @@
-package com.opentext.qfiniti.importer.io.adapter;
+package com.opentext.qfiniti.importer.io.transformer;
 
-public class HoursMinutesSecondsToSecondsAdapter implements IAdapter{
+public class HoursMinutesSecondsToSecondsTransformer implements ITransformer{
 	
 	private static final int SECONDS_IN_A_MINUTE = 60;
 	private static final int SECONDS_IN_AN_HOUR = 3600;

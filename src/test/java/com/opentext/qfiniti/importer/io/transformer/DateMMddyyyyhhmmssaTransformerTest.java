@@ -1,15 +1,17 @@
-package com.opentext.qfiniti.importer.io.adapter;
+package com.opentext.qfiniti.importer.io.transformer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class DateMMddyyyyhhmmssaAdapterTest {
+import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer;
+
+public class DateMMddyyyyhhmmssaTransformerTest {
 
 	@Test
 	public void transform() {
-		DateMMddyyyyhhmmssaAdapter transformer = new DateMMddyyyyhhmmssaAdapter();
+		DateMMddyyyyhhmmssaTransformer transformer = new DateMMddyyyyhhmmssaTransformer();
 
 		String date = transformer.transform("10/21/2019 11:59:20 AM");
 		assertNotNull(date);
