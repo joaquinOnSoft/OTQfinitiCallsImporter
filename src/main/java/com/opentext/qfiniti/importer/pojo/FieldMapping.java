@@ -15,10 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "iname",
     "itype",
     "mapped",
-    "iformat",
     "oname",
     "otype",
-    "oformat"
+    "transformer"
 })
 public class FieldMapping {
 
@@ -28,14 +27,12 @@ public class FieldMapping {
     private String itype;
     @JsonProperty("mapped")
     private String mapped;
-    @JsonProperty("iformat")
-    private String iformat;
     @JsonProperty("oname")
     private String oname;
     @JsonProperty("otype")
     private String otype;
-    @JsonProperty("oformat")
-    private String oformat;
+    @JsonProperty("transformer")
+    private String transformer;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -68,15 +65,9 @@ public class FieldMapping {
     public void setMapped(String mapped) {
         this.mapped = mapped;
     }
-
-    @JsonProperty("iformat")
-    public String getIformat() {
-        return iformat;
-    }
-
-    @JsonProperty("iformat")
-    public void setIformat(String iformat) {
-        this.iformat = iformat;
+    
+    public boolean isMapped() {
+    	return Boolean.parseBoolean(mapped);
     }
 
     @JsonProperty("oname")
@@ -99,14 +90,14 @@ public class FieldMapping {
         this.otype = otype;
     }
 
-    @JsonProperty("oformat")
-    public String getOformat() {
-        return oformat;
+    @JsonProperty("transformer")
+    public String getTransformer() {
+        return transformer;
     }
 
-    @JsonProperty("oformat")
-    public void setOformat(String oformat) {
-        this.oformat = oformat;
+    @JsonProperty("transformer")
+    public void setTransformer(String transformer) {
+        this.transformer = transformer;
     }
 
     @JsonAnyGetter

@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.helper;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
@@ -47,13 +47,13 @@ public class DateHelper {
 		return totalSeconds;
 	}
 	
-	public static LocalDate strToDate(String strDate, String format) {
-		LocalDate date =null;
+	public static LocalDateTime strToDate(String strDate, String format) {
+		LocalDateTime date =null;
 		
 		if(strDate != null) {
 			try {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format, Locale.ENGLISH);
-				date = LocalDate.parse(strDate, formatter);
+				date = LocalDateTime.parse(strDate, formatter);
 			} catch (IllegalArgumentException e) {
 				System.err.println(e.getLocalizedMessage());
 			} 	

@@ -19,12 +19,12 @@
  */
 package com.opentext.qfiniti.importer.pojo;
 
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class CallRecording {
@@ -43,7 +43,7 @@ public class CallRecording {
 	private String fileName;
 	/** Duration in seconds */
 	private int duration;	
-	private LocalDate dateTime;
+	private LocalDateTime dateTime;
 	private String teamMemberName;
 	private String groupHierachy;
 	private String ani;
@@ -56,7 +56,7 @@ public class CallRecording {
 	}
 
 	public CallRecording(String pathName, String fileName, int duration) {
-		this(pathName, fileName, duration, LocalDate.now());
+		this(pathName, fileName, duration, LocalDateTime.now());
 	}
 
 	public CallRecording(String pathName, String fileName, String duration) throws NumberFormatException{
@@ -64,12 +64,12 @@ public class CallRecording {
 		setDuration(duration);
 	}	
 
-	public CallRecording(String pathName, String fileName, String duration, LocalDate dateTime) {
+	public CallRecording(String pathName, String fileName, String duration, LocalDateTime dateTime) {
 		this(pathName, fileName, 0, dateTime);
 		setDuration(duration);
 	}	
 
-	public CallRecording(String pathName, String fileName, int duration, LocalDate dateTime) {
+	public CallRecording(String pathName, String fileName, int duration, LocalDateTime dateTime) {
 		this.pathName = pathName;
 		this.fileName = fileName;
 		this.duration = duration;
@@ -115,7 +115,7 @@ public class CallRecording {
 		}
 	}
 
-	public LocalDate getDateTime() {
+	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
 
@@ -138,10 +138,23 @@ public class CallRecording {
 		return dateTime.format(formatter); 
 	}	
 
-	public void setDateTime(LocalDate dateTime) {
+	public void setDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
 
+	/**
+	 * 
+	 * @param dateTime in format "dd/MM/yyyy HH:mm:ss"
+	 */
+	public void setDateTime(String strDate) {
+		try {
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
+			this.dateTime = LocalDateTime.parse(strDate, formatter);
+		} catch (IllegalArgumentException e) {
+			System.err.println(e.getLocalizedMessage());
+		} 	
+	}	
+	
 	public String getTeamMemberName() {
 		return teamMemberName;
 	}
@@ -275,5 +288,25 @@ public class CallRecording {
 
 	public String getExtendedField(String key) {
 		return extendedFields.get(key);
+	}
+	
+	@Override
+	public String toString() {
+		//Path_Name	File_Name	Date_Time	duration
+		StringBuilder builder = new StringBuilder();
+		//Path_Name	File_Name	Date_Time	duration
+
+		builder.append("{\n")
+			.append("Path_Name: ").append(pathName).append("\n\t")
+			.append("File_Name: ").append(fileName).append("\n\t")
+			.append("Date_Time: ").append(getDateTimeAsString()).append("\n\t")
+			.append("duration: ").append(duration).append("\n\t")
+			.append("Team_Member_Name: ").append(teamMemberName).append("\n\t")
+			.append("group_hierarchy: ").append(groupHierachy).append("\n\t")
+			.append("ani: ").append(ani).append("\n\t")
+			.append("dnis: ").append(dnis).append("\n")
+			.append("}");
+		
+		return builder.toString();
 	}
 }

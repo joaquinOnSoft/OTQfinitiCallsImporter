@@ -17,19 +17,19 @@
 		},
 		{
 			"iname": "Date/Time",
-			"itype": "String",
-		    "iformat": "MM/dd/yyy hh:mm:ss a",
+			"itype": "String",		 
 			"mapped": "true",
 			"oname": "Date_Time",
 			"otype": "String",
-			"oformat": "dd/mm/yyyy hh:mm:ss"
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer"
 		},
 		{
 			"iname": "Recording Length",
 			"itype": "String",
 			"mapped": "true",
 			"oname": "duration",
-			"otype": "String"
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer"			
 		},
 		{
 			"iname": "Direction",
@@ -40,7 +40,7 @@
 			"iname": "Initiator Interaction Address",
 			"itype": "string",
 			"mapped": "true",
-			"oname": "ani",
+			"oname": "ANI",
 			"otype": "String" 
 		},
 		{
@@ -55,7 +55,8 @@
 			"itype": "string",
 			"mapped": "true",
 			"oname": "Team_Member_Name",
-			"otype": "String"		
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.LocalPartyName2TeamMemberNameTransformer"					
 		},
 		{
 			"iname": "Scoring User",
@@ -75,7 +76,10 @@
 		{
 			"iname": "Interaction ID Key",
 			"itype": "string",
-			"mapped": "false"  
+			"mapped": "true",
+			"oname": "File_Name",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.InteractionIdKey2FileNameTransformer"								  
 		},
 		{
 			"iname": "Initiation Policy",
