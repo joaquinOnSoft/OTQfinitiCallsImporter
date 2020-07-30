@@ -120,7 +120,8 @@ public class QfinitiICG {
 		if(xlsFiles != null && xlsFiles.length >0) {
 			ExcelReader reader = new ExcelReader();
 			for (File file : xlsFiles) {
-				List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath());
+				//TODO add 2nd parameter
+				List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), null);
 				recordings = dumpListToMap(recordings, tmpRecordings);
 			}			
 		}
