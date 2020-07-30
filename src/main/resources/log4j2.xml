@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Properties>
+        <Property name="basePath">.</Property>
+    </Properties>
+ 
+    <Appenders>
+        <RollingFile name="fileLogger" fileName="${basePath}/ot-qfiniti-calls-importer.log" filePattern="${basePath}/ot-qfiniti-calls-importer-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+ 
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout   pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.opentext.qfiniti.helper" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>
+        <Logger name="com.opentext.qfiniti.importer" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>
+        <Logger name="com.opentext.qfiniti.importer.io" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>        
+        <Logger name="com.opentext.qfiniti.importer.io.filter" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>
+        <Logger name="com.opentext.qfiniti.importer.io.metadata" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>                
+        <Logger name="com.opentext.qfiniti.importer.io.transformer" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>                
+        <Logger name="com.opentext.qfiniti.importer.pojo" level="debug" additivity="true">
+            <appender-ref ref="fileLogger" level="debug" />
+        </Logger>                        
+        <Root level="debug" additivity="false">
+            <appender-ref ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>

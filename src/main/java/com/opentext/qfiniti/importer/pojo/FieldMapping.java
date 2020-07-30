@@ -20,17 +20,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "transformer"
 })
 public class FieldMapping {
-
+	private static final String DATA_TYPE_STRING = "string";
+	
     @JsonProperty("iname")
     private String iname;
     @JsonProperty("itype")
-    private String itype;
+    private String itype = DATA_TYPE_STRING;
     @JsonProperty("mapped")
     private String mapped;
     @JsonProperty("oname")
     private String oname;
     @JsonProperty("otype")
-    private String otype;
+    private String otype = DATA_TYPE_STRING;
     @JsonProperty("transformer")
     private String transformer;
     @JsonIgnore

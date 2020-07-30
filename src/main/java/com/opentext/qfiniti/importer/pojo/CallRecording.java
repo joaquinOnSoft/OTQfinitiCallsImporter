@@ -27,7 +27,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class CallRecording {
+	private static final Logger log = LogManager.getLogger(CallRecording.class);
+
 	public static final String DEFAULT_AGENT_NAME = "Juan Esposito Esposito";
 	
 	public static final String HEADER_PATH_NAME = "Path_Name";
@@ -151,7 +156,7 @@ public class CallRecording {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
 			this.dateTime = LocalDateTime.parse(strDate, formatter);
 		} catch (IllegalArgumentException e) {
-			System.err.println(e.getLocalizedMessage());
+			log.error(e.getLocalizedMessage());
 		} 	
 	}	
 	

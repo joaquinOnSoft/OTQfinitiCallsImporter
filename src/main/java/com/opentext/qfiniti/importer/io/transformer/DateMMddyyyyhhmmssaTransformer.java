@@ -4,7 +4,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DateMMddyyyyhhmmssaTransformer implements ITransformer {
+
+	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmssaTransformer.class);
 
 	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A = "MM/dd/yyyy hh:mm:ss a";
 	private static final String DATE_FORMAT_QFINITI = "dd/MM/yyyy HH:mm:ss";
@@ -18,7 +23,7 @@ public class DateMMddyyyyhhmmssaTransformer implements ITransformer {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A, Locale.ENGLISH);
 				date = LocalDateTime.parse(strDate, formatter);
 			} catch (IllegalArgumentException e) {
-				System.err.println(e.getLocalizedMessage());
+				log.error(e.getLocalizedMessage());
 				return null;
 			} 	
 		}

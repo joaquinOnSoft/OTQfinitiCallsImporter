@@ -4,7 +4,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DateHelper {
+	private static final Logger log = LogManager.getLogger(DateHelper.class);
+
 	public static final String DATE_FORMAT_IBERDROLA = "MM/dd/yyyy hh:mm:ss a";
 	
 	private static final int SECONDS_IN_A_MINUTE = 60;
@@ -55,7 +60,7 @@ public class DateHelper {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format, Locale.ENGLISH);
 				date = LocalDateTime.parse(strDate, formatter);
 			} catch (IllegalArgumentException e) {
-				System.err.println(e.getLocalizedMessage());
+				log.error("String date '" + strDate + "' with format: " + format + " -- " +e.getLocalizedMessage());
 			} 	
 		}
 		 

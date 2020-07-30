@@ -28,9 +28,13 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 public class ImporterConfigGenerator {
+	private static final Logger log = LogManager.getLogger(ImporterConfigGenerator.class);
+
 	private static final String DEFAULT_OUTPUT_FILE = "calls.xls";
 
 	/**
@@ -65,7 +69,7 @@ public class ImporterConfigGenerator {
 		try {
 			cmd = parser.parse(options, args);
 		} catch (ParseException e) {
-			System.err.println(e.getMessage());
+			log.error(e.getMessage());
 			formatter.printHelp("ImporterConfigGenerator", options);
 
 			System.exit(1);
@@ -88,9 +92,9 @@ public class ImporterConfigGenerator {
 		try {
 			configGenerator.generate();
 		} catch (IOException e) {
-			System.err.print("Error accessing : " + e.getMessage());
+			log.error("Error accessing : " + e.getMessage());
 		} catch (InvalidFormatException e) {
-			System.err.print("Invalid metadata value: " + e.getMessage());
+			log.error("Invalid metadata value: " + e.getMessage());
 		}
 
 	}

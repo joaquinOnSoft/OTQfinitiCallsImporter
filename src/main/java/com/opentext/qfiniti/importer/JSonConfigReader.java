@@ -3,10 +3,14 @@ package com.opentext.qfiniti.importer;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 public class JSonConfigReader {
+	private static final Logger log = LogManager.getLogger(JSonConfigReader.class);
 
 	/**
 	 * Read the configuration JSON file that defines the mapping between the 
@@ -24,7 +28,7 @@ public class JSonConfigReader {
 		try {
 			config = objectMapper.readValue(file, MappingConfig.class);
 		} catch (IOException e) {
-			System.err.print(e.getMessage());			
+			log.error(e.getMessage());			
 		}
 		
 		return config;

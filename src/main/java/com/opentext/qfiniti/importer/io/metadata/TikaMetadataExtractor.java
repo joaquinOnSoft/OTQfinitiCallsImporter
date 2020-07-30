@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.tika.Tika;
 import org.apache.tika.metadata.Metadata;
 
@@ -33,6 +35,8 @@ import org.apache.tika.metadata.Metadata;
  * @author Joaquín Garzón
  */
 public class TikaMetadataExtractor implements IMetadataCreator{
+	
+	private static final Logger log = LogManager.getLogger(TikaMetadataExtractor.class);
 
 	/**
 	 * Detects and extracts metadata from over a 
@@ -65,7 +69,7 @@ public class TikaMetadataExtractor implements IMetadataCreator{
 			try {
 				tika.parse(f, metadata);
 			} catch (IOException e) {
-				System.err.println(e.getMessage());
+				log.error(e.getMessage());
 				throw e;
 			}
 			

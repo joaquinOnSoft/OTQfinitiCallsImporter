@@ -26,6 +26,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.opentext.qfiniti.importer.io.ExcelReader;
@@ -40,6 +42,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
  * @author Joaquín Garzón
  */
 public class QfinitiICG {
+	private static final Logger log = LogManager.getLogger(QfinitiICG.class);
 
 	private static final String FIELD_INTERACTION_ID_KEY = "Interaction ID Key";
 
@@ -133,7 +136,7 @@ public class QfinitiICG {
 			CallRecording call = null;
 			String id = null;
 			for (File file : wavFiles) {
-				System.out.println(file.getPath());
+				log.info(file.getPath());
 
 				//id = IberdrolaHelper.getIdFromFileName(file.getName());
 				//call = recordings.get(id);
@@ -155,7 +158,7 @@ public class QfinitiICG {
 		if(folders != null && folders.length >0) {
 
 			for (File folder : folders) {
-				System.out.println(folder.getPath());
+				log.debug(folder.getPath());
 				recordings = generate(folder.getPath(), recordings);
 			}			
 		}			
