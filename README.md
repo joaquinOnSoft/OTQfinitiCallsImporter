@@ -43,8 +43,8 @@ These are the valid output field names admitted by  **OpenText Qfiniti Data Impo
 
    - **Path_Name**: **UNC path.**
    
-   	> **WARNING**:  **UNC** (Universal Naming Convention) is a standard for identifying servers, printers and other resources in a network.
-   	> Qfiniti Data Importer requires a UNC path to work properly 
+> **WARNING**:  **UNC** (Universal Naming Convention) is a standard for identifying servers, printers and other resources in a network.
+> Qfiniti Data Importer requires a UNC path to work properly 
 
    - **Date_Time**: Recording date & time in format 'dd/MM/yyyy HH:mm:ss'
    - **Team_Member_Name**: Team member name in format:
