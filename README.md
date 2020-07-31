@@ -207,7 +207,37 @@ There are 3 main properties:
 ### Available field fillers
 
 #### com.opentext.qfiniti.importer.io.filler.AniFiller
+Generate a random ANI (Client phone number)
 
 #### com.opentext.qfiniti.importer.io.filler.DnisFiller
+Generate a random DNIS (Call type)
 
 #### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
+Generate a fix Group Hierarchy name: "Client-i"
+
+
+### Available field transformers
+
+#### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer
+Transform a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
+
+#### com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer
+Transform a duration expressed as hh:mm:ss to a number of seconds
+
+#### com.opentext.qfiniti.importer.io.transformer.InteractionIdKey2FileNameTransformer
+Generates a call recording file name from an id, e.g. from and Id like 2001788444D0191021 will generate a file name like:
+
+   IRCall_2001788444D0191021.wav
+   
+#### com.opentext.qfiniti.importer.io.transformer.LocalPartyName2TeamMemberNameTransformer
+Transform a team member name from one of these formats:
+
+   - 1st_NAME 1st_FAMILY_NAME 2nd_FAMILY_NAME
+   - 1st_NAME 2nd_NAME 1st_FAMILY_NAME 2nd_FAMILY_NAME
+   - 1st_NAME 1st_FAMILY_NAME
+
+to one of these:
+
+   - 1st_FAMILY_NAME 2nd_FAMILY_NAME, 1st_NAME 
+   - 1st_FAMILY_NAME 2nd_FAMILY_NAME, 1st_NAME 2nd_NAME
+   - 1st_FAMILY_NAME, 1st_NAME 

@@ -14,6 +14,11 @@ public class DateMMddyyyyhhmmssaTransformer implements ITransformer {
 	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A = "MM/dd/yyyy hh:mm:ss a";
 	private static final String DATE_FORMAT_QFINITI = "dd/MM/yyyy HH:mm:ss";
 	
+	/**
+	 * Transform a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
+	 * @param strDate - date expressed in format 'MM/dd/yyyy hh:mm:ss a'
+	 * @return date in format 'dd/MM/yyyy HH:mm:ss'
+	 */
 	@Override
 	public String transform(String strDate) {
 		LocalDateTime date =null;

@@ -10,6 +10,11 @@ public class HoursMinutesSecondsToSecondsTransformer implements ITransformer{
 	public static final int INDEX_MINUTES = 1;
 	public static final int INDEX_SECONDS = 2;	
 	
+	/**
+	 * Transform a duration expressed as hh:mm:ss to a number of seconds
+	 * @param duration expressed as hh:mm:ss
+	 * @return duration expressed in seconds
+	 */
 	@Override
 	public String transform(String hms) {
 		String hours = "0"; 
