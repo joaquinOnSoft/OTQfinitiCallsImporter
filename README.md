@@ -178,15 +178,15 @@ There are 3 main properties:
    - **fieldFiller**: List of field fillers which provide a default or an automatically generated value for a given field. These are the possible values of a field filler:
       - **oname**: (Required) Output field name
       - **ovalue**: (Optional) Output default value
-      - **filler**: (Optional) Class that extends com.opentext.qfiniti.importer.io.filler.AbstractFiller and provides an automatically generated value for this field.
+      - **filler**: (Optional) Class that extends **com.opentext.qfiniti.importer.io.filler.AbstractFiller** and provides an automatically generated value for this field.
       > **NOTE**: 'ovalue' field will be ignored when 'filler' property is present.
-   - **fielMapping**:
+   - **fielMapping**: List of field mappings which provide a mapping between the input field and the output field. These are the possible values:
       - **iname**: (Required) Input field name
       - **itype**: Input data type. Default value "string"
       - **mapped**: Flag to indicate if the input file is exported to the ouput file
       - **oname**: (Required) Output field name
       - **otype**: Output data type. Default value "string"
-      - **transformer**: (Optional) Class that implements the interface com.opentext.qfiniti.importer.io.transformer.ITransformer and provides some kind of processing/data manipulation for this field.
+      - **transformer**: (Optional) Class that implements the interface **com.opentext.qfiniti.importer.io.transformer.ITransformer** and provides some kind of processing/data manipulation for this field.
    
 ### Available field fillers
 
