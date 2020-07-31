@@ -45,6 +45,8 @@ $ java -jar OTQfinitiCallsImporter-20.2.jar -c client_i_mapping.json -o call_rec
 
 The application requires a JSON mapping configuration file as input.
 
+Let'see an example:
+
 ```json
 {
 	"inputType": "xls",
@@ -168,4 +170,11 @@ The application requires a JSON mapping configuration file as input.
 	]
 }
 ```  
+
+There are 3 main properties:
+   - **inputType**: Input type. Possible values:
+      - xls: Excel file
+      - csv: CSV file (COMING SOON, not currently available)
+   - **fieldFiller**:
+   - **fielMapping**:
 
