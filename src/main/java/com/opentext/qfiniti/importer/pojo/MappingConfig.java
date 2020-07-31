@@ -2,6 +2,7 @@
 package com.opentext.qfiniti.importer.pojo;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -69,6 +70,25 @@ public class MappingConfig {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+    
+    public String[] getColumnNames() {
+    	List<String> columns = new LinkedList<String>();
+    	
+    	for(FieldMapping field: fieldMapping) {
+    		if(field.getOname() != null) {
+    			columns.add(field.getOname());	
+    		}    		
+    	}
+    	
+    	for(FieldFiller field: fieldFiller) {
+    		if(field.getOname() != null) {
+    			columns.add(field.getOname());
+    		}
+    	}
+    	
+    	String[] columnsArray = new String[columns.size()];
+        return columns.toArray(columnsArray);
     }
 
 }

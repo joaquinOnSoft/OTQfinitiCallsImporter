@@ -31,7 +31,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.opentext.qfiniti.importer.io.ExcelReader;
-import com.opentext.qfiniti.importer.io.ExcelWritter;
+import com.opentext.qfiniti.importer.io.ExcelWriter;
 import com.opentext.qfiniti.importer.io.filter.FolderFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.io.filter.XlsFilter;
@@ -105,7 +105,7 @@ public class QfinitiICG {
 					headers = calls.get(0).getHeaders(excludedHeaders);
 				}
 				
-				ExcelWritter writter = new ExcelWritter();
+				ExcelWriter writter = new ExcelWriter();
 				writter.write(headers, calls, output);
 			}
 		}

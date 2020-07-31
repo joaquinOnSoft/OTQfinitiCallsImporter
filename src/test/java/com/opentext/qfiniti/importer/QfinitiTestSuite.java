@@ -24,6 +24,7 @@ import org.junit.runners.Suite;
 
 import com.opentext.qfiniti.helper.DateHelperTest;
 import com.opentext.qfiniti.importer.io.ExcelReaderTest;
+import com.opentext.qfiniti.importer.io.ExcelWriterTest;
 import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
@@ -54,7 +55,8 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 	GroupHierarchyFillerTest.class,
 
 	//com.opentext.qfiniti.importer.io.filter
-	ExcelReaderTest.class,		
+	ExcelReaderTest.class,
+	ExcelWriterTest.class,	
 	
 	//com.opentext.qfiniti.importer.io.filter
 	FolderFilterTest.class,

@@ -34,7 +34,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
  * 
  * @author Joaquín Garzón
  */
-public class ExcelWritter {
+public class ExcelWriter {
 
 	public void write(String[] columns, List<CallRecording> recordings, String outputFileName) throws IOException, InvalidFormatException{
 		 // Create a Workbook
