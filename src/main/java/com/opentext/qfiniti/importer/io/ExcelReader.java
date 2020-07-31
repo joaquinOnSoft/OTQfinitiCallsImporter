@@ -15,7 +15,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import com.opentext.qfiniti.importer.io.filler.IFiller;
+import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
 import com.opentext.qfiniti.importer.io.transformer.ITransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.FieldFiller;
@@ -177,7 +177,7 @@ public class ExcelReader implements IReader {
 		if(fillerName != null) {
 			try {
 				Class<?> tClass = Class.forName(fillerName);
-				IFiller ifiller = (IFiller) tClass.getDeclaredConstructor().newInstance();
+				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor().newInstance();
 				value = ifiller.getValue();
 			} catch (ClassNotFoundException e) {
 				log.error("Filler class not found: " + e.getLocalizedMessage());

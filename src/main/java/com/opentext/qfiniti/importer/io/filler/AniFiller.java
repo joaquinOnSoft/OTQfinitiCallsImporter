@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.importer.io.filler;
 
-public class AniFiller extends IFiller {
+public class AniFiller extends AbstractFiller {
 	
 	/**
 	 * Generate a random ANI (Client phone number) 

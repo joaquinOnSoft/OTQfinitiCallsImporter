@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.importer.io.filler;
 
-public abstract class IFiller {
+public abstract class AbstractFiller {
 	public abstract String getValue();
 	
 	protected int getRandom(int min, int max) {

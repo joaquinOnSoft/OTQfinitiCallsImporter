@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.importer.io.filler;
 
-public class DnisFiller extends IFiller {
+public class DnisFiller extends AbstractFiller {
 	
 	/**
 	 *  Generate a random DNIS (Call type)

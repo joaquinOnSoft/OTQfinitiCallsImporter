@@ -173,8 +173,13 @@ Let'see an example:
 
 There are 3 main properties:
    - **inputType**: Input type. Possible values:
-      - xls: Excel file
-      - csv: CSV file (COMING SOON, not currently available)
-   - **fieldFiller**:
+      - **xls**: Excel file
+      - **csv**: CSV file (COMING SOON, not currently available)
+   - **fieldFiller**: List of field fillers which provide a default or an automatically generated value for a given field. These are the possible values of a field filler:
+      - **oname**:
+      - **ovalue**:
+      - **filler**: Class that extends com.opentext.qfiniti.importer.io.filler
    - **fielMapping**:
+   
+### Available field fillers
 
