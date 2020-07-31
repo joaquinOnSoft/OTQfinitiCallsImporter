@@ -12,10 +12,10 @@ This utility is distributed as a runnable .jar file.
 These are the accepted parameters:
 
 usage: javac -jar OTQfinitiCallsImporter-20.2.jar
- * -c, --config				(Required) JSON config name which defines the field mapping between the 3rd party metadata file and the .xls input file required by **OpenText Qfiniti Data Importer**
- * -o, --output <arg>		(Optional) Output file name. 'calls.xlsx' by default
- * -f, --flatten <arg>		(Optional) Flatten folder structure in the destiny folder. OTHER PARAMETERS WILL IGNORED except 'p' or 'path'
- * -p, --path <arg>			(Required) UNC Path to the call recordings files (.wav files) 
+ * **-c**, **--config <arg>**				(Required) JSON config name which defines the field mapping between the 3rd party metadata file and the .xls input file required by **OpenText Qfiniti Data Importer**
+ * **-o**, **--output <arg>**		(Optional) Output file name. 'calls.xlsx' by default
+ * **-f**, **--flatten <arg>**		(Optional) Flatten folder structure in the destiny folder. OTHER PARAMETERS WILL IGNORED except 'p' or 'path'
+ * **-p**, **--path <arg>**			(Required) UNC Path to the call recordings files (.wav files) 
 
 
 
