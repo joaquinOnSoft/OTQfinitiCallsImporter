@@ -176,9 +176,10 @@ There are 3 main properties:
       - **xls**: Excel file
       - **csv**: CSV file (COMING SOON, not currently available)
    - **fieldFiller**: List of field fillers which provide a default or an automatically generated value for a given field. These are the possible values of a field filler:
-      - **oname**:
-      - **ovalue**:
-      - **filler**: Class that extends com.opentext.qfiniti.importer.io.filler
+      - **oname**: Output field name
+      - **ovalue**: Output default value
+      - **filler**: Class that extends com.opentext.qfiniti.importer.io.filler.AbstractFiller and provided an automatically generated value for this field.
+      > **NOTE**: 'ovalue' field will be ignored when 'filler' property is present.
    - **fielMapping**:
    
 ### Available field fillers
