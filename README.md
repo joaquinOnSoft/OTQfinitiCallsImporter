@@ -48,9 +48,9 @@ These are the valid output field names admitted by  **OpenText Qfiniti Data Impo
 
    - **Date_Time**: Recording date & time in format 'dd/MM/yyyy HH:mm:ss'
    - **Team_Member_Name**: Team member name in format:
-      [1st FAMILY NAME][2nd FAMILY NAME], [NAME]
+      &lt;1st FAMILY NAME&gt; &lt;2nd FAMILY NAME&gt;, &lt;NAME&gt;
       or
-      [1st FAMILY NAME], [NAME]
+      &lt;1st FAMILY NAME&gt;, &lt;NAME&gt;
    - **duration**: Call recording duration in seconds
    - **group_hierarchy**: Group hierarchy (Group name)
    - **dnis**: Phone number used by the client to call to the Call Center.
