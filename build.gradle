@@ -8,6 +8,25 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+
+// Include dependent libraries in archive.
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'OpenText Explore Call recordings Importer: Generate a config file for OpenText Qfiniti Data Importer from a 3rd party metadata file'  
+        attributes 'Implementation-Version': version
+        attributes 'Main-Class': 'com.opentext.qfiniti.importer.ImporterConfigGenerator'
+    }
+ 
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    
+    //https://discuss.gradle.org/t/generate-runnable-jar-pakage-dependencies/28171
+	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+}
+
+
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
