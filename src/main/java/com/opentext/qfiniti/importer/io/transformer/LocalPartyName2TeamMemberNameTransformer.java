@@ -2,6 +2,20 @@ package com.opentext.qfiniti.importer.io.transformer;
 
 public class LocalPartyName2TeamMemberNameTransformer implements ITransformer{
 
+	/**
+	 * Transforms a team member name from one of these formats:
+	 * 
+	 *    - 1st_NAME 1st_FAMILY_NAME 2nd_FAMILY_NAME
+	 *    - 1st_NAME 2nd_NAME 1st_FAMILY_NAME 2nd_FAMILY_NAME
+	 *    - 1st_NAME 1st_FAMILY_NAME
+	 *    
+	 * to one of these:
+	 *    - 1st_FAMILY_NAME 2nd_FAMILY_NAME, 1st_NAME 
+	 *    - 1st_FAMILY_NAME 2nd_FAMILY_NAME, 1st_NAME 2nd_NAME
+	 *    - 1st_FAMILY_NAME, 1st_NAME 
+	 * @param teamMemberName - Team member name
+	 * @return Formated team member name 
+	 */
 	@Override
 	public String transform(String teamMemberName) {
 		String teamMemberNameOutput = null;

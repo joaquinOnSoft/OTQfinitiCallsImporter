@@ -15,7 +15,7 @@ public class DateMMddyyyyhhmmssaTransformer implements ITransformer {
 	private static final String DATE_FORMAT_QFINITI = "dd/MM/yyyy HH:mm:ss";
 	
 	/**
-	 * Transform a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
+	 * Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
 	 * @param strDate - date expressed in format 'MM/dd/yyyy hh:mm:ss a'
 	 * @return date in format 'dd/MM/yyyy HH:mm:ss'
 	 */

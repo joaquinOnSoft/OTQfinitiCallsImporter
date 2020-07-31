@@ -11,7 +11,7 @@ public class HoursMinutesSecondsToSecondsTransformer implements ITransformer{
 	public static final int INDEX_SECONDS = 2;	
 	
 	/**
-	 * Transform a duration expressed as hh:mm:ss to a number of seconds
+	 * Transforms a duration expressed as hh:mm:ss to a number of seconds
 	 * @param duration expressed as hh:mm:ss
 	 * @return duration expressed in seconds
 	 */
