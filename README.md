@@ -38,9 +38,25 @@ $ java -jar OTQfinitiCallsImporter-20.2.jar -c client_i_mapping.json -o call_rec
 | \\\\MY_SERVER\\recordings  | file_example_WAV_2MG.wav  | 11/07/2019 23:15:43 | 29            |         
 
 
-| **WARNING**: Path_Name must be a UNC path. **UNC** (Universal Naming Convention) is a standard for identifying servers, printers and other resources in a network. Qfiniti Data Importer requires a UNC path to work properly |
+## Valid output field names
+These are the valid output field names admitted by  **OpenText Qfiniti Data Importer**
+
+   - **Path_Name**: **UNC path.**
+   
+   	| **WARNING**:  **UNC** (Universal Naming Convention) is a standard for identifying servers, printers and other resources in a network. Qfiniti Data Importer requires a UNC path to work properly |
 | --- |
 
+   - **Date_Time**: Recording date & time in format 'dd/MM/yyyy HH:mm:ss'
+   - **Team_Member_Name**: Team member name in format:
+      [1st FAMILY NAME][2nd FAMILY NAME], [NAME]
+      or
+      [1st FAMILY NAME], [NAME]
+   - **duration**: Call recording duration in seconds
+   - **group_hierarchy**: Group hierarchy (Group name)
+   - **dnis**: Phone number used by the client to call to the Call Center.
+   - **ANI**:	
+   - **File_Name**: Call recording file name (usually a .wav file)
+ 
 ## JSON mapping configuration file 
 
 The application requires a JSON mapping configuration file as input.
@@ -190,3 +206,8 @@ There are 3 main properties:
    
 ### Available field fillers
 
+#### com.opentext.qfiniti.importer.io.filler.AniFiller
+
+#### com.opentext.qfiniti.importer.io.filler.DnisFiller
+
+#### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
