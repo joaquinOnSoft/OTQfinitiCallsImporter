@@ -301,7 +301,7 @@ public class CallRecording {
 		StringBuilder builder = new StringBuilder();
 		//Path_Name	File_Name	Date_Time	duration
 
-		builder.append("{\n")
+		builder.append("{\n\t")
 			.append("Path_Name: ").append(pathName).append("\n\t")
 			.append("File_Name: ").append(fileName).append("\n\t")
 			.append("Date_Time: ").append(getDateTimeAsString()).append("\n\t")

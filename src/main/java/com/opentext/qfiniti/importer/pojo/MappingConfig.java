@@ -14,12 +14,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "inputType",
+    "fieldFiller",
     "fieldMapping"
 })
 public class MappingConfig {
 
     @JsonProperty("inputType")
     private String inputType;
+    @JsonProperty("fieldFiller")
+    private List<FieldFiller> fieldFiller = null;
     @JsonProperty("fieldMapping")
     private List<FieldMapping> fieldMapping = null;
     @JsonIgnore
@@ -33,6 +36,16 @@ public class MappingConfig {
     @JsonProperty("inputType")
     public void setInputType(String inputType) {
         this.inputType = inputType;
+    }
+
+    @JsonProperty("fieldFiller")
+    public List<FieldFiller> getFieldFiller() {
+        return fieldFiller;
+    }
+
+    @JsonProperty("fieldFiller")
+    public void setFieldFiller(List<FieldFiller> fieldFiller) {
+        this.fieldFiller = fieldFiller;
     }
 
     @JsonProperty("fieldMapping")

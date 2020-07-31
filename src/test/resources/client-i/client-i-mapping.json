@@ -1,6 +1,17 @@
 {
 	"inputType": "xls",
-	"fieldMapping": [{
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-i\\samples"
+		},
+		{
+			"oname": "group_hierarchy",
+			"filler": "com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller"
+		}		
+	],
+	"fieldMapping": [
+		{
 			"iname": "Media Type",
 			"itype": "String",
 			"mapped": "false"
@@ -105,7 +116,6 @@
 			"iname": "Total Keyword Score",
 			"itype": "string",
 			"mapped": "false"  
-		}
-		
+		}		
 	]
 }
