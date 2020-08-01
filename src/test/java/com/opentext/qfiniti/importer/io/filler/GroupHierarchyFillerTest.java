@@ -5,11 +5,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class GroupHierarchyFillerTest {
+public class GroupHierarchyFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		GroupHierarchyFiller filler = new GroupHierarchyFiller();
+		GroupHierarchyFiller filler = new GroupHierarchyFiller(file);
 		String value = filler.getValue();
 		
 		assertNotNull(value);

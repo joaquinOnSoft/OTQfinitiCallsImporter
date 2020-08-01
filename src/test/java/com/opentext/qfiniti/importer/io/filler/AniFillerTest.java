@@ -5,11 +5,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class AniFillerTest {
+public class AniFillerTest extends AbstractFillerTest{
 
 	@Test
 	public void testGetValue() {
-		AniFiller filler = new AniFiller();
+		AniFiller filler = new AniFiller(file);
 		String value = filler.getValue();
 		
 		assertNotNull(value);

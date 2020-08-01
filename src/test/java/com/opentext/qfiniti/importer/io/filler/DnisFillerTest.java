@@ -6,11 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class DnisFillerTest {
+public class DnisFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		DnisFiller filler = new DnisFiller();
+		DnisFiller filler = new DnisFiller(file);
 		String value = filler.getValue();
 		
 		assertNotNull(value);

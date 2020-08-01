@@ -84,7 +84,8 @@ public class ExcelReader implements IReader {
 						String value = filler.getOvalue();
 						
 						if(filler.getFiller() != null) {
-							value = applyFiller(filler.getFiller());
+							String callFullPath = call.getPathName() + File.separator + call.getFileName();
+							value = applyFiller(filler.getFiller(), callFullPath);
 						}
 						
 						call = setFieldValueByFieldName(call, filler.getOname(), value);
@@ -171,13 +172,13 @@ public class ExcelReader implements IReader {
 		return value;
 	}
 
-	private String applyFiller(String fillerName) {
+	private String applyFiller(String fillerName, String callFullPath) {
 		String value = null;
 		
 		if(fillerName != null) {
 			try {
 				Class<?> tClass = Class.forName(fillerName);
-				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor().newInstance();
+				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(String.class).newInstance(callFullPath);
 				value = ifiller.getValue();
 			} catch (ClassNotFoundException e) {
 				log.error("Filler class not found: " + e.getLocalizedMessage());
