@@ -27,6 +27,7 @@ import com.opentext.qfiniti.importer.io.ExcelReaderTest;
 import com.opentext.qfiniti.importer.io.ExcelWriterTest;
 import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
+import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
 import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
@@ -49,12 +50,13 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 	JSonConfigReaderTest.class,
 	QfinitiICGTest.class,
 
-	//com.opentext.qfiniti.importer.io
+	//com.opentext.qfiniti.importer.io.filler
 	AniFillerTest.class,
 	DnisFillerTest.class,
+	DurationFromMetadataFillerTest.class,
 	GroupHierarchyFillerTest.class,
 
-	//com.opentext.qfiniti.importer.io.filter
+	//com.opentext.qfiniti.importer.io.
 	ExcelReaderTest.class,
 	ExcelWriterTest.class,	
 	

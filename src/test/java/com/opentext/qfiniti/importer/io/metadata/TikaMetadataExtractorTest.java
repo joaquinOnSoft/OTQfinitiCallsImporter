@@ -19,14 +19,14 @@
  */
 package com.opentext.qfiniti.importer.io.metadata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.util.Map;
 
 import org.junit.Test;
-
-import com.opentext.qfiniti.importer.io.metadata.IMetadataCreator;
 
 public class TikaMetadataExtractorTest extends AbstractMetadataExtractorTest {
 
@@ -44,6 +44,9 @@ public class TikaMetadataExtractorTest extends AbstractMetadataExtractorTest {
 			fail(e.getMessage());
 		}
 		
+		System.out.println("--------------------------");
+		System.out.println(metadata);
+		System.out.println("--------------------------");
 		assertNotNull(metadata);
 		assertEquals("8000", metadata.get(IMetadataCreator.SAMPLE_RATE));
 		assertEquals("audio/vnd.wave", metadata.get(IMetadataCreator.CONTENT_TYPE));

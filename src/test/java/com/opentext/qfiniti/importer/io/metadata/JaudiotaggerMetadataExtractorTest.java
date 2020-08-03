@@ -19,15 +19,14 @@
  */
 package com.opentext.qfiniti.importer.io.metadata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.util.Map;
 
 import org.junit.Test;
-
-import com.opentext.qfiniti.importer.io.metadata.IMetadataCreator;
-import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractor;
 
 public class JaudiotaggerMetadataExtractorTest extends AbstractMetadataExtractorTest {
 
