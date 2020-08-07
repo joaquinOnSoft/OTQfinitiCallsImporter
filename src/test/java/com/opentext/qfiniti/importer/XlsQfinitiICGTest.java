@@ -34,7 +34,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Test;
 
 
-public class QfinitiICGTest {
+public class XlsQfinitiICGTest {
 
 	@Test
 	public void testGenerate() {
@@ -48,7 +48,7 @@ public class QfinitiICGTest {
 		JSonConfigReader jsonConfigReader = new JSonConfigReader();
 		MappingConfig mapping = jsonConfigReader.read(jsonFile);
 				
-		QfinitiICG configGenerator = new QfinitiICG(path);
+		XlsQfinitiICG configGenerator = new XlsQfinitiICG(path);
 		configGenerator.setOutput("calls.xls");
 		configGenerator.setMappingConfig(mapping);
 		try {

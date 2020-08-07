@@ -2,7 +2,6 @@ package com.opentext.qfiniti.importer.io;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,8 +14,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
-import com.opentext.qfiniti.importer.io.transformer.ITransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.FieldFiller;
 import com.opentext.qfiniti.importer.pojo.FieldMapping;
@@ -66,10 +63,10 @@ public class ExcelReader implements IReader {
 						if(fMapping.isMapped()) {
 							transformerName = fMapping.getTransformer();
 							if(transformerName != null) {
-								value = applyTransformer(transformerName, value);
+								value = ImportUtils.applyTransformer(transformerName, value);
 							}							
 
-							call = setFieldValueByFieldName(call, fMapping.getOname(), value);
+							call = ImportUtils.setFieldValueByFieldName(call, fMapping.getOname(), value);
 						}
 						else {
 							call.addExtendedField(fMapping.getIname(), value);			            		
@@ -85,10 +82,10 @@ public class ExcelReader implements IReader {
 						
 						if(filler.getFiller() != null) {
 							String callFullPath = call.getPathName() + File.separator + call.getFileName();
-							value = applyFiller(filler.getFiller(), callFullPath);
+							value = ImportUtils.applyFiller(filler.getFiller(), callFullPath);
 						}
 						
-						call = setFieldValueByFieldName(call, filler.getOname(), value);
+						call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);
 					}
 					
 					recordings.add(call);
@@ -105,100 +102,4 @@ public class ExcelReader implements IReader {
 
 		return recordings.size() == 0? null : recordings;
 	}
-
-
-	/**
-	 * Assigns a value in a field based on the field Name
-	 * @param call - Call recording object
-	 * @param fieldName - Field name
-	 * @param value - Value to set in the field
-	 * @return Call recording object with the field populated
-	 */
-	private CallRecording setFieldValueByFieldName(CallRecording call, String fieldName, String value) {
-		switch (fieldName) {
-		case COL_PATH_NAME:	
-			call.setPathName(value);
-			break;
-		case COL_DATE_TIME:
-			call.setDateTime(value);
-			break;
-		case COL_TEAM_MEMBER:
-			call.setTeamMemberName(value);
-			break;
-		case COL_DURATION:
-			call.setDuration(value);
-			break;
-		case COL_GROUP_HIERARCHY:
-			call.setGroupHierachy(value);
-			break;
-		case COL_DNIS:
-			call.setDnis(value);
-			break;
-		case COL_ANI:
-			call.setAni(value);
-			break;
-		case COL_FILE_NAME :
-			call.setFileName(value);
-			break;
-		}
-		
-		return call;
-	}
-
-
-	private String applyTransformer(String transformerName, String value) {
-		if(transformerName != null) {
-			try {
-				Class<?> tClass = Class.forName(transformerName);
-				ITransformer itransformer = (ITransformer) tClass.getDeclaredConstructor().newInstance();
-				value = itransformer.transform(value);
-			} catch (ClassNotFoundException e) {
-				log.error("Transformer class not found: " + e.getLocalizedMessage());
-			} catch (NoSuchMethodException e) {
-				log.error("Not 'transform' method in Transformer class: " + e.getLocalizedMessage());
-			} catch (SecurityException e) {
-				log.error("Invalid Transformer (1): " + e.getLocalizedMessage());
-			} catch (InstantiationException e) {
-				log.error("Invalid Transformer (2): " + e.getLocalizedMessage());
-			} catch (IllegalAccessException e) {
-				log.error("Invalid Transformer (3): " + e.getLocalizedMessage());
-			} catch (IllegalArgumentException e) {
-				log.error("Invalid Transformer (4): " + e.getLocalizedMessage());
-			} catch (InvocationTargetException e) {
-				log.error("Invalid Transformer (5): " + e.getLocalizedMessage());
-			}
-		}
-
-		return value;
-	}
-
-	private String applyFiller(String fillerName, String callFullPath) {
-		String value = null;
-		
-		if(fillerName != null) {
-			try {
-				Class<?> tClass = Class.forName(fillerName);
-				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(String.class).newInstance(callFullPath);
-				value = ifiller.getValue();
-			} catch (ClassNotFoundException e) {
-				log.error("Filler class not found: " + e.getLocalizedMessage());
-			} catch (NoSuchMethodException e) {
-				log.error("Not 'getValue' method in Filler class: " + e.getLocalizedMessage());
-			} catch (SecurityException e) {
-				log.error("Invalid Filler (1): " + e.getLocalizedMessage());
-			} catch (InstantiationException e) {
-				log.error("Invalid Filler (2): " + e.getLocalizedMessage());
-			} catch (IllegalAccessException e) {
-				log.error("Invalid Filler (3): " + e.getLocalizedMessage());
-			} catch (IllegalArgumentException e) {
-				log.error("Invalid Filler (4): " + e.getLocalizedMessage());
-			} catch (InvocationTargetException e) {
-				log.error("Invalid Filler (5): " + e.getLocalizedMessage());
-			}
-		}
-
-		return value;
-	}
-	
-	
 }

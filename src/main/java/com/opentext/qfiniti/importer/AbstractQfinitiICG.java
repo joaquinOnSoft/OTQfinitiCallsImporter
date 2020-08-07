@@ -19,7 +19,6 @@
  */
 package com.opentext.qfiniti.importer;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -30,11 +29,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import com.opentext.qfiniti.importer.io.ExcelReader;
 import com.opentext.qfiniti.importer.io.ExcelWriter;
-import com.opentext.qfiniti.importer.io.filter.FolderFilter;
-import com.opentext.qfiniti.importer.io.filter.WavFilter;
-import com.opentext.qfiniti.importer.io.filter.XlsFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
@@ -42,15 +37,15 @@ import com.opentext.qfiniti.importer.pojo.MappingConfig;
  * OpenText(TM) Qfiniti Importer Configuration Generator
  * @author Joaquín Garzón
  */
-public class QfinitiICG {
-	private static final Logger log = LogManager.getLogger(QfinitiICG.class);
+public abstract class AbstractQfinitiICG {
+	protected static final Logger log = LogManager.getLogger(AbstractQfinitiICG.class);
 
-	private String path;
-	private String output;
-	private MappingConfig mappingConfig;
+	protected String path;
+	protected String output;
+	protected MappingConfig mappingConfig;
 
 
-	public QfinitiICG(String path) {
+	public AbstractQfinitiICG(String path) {
 		this.path = path;
 	}
 	
@@ -99,61 +94,5 @@ public class QfinitiICG {
 		return calls;
 	}
 
-	private Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
-		XlsFilter xlsfilter = new XlsFilter();
-		FolderFilter folderfilter = new FolderFilter();
-		WavFilter wavfilter = new WavFilter();
-
-		//Read Excel files
-		File xlsFiles[] = xlsfilter.finder(path);
-		if(xlsFiles != null && xlsFiles.length >0) {
-			ExcelReader reader = new ExcelReader();
-			for (File file : xlsFiles) {
-				List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), mappingConfig);
-				recordings = dumpListToMap(recordings, tmpRecordings);
-			}			
-		}
-
-		//Read audio files (.wav)
-		File wavFiles[] = wavfilter.finder(path);
-		if(wavFiles != null && wavFiles.length >0) {
-
-			CallRecording call = null;
-			for (File file : wavFiles) {
-				log.info(file.getPath());
-				
-				call = recordings.get(file.getName());
-				
-				if(call != null) {
-					try {
-						call.setPathName(file.getParentFile().getCanonicalPath());
-						recordings.put(call.getFileName(), call);
-					} catch (Exception e) {
-						log.error(path + " --^-- " + e.getMessage());
-					}
-				}
-			}			
-		}	
-
-		//Find sub-folders
-		File folders[] = folderfilter.finder(path);
-		if(folders != null && folders.length >0) {
-
-			for (File folder : folders) {
-				log.debug(folder.getPath());
-				recordings = generate(folder.getPath(), recordings);
-			}			
-		}			
-
-		return recordings;
-	}
-
-	private Map<String, CallRecording> dumpListToMap(Map<String, CallRecording> map, List<CallRecording> list){
-		for (CallRecording callRecording : list) {
-			map.put(callRecording.getFileName(), callRecording);
-		}
-
-		return map;
-	}
-
+	protected abstract Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings);
 }

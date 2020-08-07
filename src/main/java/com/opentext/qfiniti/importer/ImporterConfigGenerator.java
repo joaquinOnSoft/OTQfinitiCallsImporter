@@ -90,8 +90,8 @@ public class ImporterConfigGenerator {
 			jsonConfigReader.read(jsonConfigFile);
 		}
 		
-		
-		QfinitiICG configGenerator = new QfinitiICG(path);
+		//TODO utilizar una fabrica para generar el tipo adecuado
+		XlsQfinitiICG configGenerator = new XlsQfinitiICG(path);
 		configGenerator.setOutput(output);
 		configGenerator.setMappingConfig(mapping);
 
