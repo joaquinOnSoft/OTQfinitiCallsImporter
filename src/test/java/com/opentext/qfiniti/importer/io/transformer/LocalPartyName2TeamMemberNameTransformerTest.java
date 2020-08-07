@@ -3,22 +3,46 @@ package com.opentext.qfiniti.importer.io.transformer;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class LocalPartyName2TeamMemberNameTransformerTest {
+	
+	private LocalPartyName2TeamMemberNameTransformer transformer;
+	
+	@Before
+	public void runBeforeTestMethod() {
+		transformer = new LocalPartyName2TeamMemberNameTransformer();
+	}
+	
 	@Test
-	public void transform() {
-		LocalPartyName2TeamMemberNameTransformer transformer = new LocalPartyName2TeamMemberNameTransformer();
+	public void transformOneFamilyName() {
 		String teamMemberName = transformer.transform("IVAN GARCIA");
 		assertNotNull(teamMemberName);
 		assertEquals("GARCIA, IVAN", teamMemberName);
+	}
 
-		teamMemberName = transformer.transform("SANTIAGO PEREZ PEREZ");
+	@Test
+	public void transformTwoFamilyNames() {
+		String teamMemberName = transformer.transform("SANTIAGO PEREZ PEREZ");
 		assertNotNull(teamMemberName);
 		assertEquals("PEREZ PEREZ, SANTIAGO", teamMemberName);
-		
-		teamMemberName = transformer.transform("MARIA FERNANDA GOMEZ GOMEZ");
+	}
+
+	@Test
+	public void transformTwoFirstNames() {
+		String teamMemberName = transformer.transform("MARIA FERNANDA GOMEZ GOMEZ");
 		assertNotNull(teamMemberName);
 		assertEquals("GOMEZ GOMEZ, MARIA FERNANDA", teamMemberName);		
 	}
+
+	
+	@Test
+	public void transformNullName() {
+		String teamMemberName = transformer.transform(null);
+		assertNotNull(teamMemberName);
+		assertEquals("Doe, John", teamMemberName);		
+	}
+	
+	
 }

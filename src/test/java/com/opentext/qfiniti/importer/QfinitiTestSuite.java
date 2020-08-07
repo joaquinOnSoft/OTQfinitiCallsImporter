@@ -22,7 +22,6 @@ package com.opentext.qfiniti.importer;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import com.opentext.qfiniti.helper.DateHelperTest;
 import com.opentext.qfiniti.importer.io.ExcelReaderTest;
 import com.opentext.qfiniti.importer.io.ExcelWriterTest;
 import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
@@ -43,9 +42,6 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-	//com.opentext.qfiniti.helper
-	DateHelperTest.class,
-
 	//com.opentext.qfiniti
 	JSonConfigReaderTest.class,
 	QfinitiICGTest.class,

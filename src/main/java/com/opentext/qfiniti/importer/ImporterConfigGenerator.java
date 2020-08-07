@@ -19,6 +19,7 @@
  */
 package com.opentext.qfiniti.importer;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.cli.CommandLine;
@@ -31,6 +32,8 @@ import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
+import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 public class ImporterConfigGenerator {
 	private static final Logger log = LogManager.getLogger(ImporterConfigGenerator.class);
@@ -48,8 +51,8 @@ public class ImporterConfigGenerator {
 	public static void main(String args[]) {
 		Options options = new Options();
 
-		Option agentOpt = new Option("a", "agent", false, "Add agent info");
-		options.addOption(agentOpt);
+		Option configOpt = new Option("c", "config", false, "JSON Config file");
+		options.addOption(configOpt);
 
 		Option flattenOpt = new Option("f", "flatten", true,
 				"Flatten Iberdrola folder estructure in the destiny folder. OTHER PARAMETERS WILL IGNORED except 'p' or 'path'");
@@ -83,11 +86,18 @@ public class ImporterConfigGenerator {
 			output = DEFAULT_OUTPUT_FILE;
 		}
 
-		boolean agent = cmd.hasOption("agent");
-
+		String jsonConfig = cmd.getOptionValue("config");
+		File jsonConfigFile = new File(jsonConfig);
+		MappingConfig mapping = null;
+		if (jsonConfigFile.exists()) {
+			JSonConfigReader jsonConfigReader = new JSonConfigReader();
+			jsonConfigReader.read(jsonConfigFile);
+		}
+		
+		
 		QfinitiICG configGenerator = new QfinitiICG(path);
-		configGenerator.setAgent(agent);
 		configGenerator.setOutput(output);
+		configGenerator.setMappingConfig(mapping);
 
 		try {
 			configGenerator.generate();

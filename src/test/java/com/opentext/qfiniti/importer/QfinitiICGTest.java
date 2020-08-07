@@ -28,6 +28,8 @@ import java.util.List;
 
 
 import com.opentext.qfiniti.importer.pojo.CallRecording;
+import com.opentext.qfiniti.importer.pojo.MappingConfig;
+
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Test;
 
@@ -39,12 +41,16 @@ public class QfinitiICGTest {
 		List<CallRecording> recordings = null;
 		
 		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("iberdrola/samples").getFile());
-
-		String path = file.getParentFile().getAbsolutePath();
+		File file = new File(classLoader.getResource("client-i/samples-flatered").getFile());
+		String path = file.getAbsolutePath();
+		
+		File jsonFile = new File(classLoader.getResource("client-i/client-i-mapping.json").getFile());
+		JSonConfigReader jsonConfigReader = new JSonConfigReader();
+		MappingConfig mapping = jsonConfigReader.read(jsonFile);
 				
 		QfinitiICG configGenerator = new QfinitiICG(path);
 		configGenerator.setOutput("calls.xls");
+		configGenerator.setMappingConfig(mapping);
 		try {
 			recordings = configGenerator.generate();
 		} catch (IOException e) {

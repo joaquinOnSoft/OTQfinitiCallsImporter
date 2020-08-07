@@ -76,13 +76,13 @@ public class MappingConfig {
     	List<String> columns = new LinkedList<String>();
     	
     	for(FieldMapping field: fieldMapping) {
-    		if(field.getOname() != null) {
+    		if(field.isMapped() && field.getOname() != null) {
     			columns.add(field.getOname());	
     		}    		
     	}
     	
     	for(FieldFiller field: fieldFiller) {
-    		if(field.getOname() != null) {
+    		if( field.getOname() != null) {
     			columns.add(field.getOname());
     		}
     	}

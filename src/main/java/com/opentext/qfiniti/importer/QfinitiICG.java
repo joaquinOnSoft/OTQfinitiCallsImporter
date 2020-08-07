@@ -36,6 +36,7 @@ import com.opentext.qfiniti.importer.io.filter.FolderFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.io.filter.XlsFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
+import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
@@ -44,25 +45,15 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
 public class QfinitiICG {
 	private static final Logger log = LogManager.getLogger(QfinitiICG.class);
 
-	private static final String FIELD_INTERACTION_ID_KEY = "Interaction ID Key";
-
 	private String path;
 	private String output;
-	private boolean agent;
+	private MappingConfig mappingConfig;
 
 
 	public QfinitiICG(String path) {
 		this.path = path;
 	}
 	
-	public boolean isAgent() {
-		return agent;
-	}
-
-	public void setAgent(boolean agent) {
-		this.agent = agent;
-	}
-
 	public String getPath() {
 		return path;
 	}
@@ -79,13 +70,20 @@ public class QfinitiICG {
 		this.output = output;
 	}
 
+	
+	public MappingConfig getMappingConfig() {
+		return mappingConfig;
+	}
+
+	public void setMappingConfig(MappingConfig mappingConfig) {
+		this.mappingConfig = mappingConfig;
+	}
+
 	public List<CallRecording> generate() 
 			throws IOException, InvalidFormatException {
 
 		Map<String, CallRecording> recordings = new HashMap<String, CallRecording>();
 		List<CallRecording> calls = null;
-
-
 
 		recordings = generate(path, new HashMap<String, CallRecording>());
 
@@ -93,20 +91,8 @@ public class QfinitiICG {
 			calls = new LinkedList<CallRecording>(recordings.values());
 			
 			if(calls != null && calls.size() > 0) {
-				String[] headers = null;
-				
-				if(agent) {
-					headers = calls.get(0).getHeaders();
-				}
-				else {
-					List<String> excludedHeaders = new LinkedList<String>();
-					excludedHeaders.add(CallRecording.HEADER_TEAM_MEMBER_NAME);
-					
-					headers = calls.get(0).getHeaders(excludedHeaders);
-				}
-				
 				ExcelWriter writter = new ExcelWriter();
-				writter.write(headers, calls, output);
+				writter.write(mappingConfig.getColumnNames(), calls, output);
 			}
 		}
 
@@ -123,37 +109,33 @@ public class QfinitiICG {
 		if(xlsFiles != null && xlsFiles.length >0) {
 			ExcelReader reader = new ExcelReader();
 			for (File file : xlsFiles) {
-				//TODO add 2nd parameter
-				List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), null);
+				List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), mappingConfig);
 				recordings = dumpListToMap(recordings, tmpRecordings);
 			}			
 		}
 
-		//Read Excel files
+		//Read audio files (.wav)
 		File wavFiles[] = wavfilter.finder(path);
 		if(wavFiles != null && wavFiles.length >0) {
 
 			CallRecording call = null;
-			String id = null;
 			for (File file : wavFiles) {
 				log.info(file.getPath());
-
-				//id = IberdrolaHelper.getIdFromFileName(file.getName());
-				//call = recordings.get(id);
+				
+				call = recordings.get(file.getName());
 				
 				if(call != null) {
 					try {
 						call.setPathName(file.getParentFile().getCanonicalPath());
-						recordings.put(id, call);
+						recordings.put(call.getFileName(), call);
 					} catch (Exception e) {
-						System.err.println(path + " --^-- " + e.getMessage());
+						log.error(path + " --^-- " + e.getMessage());
 					}
-
 				}
 			}			
 		}	
 
-		//Read Excel files
+		//Find sub-folders
 		File folders[] = folderfilter.finder(path);
 		if(folders != null && folders.length >0) {
 
@@ -168,7 +150,7 @@ public class QfinitiICG {
 
 	private Map<String, CallRecording> dumpListToMap(Map<String, CallRecording> map, List<CallRecording> list){
 		for (CallRecording callRecording : list) {
-			map.put(callRecording.getExtendedField(FIELD_INTERACTION_ID_KEY), callRecording);
+			map.put(callRecording.getFileName(), callRecording);
 		}
 
 		return map;

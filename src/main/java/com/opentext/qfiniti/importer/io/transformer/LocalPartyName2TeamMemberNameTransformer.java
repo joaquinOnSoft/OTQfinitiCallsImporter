@@ -2,6 +2,7 @@ package com.opentext.qfiniti.importer.io.transformer;
 
 public class LocalPartyName2TeamMemberNameTransformer implements ITransformer{
 
+	private static final String DEFAULT_NAME = "Doe, John";
 	/**
 	 * Transforms a team member name from one of these formats:
 	 * 
@@ -19,7 +20,10 @@ public class LocalPartyName2TeamMemberNameTransformer implements ITransformer{
 	@Override
 	public String transform(String teamMemberName) {
 		String teamMemberNameOutput = null;
-		if(teamMemberName != null && !teamMemberName.contains(",")) {
+		if(teamMemberName == null ) {
+			teamMemberNameOutput = DEFAULT_NAME;
+		}
+		else if(!teamMemberName.contains(",")) {
 			String[] sections = teamMemberName.split(" ");
 
 			if(sections != null) {
