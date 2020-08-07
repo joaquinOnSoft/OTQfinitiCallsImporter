@@ -54,10 +54,6 @@ public class ImporterConfigGenerator {
 		Option configOpt = new Option("c", "config", false, "JSON Config file");
 		options.addOption(configOpt);
 
-		Option flattenOpt = new Option("f", "flatten", true,
-				"Flatten Iberdrola folder estructure in the destiny folder. OTHER PARAMETERS WILL IGNORED except 'p' or 'path'");
-		options.addOption(flattenOpt);
-
 		Option outputOpt = new Option("o", "output", true, "Output file name. 'calls.xls' by default");
 		options.addOption(outputOpt);
 
