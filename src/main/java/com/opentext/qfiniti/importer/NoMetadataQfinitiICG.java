@@ -75,13 +75,4 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 
 		return recordings;
 	}
-
-	private Map<String, CallRecording> dumpListToMap(Map<String, CallRecording> map, List<CallRecording> list){
-		for (CallRecording callRecording : list) {
-			map.put(callRecording.getFileName(), callRecording);
-		}
-
-		return map;
-	}
-
 }
