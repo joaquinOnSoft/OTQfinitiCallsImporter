@@ -20,7 +20,6 @@
 package com.opentext.qfiniti.importer;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
 import com.opentext.qfiniti.importer.io.filter.FolderFilter;
@@ -36,7 +35,8 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 	public NoMetadataQfinitiICG(String path) {
 		super(path);
 	}
-
+	
+	@Override
 	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
 		FolderFilter folderfilter = new FolderFilter();
 		WavFilter wavfilter = new WavFilter();
@@ -56,6 +56,7 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 					try {
 						call.setPathName(file.getParentFile().getCanonicalPath());
 						recordings.put(call.getFileName(), call);
+						//TODO aqui
 					} catch (Exception e) {
 						log.error(path + " --^-- " + e.getMessage());
 					}

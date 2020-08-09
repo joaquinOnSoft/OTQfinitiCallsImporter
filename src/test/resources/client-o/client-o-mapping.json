@@ -1,5 +1,5 @@
 {
-	"inputType": "xls",
+	"inputType": "NoMetadata",
 	"fieldFiller": [
 		{
 			"oname": "Path_Name",
