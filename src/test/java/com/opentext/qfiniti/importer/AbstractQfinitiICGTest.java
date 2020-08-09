@@ -18,6 +18,8 @@ public abstract class AbstractQfinitiICGTest {
 	protected String jsonConfigPath;
 	protected String outputFileName;
 	
+	public abstract AbstractQfinitiICG getQfinitiICG(String path);
+	
 	@Test
 	public void testGenerate() {
 		List<CallRecording> recordings = null;
@@ -30,7 +32,7 @@ public abstract class AbstractQfinitiICGTest {
 		JSonConfigReader jsonConfigReader = new JSonConfigReader();
 		MappingConfig mapping = jsonConfigReader.read(jsonFile);
 				
-		XlsQfinitiICG configGenerator = new XlsQfinitiICG(path);
+		AbstractQfinitiICG configGenerator = getQfinitiICG(path);
 		configGenerator.setOutput(outputFileName);
 		configGenerator.setMappingConfig(mapping);
 		try {

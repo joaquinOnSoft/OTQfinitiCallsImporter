@@ -29,4 +29,9 @@ public class XlsQfinitiICGTest extends AbstractQfinitiICGTest{
 		jsonConfigPath = "client-i/client-i-mapping.json";
 		outputFileName = "calls-client-i.xls";
 	}
+	
+	@Override
+	public AbstractQfinitiICG getQfinitiICG(String path) {
+		return new XlsQfinitiICG(path);
+	}
 }

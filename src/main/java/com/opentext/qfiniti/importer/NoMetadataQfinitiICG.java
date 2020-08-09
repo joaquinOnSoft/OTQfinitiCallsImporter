@@ -20,11 +20,14 @@
 package com.opentext.qfiniti.importer;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 
 import com.opentext.qfiniti.importer.io.filter.FolderFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
+import com.opentext.qfiniti.importer.pojo.FieldFiller;
+import com.opentext.qfiniti.importer.util.ImportUtils;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
@@ -40,7 +43,8 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
 		FolderFilter folderfilter = new FolderFilter();
 		WavFilter wavfilter = new WavFilter();
-
+		
+		List<FieldFiller> fFillers = mappingConfig.getFieldFiller();
 
 		//Read audio files (.wav)
 		File wavFiles[] = wavfilter.finder(path);
@@ -50,17 +54,24 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 			for (File file : wavFiles) {
 				log.info(file.getPath());
 				
-				call = recordings.get(file.getName());
+				// Initialize call recording with path and file name
+				call = new CallRecording(path, file.getName(), 0);
 				
-				if(call != null) {
-					try {
-						call.setPathName(file.getParentFile().getCanonicalPath());
-						recordings.put(call.getFileName(), call);
-						//TODO aqui
-					} catch (Exception e) {
-						log.error(path + " --^-- " + e.getMessage());
+				// Add field generated automatically with a 
+				// 'filler' or a default value
+				for(FieldFiller filler: fFillers){
+					String value = filler.getOvalue();
+					
+					if(filler.getFiller() != null) {
+						String callFullPath = call.getPathName() + File.separator + call.getFileName();
+						value = ImportUtils.applyFiller(filler.getFiller(), callFullPath);
 					}
+					
+					call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);
 				}
+
+				
+				recordings.put(call.getFileName(), call);
 			}			
 		}	
 

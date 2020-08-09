@@ -25,8 +25,13 @@ public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest{
 
 	@Before
 	public void initilize() {
-		folderPath = "client-i/samples-flatered";
-		jsonConfigPath = "client-i/client-i-mapping.json";
-		outputFileName = "calls.xls";
+		folderPath = "client-o";
+		jsonConfigPath = "client-o/client-o-mapping.json";
+		outputFileName = "calls-client-o.xls";
 	}
+	
+	@Override
+	public AbstractQfinitiICG getQfinitiICG(String path) {
+		return new NoMetadataQfinitiICG(path);
+	}	
 }
