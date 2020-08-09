@@ -87,21 +87,22 @@ public class ImporterConfigGenerator {
 		MappingConfig mapping = null;
 		if (jsonConfigFile.exists()) {
 			JSonConfigReader jsonConfigReader = new JSonConfigReader();
-			jsonConfigReader.read(jsonConfigFile);
+			mapping = jsonConfigReader.read(jsonConfigFile);
 		}
 		
-		//TODO utilizar una fabrica para generar el tipo adecuado
-		XlsQfinitiICG configGenerator = new XlsQfinitiICG(path);
-		configGenerator.setOutput(output);
-		configGenerator.setMappingConfig(mapping);
+		if(mapping != null) {
+			QfinitiICGFactory factory = new QfinitiICGFactory();
+			AbstractQfinitiICG configGenerator =factory.getConfigGenerator(mapping.getInputType(), path);
+			configGenerator.setOutput(output);
+			configGenerator.setMappingConfig(mapping);
 
-		try {
-			configGenerator.generate();
-		} catch (IOException e) {
-			log.error("Error accessing : " + e.getMessage());
-		} catch (InvalidFormatException e) {
-			log.error("Invalid metadata value: " + e.getMessage());
+			try {
+				configGenerator.generate();
+			} catch (IOException e) {
+				log.error("Error accessing : " + e.getMessage());
+			} catch (InvalidFormatException e) {
+				log.error("Invalid metadata value: " + e.getMessage());
+			}			
 		}
-
 	}
 }

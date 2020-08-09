@@ -21,12 +21,12 @@ package com.opentext.qfiniti.importer;
 
 import org.junit.Before;
 
-public class XlsQfinitiICGTest extends AbstractQfinitiICGTest{
+public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest{
 
 	@Before
 	public void initilize() {
 		folderPath = "client-i/samples-flatered";
 		jsonConfigPath = "client-i/client-i-mapping.json";
-		outputFileName = "calls-client-i.xls";
+		outputFileName = "calls.xls";
 	}
 }
