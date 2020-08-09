@@ -5,12 +5,13 @@ import java.lang.reflect.InvocationTargetException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.opentext.qfiniti.importer.IConfigGeneratorHeader;
 import com.opentext.qfiniti.importer.io.IReader;
 import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
 import com.opentext.qfiniti.importer.io.transformer.ITransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
-public class ImportUtils {
+public class ImportUtils implements IConfigGeneratorHeader{
 	private static final Logger log = LogManager.getLogger(ImportUtils.class);
 
 	/**
@@ -22,28 +23,28 @@ public class ImportUtils {
 	 */
 	public static CallRecording setFieldValueByFieldName(CallRecording call, String fieldName, String value) {
 		switch (fieldName) {
-		case IReader.COL_PATH_NAME:	
+		case HEADER_PATH_NAME:	
 			call.setPathName(value);
 			break;
-		case IReader.COL_DATE_TIME:
+		case HEADER_DATE_TIME:
 			call.setDateTime(value);
 			break;
-		case IReader.COL_TEAM_MEMBER:
+		case HEADER_TEAM_MEMBER_NAME:
 			call.setTeamMemberName(value);
 			break;
-		case IReader.COL_DURATION:
+		case HEADER_DURATION:
 			call.setDuration(value);
 			break;
-		case IReader.COL_GROUP_HIERARCHY:
+		case HEADER_GROUP_HIERARCHY:
 			call.setGroupHierachy(value);
 			break;
-		case IReader.COL_DNIS:
+		case HEADER_DNIS:
 			call.setDnis(value);
 			break;
-		case IReader.COL_ANI:
+		case HEADER_ANI:
 			call.setAni(value);
 			break;
-		case IReader.COL_FILE_NAME :
+		case HEADER_FILE_NAME :
 			call.setFileName(value);
 			break;
 		}

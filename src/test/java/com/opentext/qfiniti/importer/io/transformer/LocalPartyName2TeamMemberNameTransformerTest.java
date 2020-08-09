@@ -44,5 +44,10 @@ public class LocalPartyName2TeamMemberNameTransformerTest {
 		assertEquals("Doe, John", teamMemberName);		
 	}
 	
-	
+	@Test
+	public void transformEmptyString() {
+		String teamMemberName = transformer.transform("");
+		assertNotNull(teamMemberName);
+		assertEquals("Doe, John", teamMemberName);		
+	}	
 }

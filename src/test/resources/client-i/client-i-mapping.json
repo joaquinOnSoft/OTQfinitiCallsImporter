@@ -51,7 +51,7 @@
 			"iname": "Initiator Interaction Address",
 			"itype": "string",
 			"mapped": "true",
-			"oname": "ANI",
+			"oname": "ani",
 			"otype": "String" 
 		},
 		{

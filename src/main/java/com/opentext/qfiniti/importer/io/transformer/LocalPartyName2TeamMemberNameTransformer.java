@@ -20,7 +20,7 @@ public class LocalPartyName2TeamMemberNameTransformer implements ITransformer{
 	@Override
 	public String transform(String teamMemberName) {
 		String teamMemberNameOutput = null;
-		if(teamMemberName == null ) {
+		if(teamMemberName == null || teamMemberName.compareTo("") == 0) {
 			teamMemberNameOutput = DEFAULT_NAME;
 		}
 		else if(!teamMemberName.contains(",")) {

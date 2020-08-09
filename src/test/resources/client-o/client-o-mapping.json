@@ -6,19 +6,19 @@
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-o"
 		},	
 		{
-			"oname": "Team_Member_Name",
-			"filler": "com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller"
-		},
-		{
 			"oname": "duration",
 			"filler": "com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller"
 		},
+		{
+			"oname": "group_hierarchy",
+			"filler": "com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller"
+		},		
 		{
 			"oname": "dnis",
 			"filler": "com.opentext.qfiniti.importer.io.filler.DnisFiller"
 		},
 		{
-			"oname": "ANI",
+			"oname": "ani",
 			"filler": "com.opentext.qfiniti.importer.io.filler.AniFiller"
 		}				
 	],

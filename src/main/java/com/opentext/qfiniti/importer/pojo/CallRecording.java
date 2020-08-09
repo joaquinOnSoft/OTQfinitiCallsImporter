@@ -30,19 +30,12 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class CallRecording {
+import com.opentext.qfiniti.importer.IConfigGeneratorHeader;
+
+public class CallRecording implements IConfigGeneratorHeader{
 	private static final Logger log = LogManager.getLogger(CallRecording.class);
 
-	public static final String DEFAULT_AGENT_NAME = "Juan Esposito Esposito";
-	
-	public static final String HEADER_PATH_NAME = "Path_Name";
-	public static final String HEADER_DATE_TIME = "Date_Time";
-	public static final String HEADER_TEAM_MEMBER_NAME = "Team_Member_Name";
-	public static final String HEADER_DURATION = "duration";
-	public static final String HEADER_GROUP_HIERARCHY = "group_hierarchy";
-	public static final String HEADER_FILE_NAME = "File_Name";							
-	public static final String HEADER_ANI = "ani";		
-	public static final String HEADER_DNIS = "dnis";		
+	public static final String DEFAULT_AGENT_NAME = "Juan Esposito Esposito";	
 
 	private String pathName;
 	private String fileName;
