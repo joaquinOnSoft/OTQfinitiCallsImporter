@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.opentext.qfiniti.importer.IConfigGeneratorHeader;
-import com.opentext.qfiniti.importer.io.IReader;
 import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
 import com.opentext.qfiniti.importer.io.transformer.ITransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;

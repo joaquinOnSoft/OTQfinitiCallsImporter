@@ -6,12 +6,20 @@
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-o"
 		},	
 		{
+			"oname": "Date_Time",
+			"filler": "com.opentext.qfiniti.importer.io.filler.DateFromFileFiller"
+		},			
+		{
 			"oname": "duration",
 			"filler": "com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller"
 		},
 		{
 			"oname": "group_hierarchy",
 			"filler": "com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller"
+		},		
+		{
+			"oname": "Team_Member_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFiller"
 		},		
 		{
 			"oname": "dnis",

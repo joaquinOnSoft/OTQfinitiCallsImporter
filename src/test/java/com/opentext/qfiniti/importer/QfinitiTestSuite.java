@@ -25,9 +25,11 @@ import org.junit.runners.Suite;
 import com.opentext.qfiniti.importer.io.ExcelReaderTest;
 import com.opentext.qfiniti.importer.io.ExcelWriterTest;
 import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
+import com.opentext.qfiniti.importer.io.filler.DateFromFileFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
+import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
 import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
 import com.opentext.qfiniti.importer.io.filter.XlsFilterTest;
@@ -50,9 +52,11 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 
 	//com.opentext.qfiniti.importer.io.filler
 	AniFillerTest.class,
+	DateFromFileFillerTest.class,
 	DnisFillerTest.class,
 	DurationFromMetadataFillerTest.class,
 	GroupHierarchyFillerTest.class,
+	TeamMemberFillerTest.class,
 
 	//com.opentext.qfiniti.importer.io.
 	ExcelReaderTest.class,
