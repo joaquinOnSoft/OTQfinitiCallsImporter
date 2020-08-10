@@ -142,17 +142,29 @@ These are the valid output field names admitted by  **OpenText Qfiniti Data Impo
     
 ### Available field fillers
 
+Fillers are classes that extends com.opentext.qfiniti.importer.io.filler.AbstractFiller and provides an automatically generated value for a given field, or extract some metadata from the .wav file.
+
 #### com.opentext.qfiniti.importer.io.filler.AniFiller
 Generate a random ANI (Client phone number)
+
+#### com.opentext.qfiniti.importer.io.filler.DateFromFileFiller
+Recover the creation date and time from the .wav file
 
 #### com.opentext.qfiniti.importer.io.filler.DnisFiller
 Generate a random DNIS (Call type)
 
+#### com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller
+Recover the duration in seconds from the .wav file
+
 #### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
 Generate a fix Group Hierarchy name: "Client-i"
 
+#### com.opentext.qfiniti.importer.io.filler.TeamMemberFiller
+Generate a Team Member Name selected randomly from a predefined set of user names 
 
 ### Available field transformers
+
+Transformers are classes that implements the interface **com.opentext.qfiniti.importer.io.transformer.ITransformer** and provides some kind of processing/data manipulation for a given field.
 
 #### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer
 Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
