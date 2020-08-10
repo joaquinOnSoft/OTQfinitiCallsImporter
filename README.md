@@ -102,6 +102,7 @@ The application requires a JSON configuration file as input. There are two main 
 There are 3 main properties:
    - **inputType**: Input type. Possible values:
       - **xls**: Excel file
+      - **NoMetadata**: No input file with metadata available. When we use this input type **the 'fielMapping' field must be empty array**.
       - **csv**: CSV file (COMING SOON, not currently available)
    - **fieldFiller**: List of field fillers which provide a default or an automatically generated value for a given field. These are the possible values of a field filler:
       - **oname**: (Required) Output field name
@@ -132,8 +133,8 @@ These are the valid output field names admitted by  **OpenText Qfiniti Data Impo
       &lt;1st FAMILY NAME&gt;, &lt;NAME&gt;
    - **duration**: Call recording duration in seconds
    - **group_hierarchy**: Group hierarchy (Group name)
-   - **dnis**: Phone number used by the client to call to the Call Center.
-   - **ANI**:	
+   - **dnis**: Dialed Number Identification Service (DNIS) is a service sold by telecommunications companies to corporate clients that identifies the originally dialed telephone number of an inbound call. The client may use this information for call routing to internal destinations or activation of special call handling.
+   - **ani**: (Automatic Number Identification) ANI information is used like caller ID except for a few differences that make it impossible to block or hide.	
    - **File_Name**: Call recording file name (usually a .wav file)
  
  
