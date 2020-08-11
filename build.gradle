@@ -59,6 +59,9 @@ dependencies {
 		
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
+	
+	// https://mvnrepository.com/artifact/com.opencsv/opencsv
+	implementation 'com.opencsv:opencsv:5.2'
 			
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'	    

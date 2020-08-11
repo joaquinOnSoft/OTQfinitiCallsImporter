@@ -36,7 +36,7 @@ On the other hand, other clients just provide a folder which contains call recor
 ```
    Folder with call recordings used as input to generate the excel file required as input by 
    OpenText Qfiniti Data Importer
-   	__________
+    __________
    /           \________                                 +-----------------------+
    | Call recordings    |                                | Excel generated       |
    |       in           | ------------------------------>|       by              |
