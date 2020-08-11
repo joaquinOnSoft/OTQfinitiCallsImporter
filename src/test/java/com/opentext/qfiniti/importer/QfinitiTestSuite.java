@@ -22,6 +22,7 @@ package com.opentext.qfiniti.importer;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import com.opentext.qfiniti.importer.io.CsvReaderTest;
 import com.opentext.qfiniti.importer.io.ExcelReaderTest;
 import com.opentext.qfiniti.importer.io.ExcelWriterTest;
 import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
@@ -59,6 +60,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 	TeamMemberFillerTest.class,
 
 	//com.opentext.qfiniti.importer.io.
+	CsvReaderTest.class,
 	ExcelReaderTest.class,
 	ExcelWriterTest.class,	
 	

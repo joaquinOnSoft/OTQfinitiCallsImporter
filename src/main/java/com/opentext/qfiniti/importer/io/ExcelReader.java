@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -15,14 +13,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.opentext.qfiniti.importer.pojo.CallRecording;
-import com.opentext.qfiniti.importer.pojo.FieldFiller;
-import com.opentext.qfiniti.importer.pojo.FieldMapping;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
-import com.opentext.qfiniti.importer.util.ImportUtils;
 
-public class ExcelReader implements IReader {
-
-	private static final Logger log = LogManager.getLogger(ExcelReader.class);
+public class ExcelReader extends AbstractReader{
 
 	/**
 	 * Read the input file with the metadata for each call recording.
@@ -31,7 +24,7 @@ public class ExcelReader implements IReader {
 	 */
 	@Override
 	public List<CallRecording> read(String filePath, MappingConfig config) {
-		List<CallRecording> recordings = new LinkedList<CallRecording>();
+		recordings = new LinkedList<CallRecording>();
 		CallRecording call = null;
 
 		// Creating a Workbook from an Excel file (.xls or .xlsx)
@@ -45,9 +38,6 @@ public class ExcelReader implements IReader {
 			boolean isFirstRow = true;
 
 			int index = 0;
-			FieldMapping fMapping =null;
-			List<FieldFiller> fFillers = config.getFieldFiller();
-			String transformerName = null;
 
 			for (Row row: sheet) {
 
@@ -57,37 +47,12 @@ public class ExcelReader implements IReader {
 
 					index = 0;
 					for(Cell cell: row) {		 
-						fMapping = config.getFieldMapping().get(index);
-
-						String value = cell.getStringCellValue();
-
-						if(fMapping.isMapped()) {
-							transformerName = fMapping.getTransformer();
-							if(transformerName != null) {
-								value = ImportUtils.applyTransformer(transformerName, value);
-							}							
-
-							call = ImportUtils.setFieldValueByFieldName(call, fMapping.getOname(), value);
-						}
-						else {
-							call.addExtendedField(fMapping.getIname(), value);			            		
-						}
+						call = mapField(call,cell.getStringCellValue(), config.getFieldMapping().get(index));
 
 						index++;
 					}
 					
-					// Add field generated automatically with a 
-					// 'filler' or a default value
-					for(FieldFiller filler: fFillers){
-						String value = filler.getOvalue();
-						
-						if(filler.getFiller() != null) {
-							String callFullPath = call.getPathName() + File.separator + call.getFileName();
-							value = ImportUtils.applyFiller(filler.getFiller(), callFullPath);
-						}
-						
-						call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);
-					}
+					call = generateField(call, config.getFieldFiller());
 					
 					recordings.add(call);
 				}
