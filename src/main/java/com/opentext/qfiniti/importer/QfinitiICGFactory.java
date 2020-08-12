@@ -17,7 +17,7 @@ public class QfinitiICGFactory {
     			configGenerator = new XlsQfinitiICG(path);
     		}
     		else if(type.equalsIgnoreCase(TYPE_CSV)) {
-    			throw new UnsupportedOperationException("Qfiniti Importer Config Generator: CSV type not currently supported");
+    			configGenerator = new CsvQfinitiICG(path);
     		}
     	}    	
 

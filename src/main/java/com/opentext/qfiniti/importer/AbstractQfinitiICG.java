@@ -1,4 +1,5 @@
 /*
+ *   
  *   (C) Copyright 2019 OpenText and others.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +20,7 @@
  */
 package com.opentext.qfiniti.importer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -30,6 +32,8 @@ import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.opentext.qfiniti.importer.io.ExcelWriter;
+import com.opentext.qfiniti.importer.io.filter.FolderFilter;
+import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
@@ -41,12 +45,17 @@ public abstract class AbstractQfinitiICG {
 	protected static final Logger log = LogManager.getLogger(AbstractQfinitiICG.class);
 
 	protected String path;
+	protected String extension;
 	protected String output;
 	protected MappingConfig mappingConfig;
 
-
 	public AbstractQfinitiICG(String path) {
+		this(path, null);
+	}
+
+	public AbstractQfinitiICG(String path, String extension) {
 		this.path = path;
+		this.extension = extension;
 	}
 	
 	public String getPath() {
@@ -94,5 +103,72 @@ public abstract class AbstractQfinitiICG {
 		return calls;
 	}
 
-	protected abstract Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings);
+	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings){
+		//Read data files (.xls or .csv)
+		recordings = readDataFiles(path, recordings);
+		
+		//Read audio files (.wav)
+		recordings = readWafFiles(path, recordings);
+		
+		//Find sub-folders
+		recordings = findSubfolders(path, recordings);
+		
+		return recordings;
+	}
+	
+	/**
+	 * Read Excel files
+	 * @param path
+	 * @param recordings
+	 * @return
+	 */
+	protected abstract Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings);
+	
+	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
+		WavFilter wavfilter = new WavFilter();
+
+		//Read audio files (.wav)
+		File wavFiles[] = wavfilter.finder(path);
+		if(wavFiles != null && wavFiles.length >0) {
+
+			CallRecording call = null;
+			for (File file : wavFiles) {
+				log.info(file.getPath());
+				
+				call = recordings.get(file.getName());
+				
+				if(call != null) {
+					try {
+						call.setPathName(file.getParentFile().getCanonicalPath());
+						recordings.put(call.getFileName(), call);
+					} catch (Exception e) {
+						log.error(path + " --^-- " + e.getMessage());
+					}
+				}
+			}			
+		}
+		
+		return recordings;	
+	}
+	
+	/**
+	 * Find sub-folders
+	 * @param path
+	 * @param recordings
+	 * @return
+	 */
+	protected Map<String, CallRecording> findSubfolders(String path, Map<String, CallRecording> recordings){
+		FolderFilter folderfilter = new FolderFilter();
+
+		File folders[] = folderfilter.finder(path);
+		if(folders != null && folders.length >0) {
+
+			for (File folder : folders) {
+				log.debug(folder.getPath());
+				recordings = generate(folder.getPath(), recordings);
+			}			
+		}
+		
+		return recordings;
+	}
 }

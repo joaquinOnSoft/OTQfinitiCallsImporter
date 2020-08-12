@@ -20,10 +20,8 @@
 package com.opentext.qfiniti.importer;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
-import com.opentext.qfiniti.importer.io.filter.FolderFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.FieldFiller;
@@ -40,12 +38,15 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 	}
 	
 	@Override
-	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
-		FolderFilter folderfilter = new FolderFilter();
+	protected Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings) {
+		// Intentionally doing nothing
+		return recordings;
+	}
+
+	@Override
+	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
 		WavFilter wavfilter = new WavFilter();
 		
-		List<FieldFiller> fFillers = mappingConfig.getFieldFiller();
-
 		//Read audio files (.wav)
 		File wavFiles[] = wavfilter.finder(path);
 		if(wavFiles != null && wavFiles.length >0) {
@@ -59,7 +60,7 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 				
 				// Add field generated automatically with a 
 				// 'filler' or a default value
-				for(FieldFiller filler: fFillers){
+				for(FieldFiller filler: mappingConfig.getFieldFiller()){
 					String value = filler.getOvalue();
 					
 					if(filler.getFiller() != null) {
@@ -70,21 +71,13 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 					call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);
 				}
 
-				
 				recordings.put(call.getFileName(), call);
 			}			
 		}	
 
-		//Find sub-folders
-		File folders[] = folderfilter.finder(path);
-		if(folders != null && folders.length >0) {
-
-			for (File folder : folders) {
-				log.debug(folder.getPath());
-				recordings = generate(folder.getPath(), recordings);
-			}			
-		}			
-
 		return recordings;
 	}
+	
+	
+	
 }

@@ -23,14 +23,8 @@ public class QfinitiICGFactoryTest {
 
 	@Test
 	public void getConfigGeneratorCsv() {
-		try {
-			//TODO in the near future CSV config files will be supported
-			config = factory.getConfigGenerator("csv", null);
-		}
-		catch (UnsupportedOperationException e) {
-			String msg = e.getMessage();
-			assertEquals("Qfiniti Importer Config Generator: CSV type not currently supported", msg);
-		}
+		config = factory.getConfigGenerator("csv", null);
+		assertTrue(config instanceof CsvQfinitiICG);	
 	}
 	
 	@Test

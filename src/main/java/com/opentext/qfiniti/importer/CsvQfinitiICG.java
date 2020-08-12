@@ -23,9 +23,9 @@ package com.opentext.qfiniti.importer;
  * OpenText(TM) Qfiniti Importer Configuration Generator
  * @author Joaquín Garzón
  */
-public class XlsQfinitiICG extends AbstractFileQfinitiICG{
+public class CsvQfinitiICG extends AbstractFileQfinitiICG{
 
-	public XlsQfinitiICG(String path) {
-		super(path, ".xls");
+	public CsvQfinitiICG(String path) {
+		super(path, ".csv");
 	}
 }
