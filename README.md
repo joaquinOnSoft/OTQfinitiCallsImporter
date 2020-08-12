@@ -103,7 +103,7 @@ There are 3 main properties:
    - **inputType**: Input type. Possible values:
       - **xls**: Excel file
       - **NoMetadata**: No input file with metadata available. When we use this input type **the 'fielMapping' field must be empty array**.
-      - **csv**: CSV file (COMING SOON, not currently available)
+      - **csv**: CSV file
    - **fieldFiller**: List of field fillers which provide a default or an automatically generated value for a given field. These are the possible values of a field filler:
       - **oname**: (Required) Output field name
       - **ovalue**: (Optional) Output default value

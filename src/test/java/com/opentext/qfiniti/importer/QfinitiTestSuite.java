@@ -47,6 +47,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 
 @Suite.SuiteClasses({
 	//com.opentext.qfiniti
+	CsvQfinitiICGTest.class,
 	JSonConfigReaderTest.class,
 	NoMetadataQfinitiICGTest.class,
 	QfinitiICGFactoryTest.class,

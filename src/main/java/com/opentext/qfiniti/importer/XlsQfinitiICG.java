@@ -19,6 +19,9 @@
  */
 package com.opentext.qfiniti.importer;
 
+import com.opentext.qfiniti.importer.io.ExcelReader;
+import com.opentext.qfiniti.importer.io.IReader;
+
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
  * @author Joaquín Garzón
@@ -28,4 +31,10 @@ public class XlsQfinitiICG extends AbstractFileQfinitiICG{
 	public XlsQfinitiICG(String path) {
 		super(path, ".xls");
 	}
+
+	@Override
+	protected IReader getReader() {
+		// TODO Auto-generated method stub
+		return new ExcelReader();
+	}	
 }

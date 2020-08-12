@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-import com.opentext.qfiniti.importer.io.ExcelReader;
+import com.opentext.qfiniti.importer.io.IReader;
 import com.opentext.qfiniti.importer.io.filter.FileFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
@@ -37,6 +37,8 @@ public abstract class AbstractFileQfinitiICG extends AbstractQfinitiICG {
 		super(path, extension);
 	}
 
+	protected abstract IReader getReader();
+	
 	/**
 	 * Read Excel files
 	 * @param path
@@ -47,10 +49,10 @@ public abstract class AbstractFileQfinitiICG extends AbstractQfinitiICG {
 		if(extension != null) {
 			FileFilter fFilter = new FileFilter();
 
-			File xlsFiles[] = fFilter.finder(path, extension);
-			if(xlsFiles != null && xlsFiles.length >0) {
-				ExcelReader reader = new ExcelReader();
-				for (File file : xlsFiles) {
+			File metadataFiles[] = fFilter.finder(path, extension);
+			if(metadataFiles != null && metadataFiles.length >0) {
+				IReader reader = getReader();
+				for (File file : metadataFiles) {
 					List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), mappingConfig);
 					recordings = dumpListToMap(recordings, tmpRecordings);
 				}			

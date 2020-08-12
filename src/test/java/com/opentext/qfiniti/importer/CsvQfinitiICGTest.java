@@ -19,22 +19,19 @@
  */
 package com.opentext.qfiniti.importer;
 
-import com.opentext.qfiniti.importer.io.CsvReader;
-import com.opentext.qfiniti.importer.io.IReader;
+import org.junit.Before;
 
-/**
- * OpenText(TM) Qfiniti Importer Configuration Generator
- * @author Joaquín Garzón
- */
-public class CsvQfinitiICG extends AbstractFileQfinitiICG{
+public class CsvQfinitiICGTest extends AbstractQfinitiICGTest{
 
-	public CsvQfinitiICG(String path) {
-		super(path, ".csv");
+	@Before
+	public void initilize() {
+		folderPath = "client-i/samples-flatered";
+		jsonConfigPath = "client-i/client-i-mapping-from-csv.json";
+		outputFileName = "calls-client-i-from-csv.xls";
 	}
 	
 	@Override
-	protected IReader getReader() {
-		// TODO Auto-generated method stub
-		return new CsvReader();
-	}	
+	public AbstractQfinitiICG getQfinitiICG(String path) {
+		return new CsvQfinitiICG(path);
+	}
 }
