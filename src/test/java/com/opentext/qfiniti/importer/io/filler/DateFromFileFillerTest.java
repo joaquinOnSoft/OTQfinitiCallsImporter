@@ -13,6 +13,6 @@ public class DateFromFileFillerTest extends AbstractFillerTest {
 		String value = filler.getValue();
 		
 		assertNotNull(value);
-		assertEquals("11/08/2020 19:16:50", value);
+		assertEquals("12/08/2020 13:09:06", value);
 	}
 }

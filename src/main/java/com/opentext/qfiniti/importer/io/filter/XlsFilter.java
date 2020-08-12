@@ -20,27 +20,19 @@
 package com.opentext.qfiniti.importer.io.filter;
 
 import java.io.File;
-import java.io.FilenameFilter;
 
 /**
  * Find .xls files in specified folder [closed]
  * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
  * */
-public class XlsFilter {
+public class XlsFilter extends FileFilter{
 
 	/**
-	 * Find .xls files in specified folder [closed]
+	 * Find .xls files in specified folder
 	 * @param dirName - folder name
 	 * @return list of .xls files contained in a given folder
 	 */
 	public File[] finder( String dirName){
-		File dir = new File(dirName);
-
-		return dir.listFiles(new FilenameFilter() { 
-			public boolean accept(File dir, String filename) {
-				return filename.endsWith(".xls"); 
-			}
-		} );
-
+		return finder(dirName, ".xls");
 	}
 }

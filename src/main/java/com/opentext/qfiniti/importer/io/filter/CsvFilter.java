@@ -22,17 +22,17 @@ package com.opentext.qfiniti.importer.io.filter;
 import java.io.File;
 
 /**
- * Find .wav files in specified folder [closed]
+ * Find .csv files in specified folder [closed]
  * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
  * */
-public class WavFilter extends FileFilter{
+public class CsvFilter extends FileFilter{
 
 	/**
-	 * Find .wav files in specified folder
+	 * Find .csv files in specified folder [closed]
 	 * @param dirName - folder name
-	 * @return list of .wav files contained in a given folder
+	 * @return list of .csv files contained in a given folder
 	 */
 	public File[] finder( String dirName){
-		return finder(dirName, ".wav");
+		return finder(dirName, ".csv");
 	}
 }

@@ -31,6 +31,7 @@ import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
+import com.opentext.qfiniti.importer.io.filter.CsvFilterTest;
 import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
 import com.opentext.qfiniti.importer.io.filter.XlsFilterTest;
@@ -65,6 +66,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 	ExcelWriterTest.class,	
 	
 	//com.opentext.qfiniti.importer.io.filter
+	CsvFilterTest.class,
 	FolderFilterTest.class,
 	WavFilterTest.class,
 	XlsFilterTest.class,

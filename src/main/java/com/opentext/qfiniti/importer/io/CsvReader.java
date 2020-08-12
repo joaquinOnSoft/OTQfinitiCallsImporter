@@ -1,6 +1,5 @@
 package com.opentext.qfiniti.importer.io;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -22,6 +21,7 @@ public class CsvReader extends AbstractReader {
 	 * Read a Comma-Separated Values (CSV) file which file is just a normal plain-text file, 
 	 * store data in column by column, and split it by a separator 
 	 * (e.g normally it is a comma "," or a ";").
+	 * @see http://zetcode.com/java/opencsv/
 	 * @see https://www.baeldung.com/java-csv-file-array
 	 * @see https://mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
 	 */

@@ -19,20 +19,33 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
+import static org.junit.Assert.*;
+
 import java.io.File;
 
-/**
- * Find .wav files in specified folder [closed]
- * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
- * */
-public class WavFilter extends FileFilter{
+import org.junit.Test;
 
-	/**
-	 * Find .wav files in specified folder
-	 * @param dirName - folder name
-	 * @return list of .wav files contained in a given folder
-	 */
-	public File[] finder( String dirName){
-		return finder(dirName, ".wav");
+public class CsvFilterTest {
+	public static String CSV_SAMPLE = "client-i/20191021.csv";
+
+	@Test
+	public void testFinder() {
+			
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource(CSV_SAMPLE).getFile());
+		
+		assertNotNull(file);
+		
+		String path = file.getParentFile().getAbsolutePath();
+		
+		assertNotNull(path);
+		
+		CsvFilter filter = new CsvFilter();
+		File[] files = filter.finder(path);
+		
+		assertNotNull(files);
+		assertTrue(files.length > 0);
+		assertEquals("20191021.csv", files[0].getName());
 	}
+
 }
