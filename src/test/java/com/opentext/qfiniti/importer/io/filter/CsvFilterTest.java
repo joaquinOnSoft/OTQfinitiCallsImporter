@@ -19,33 +19,12 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
 
-import java.io.File;
-
-import org.junit.Test;
-
-public class CsvFilterTest {
-	public static String CSV_SAMPLE = "client-i/20191021.csv";
-
-	@Test
-	public void testFinder() {
-			
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource(CSV_SAMPLE).getFile());
-		
-		assertNotNull(file);
-		
-		String path = file.getParentFile().getAbsolutePath();
-		
-		assertNotNull(path);
-		
-		CsvFilter filter = new CsvFilter();
-		File[] files = filter.finder(path);
-		
-		assertNotNull(files);
-		assertTrue(files.length > 0);
-		assertEquals("20191021.csv", files[0].getName());
+public class CsvFilterTest extends FileFilterTest{
+	@Before
+	public void initialize() {
+		dataFileFullPath = "client-i/20191021.xls";
+		dataFileName = "20191021.xls";
 	}
-
 }

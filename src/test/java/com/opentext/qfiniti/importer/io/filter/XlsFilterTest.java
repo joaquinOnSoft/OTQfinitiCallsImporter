@@ -19,35 +19,13 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
 
-import java.io.File;
-
-import org.junit.Test;
-
-import com.opentext.qfiniti.importer.io.filter.XlsFilter;
-
-public class XlsFilterTest {
-	public static String EXCEL_SAMPLE = "client-i/20191021.xls";
-
-	@Test
-	public void testFinder() {
-			
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource(EXCEL_SAMPLE).getFile());
-		
-		assertNotNull(file);
-		
-		String path = file.getParentFile().getAbsolutePath();
-		
-		assertNotNull(path);
-		
-		XlsFilter filter = new XlsFilter();
-		File[] files = filter.finder(path);
-		
-		assertNotNull(files);
-		assertTrue(files.length > 0);
-		assertEquals("20191021.xls", files[0].getName());
+public class XlsFilterTest extends FileFilterTest{
+	
+	@Before
+	public void initialize() {
+		dataFileFullPath = "client-i/20191021.xls";
+		dataFileName = "20191021.xls";
 	}
-
 }
