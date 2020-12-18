@@ -51,7 +51,7 @@ public class ImporterConfigGenerator {
 	public static void main(String args[]) {
 		Options options = new Options();
 
-		Option configOpt = new Option("c", "config", false, "JSON Config file");
+		Option configOpt = new Option("c", "config", true, "JSON Config file");
 		options.addOption(configOpt);
 
 		Option outputOpt = new Option("o", "output", true, "Output file name. 'calls.xls' by default");
@@ -83,26 +83,34 @@ public class ImporterConfigGenerator {
 		}
 
 		String jsonConfig = cmd.getOptionValue("config");
-		File jsonConfigFile = new File(jsonConfig);
-		MappingConfig mapping = null;
-		if (jsonConfigFile.exists()) {
-			JSonConfigReader jsonConfigReader = new JSonConfigReader();
-			mapping = jsonConfigReader.read(jsonConfigFile);
-		}
-		
-		if(mapping != null) {
-			QfinitiICGFactory factory = new QfinitiICGFactory();
-			AbstractQfinitiICG configGenerator =factory.getConfigGenerator(mapping.getInputType(), path);
-			configGenerator.setOutput(output);
-			configGenerator.setMappingConfig(mapping);
-
-			try {
-				configGenerator.generate();
-			} catch (IOException e) {
-				log.error("Error accessing : " + e.getMessage());
-			} catch (InvalidFormatException e) {
-				log.error("Invalid metadata value: " + e.getMessage());
-			}			
+		if(jsonConfig != null) {
+			File jsonConfigFile = new File(jsonConfig);
+			MappingConfig mapping = null;
+			if (jsonConfigFile.exists()) {
+				JSonConfigReader jsonConfigReader = new JSonConfigReader();
+				mapping = jsonConfigReader.read(jsonConfigFile);
+			}
+			else {
+				log.info("Config file " + jsonConfig + " doesn't exists");
+			}
+			
+			if(mapping != null) {
+				QfinitiICGFactory factory = new QfinitiICGFactory();
+				AbstractQfinitiICG configGenerator =factory.getConfigGenerator(mapping.getInputType(), path);
+				configGenerator.setOutput(output);
+				configGenerator.setMappingConfig(mapping);
+	
+				try {
+					configGenerator.generate();
+				} catch (IOException e) {
+					log.error("Error accessing : " + e.getMessage());
+				} catch (InvalidFormatException e) {
+					log.error("Invalid metadata value: " + e.getMessage());
+				}			
+			}
+			else {
+				log.info("No config file available. Skipping excel generation");
+			}
 		}
 	}
 }

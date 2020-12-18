@@ -40,7 +40,7 @@ public class DateFromFileFiller extends AbstractFiller {
 			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
 			strDate = dateFormat.format(creationDate);  
 		} catch (IOException e) {
-			log.error("File" + file.getPath() + ": ", e);
+			log.error("File: " + file.getPath() + ": ", e);
 		}
 
 		return strDate;
