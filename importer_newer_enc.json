@@ -1,9 +1,13 @@
 {
 	"inputType": "NoMetadata",
-  "fieldFiller": [
+	"fieldFiller": [
 		{
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-o-enc"
+		},
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
 		},
 		{
 			"oname": "Date_Time",
@@ -30,5 +34,6 @@
 			"filler": "com.opentext.qfiniti.importer.io.filler.AniFiller"
 		}
 	],
-	"fieldMapping": []
+	"fieldMapping": [
+	]
 }

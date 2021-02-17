@@ -156,6 +156,9 @@ Generate a random DNIS (Call type)
 #### com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller
 Recover the duration in seconds from the .wav file
 
+#### com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller
+Recover the file name from the .wav file
+
 #### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
 Generate a fix Group Hierarchy name: "Client-i"
 
@@ -205,6 +208,10 @@ Let'see some examples:
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-i\\samples"
 		},
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
+		},		
 		{
 			"oname": "group_hierarchy",
 			"filler": "com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller"
