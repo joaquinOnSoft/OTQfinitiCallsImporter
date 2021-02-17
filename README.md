@@ -150,6 +150,16 @@ Generate a random ANI (Client phone number)
 #### com.opentext.qfiniti.importer.io.filler.DateFromFileFiller
 Recover the creation date and time from the .wav file
 
+#### com.opentext.qfiniti.importer.io.filler.DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller
+Recover the creation date and time from the .wav file name. The file name MUST match this pattern:
+
+> ExtXXXXX_MM_dd_yyyy_HH;mm;ss
+
+Some examples:
+   - ext42094_01_14_2016_16;29;15.wav
+   - ext42098_03_30_2015_11;35;46.wav
+   - ext42110_02_16_2017_15;39;00.wav
+
 #### com.opentext.qfiniti.importer.io.filler.DnisFiller
 Generate a random DNIS (Call type)
 

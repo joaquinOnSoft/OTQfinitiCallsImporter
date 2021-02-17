@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 public class DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFillerTest extends AbstractFillerTest {
+	@Override
 	protected String getFilePath() {
 		return "client-q/ext42094_01_14_2016_16;29;15.wav";
 	}
