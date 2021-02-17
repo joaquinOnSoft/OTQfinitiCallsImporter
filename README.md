@@ -217,10 +217,6 @@ Let'see some examples:
 		{
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-i\\samples"
-		},
-		{
-			"oname": "File_Name",
-			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
 		},		
 		{
 			"oname": "group_hierarchy",
@@ -348,6 +344,10 @@ Let'see some examples:
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-o"
 		},	
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
+		},		
 		{
 			"oname": "Date_Time",
 			"filler": "com.opentext.qfiniti.importer.io.filler.DateFromFileFiller"
