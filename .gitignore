@@ -11,3 +11,4 @@ bin/
 test_*.xml
 *.log
 calls*.xls
+excel_writer_test.xls
