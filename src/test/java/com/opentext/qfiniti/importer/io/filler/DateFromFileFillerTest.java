@@ -14,7 +14,7 @@ public class DateFromFileFillerTest extends AbstractFillerTest {
 		assertNotNull(value);
 
 		// TODO find a fix for this issue.
-		// NOTE: The NIP API is returning the last access time instead of the creation
+		// NOTE: The NIO API is returning the last access time instead of the creation
 		// date!!!
 		// Real creation date: 28/07/2020 12:35
 		// assertEquals("28/07/2020 12:35:00", value);
