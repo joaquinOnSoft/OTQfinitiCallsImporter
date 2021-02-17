@@ -21,7 +21,7 @@ package com.opentext.qfiniti.importer.io.filter;
 
 import org.junit.Before;
 
-public class CsvFilterTest extends FileFilterTest{
+public class CsvFilterTest extends FileFilterTest {
 	@Before
 	public void initialize() {
 		dataFileFullPath = "client-i/20191021.xls";

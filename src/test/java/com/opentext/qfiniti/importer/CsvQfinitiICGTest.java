@@ -21,7 +21,7 @@ package com.opentext.qfiniti.importer;
 
 import org.junit.Before;
 
-public class CsvQfinitiICGTest extends AbstractQfinitiICGTest{
+public class CsvQfinitiICGTest extends AbstractQfinitiICGTest {
 
 	@Before
 	public void initilize() {
@@ -29,7 +29,7 @@ public class CsvQfinitiICGTest extends AbstractQfinitiICGTest{
 		jsonConfigPath = "client-i/client-i-mapping-from-csv.json";
 		outputFileName = "calls-client-i-from-csv.xls";
 	}
-	
+
 	@Override
 	public AbstractQfinitiICG getQfinitiICG(String path) {
 		return new CsvQfinitiICG(path);

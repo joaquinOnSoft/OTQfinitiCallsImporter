@@ -10,7 +10,7 @@ public class AbstractFillerTest {
 	protected String getFilePath() {
 		return "client-o/file_example_WAV_1MG.wav";
 	}
-	
+
 	@Before
 	public void runBeforeTestMethod() {
 		ClassLoader classLoader = getClass().getClassLoader();

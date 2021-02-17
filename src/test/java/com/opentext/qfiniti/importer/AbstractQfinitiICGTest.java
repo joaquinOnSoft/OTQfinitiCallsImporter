@@ -17,21 +17,21 @@ public abstract class AbstractQfinitiICGTest {
 	protected String folderPath;
 	protected String jsonConfigPath;
 	protected String outputFileName;
-	
+
 	public abstract AbstractQfinitiICG getQfinitiICG(String path);
-	
+
 	@Test
 	public void testGenerate() {
 		List<CallRecording> recordings = null;
-		
+
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource(folderPath).getFile());
 		String path = file.getAbsolutePath();
-		
+
 		File jsonFile = new File(classLoader.getResource(jsonConfigPath).getFile());
 		JSonConfigReader jsonConfigReader = new JSonConfigReader();
 		MappingConfig mapping = jsonConfigReader.read(jsonFile);
-				
+
 		AbstractQfinitiICG configGenerator = getQfinitiICG(path);
 		configGenerator.setOutput(outputFileName);
 		configGenerator.setMappingConfig(mapping);
@@ -42,7 +42,7 @@ public abstract class AbstractQfinitiICGTest {
 		} catch (InvalidFormatException e) {
 			fail(e.getMessage());
 		}
-		
+
 		assertNotNull(recordings);
 	}
 

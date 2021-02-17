@@ -24,9 +24,10 @@ import com.opentext.qfiniti.importer.io.IReader;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
  * @author Joaquín Garzón
  */
-public class XlsQfinitiICG extends AbstractFileQfinitiICG{
+public class XlsQfinitiICG extends AbstractFileQfinitiICG {
 
 	public XlsQfinitiICG(String path) {
 		super(path, ".xls");
@@ -36,5 +37,5 @@ public class XlsQfinitiICG extends AbstractFileQfinitiICG{
 	protected IReader getReader() {
 		// TODO Auto-generated method stub
 		return new ExcelReader();
-	}	
+	}
 }

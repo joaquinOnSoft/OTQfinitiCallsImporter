@@ -39,6 +39,7 @@ import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
  * @author Joaquín Garzón
  */
 public abstract class AbstractQfinitiICG {
@@ -57,7 +58,7 @@ public abstract class AbstractQfinitiICG {
 		this.path = path;
 		this.extension = extension;
 	}
-	
+
 	public String getPath() {
 		return path;
 	}
@@ -74,7 +75,6 @@ public abstract class AbstractQfinitiICG {
 		this.output = output;
 	}
 
-	
 	public MappingConfig getMappingConfig() {
 		return mappingConfig;
 	}
@@ -83,18 +83,17 @@ public abstract class AbstractQfinitiICG {
 		this.mappingConfig = mappingConfig;
 	}
 
-	public List<CallRecording> generate() 
-			throws IOException, InvalidFormatException {
+	public List<CallRecording> generate() throws IOException, InvalidFormatException {
 
 		Map<String, CallRecording> recordings = new HashMap<String, CallRecording>();
 		List<CallRecording> calls = null;
 
 		recordings = generate(path, new HashMap<String, CallRecording>());
 
-		if(recordings != null && recordings.size() > 0) { 
+		if (recordings != null && recordings.size() > 0) {
 			calls = new LinkedList<CallRecording>(recordings.values());
-			
-			if(calls != null && calls.size() > 0) {
+
+			if (calls != null && calls.size() > 0) {
 				ExcelWriter writter = new ExcelWriter();
 				writter.write(mappingConfig.getColumnNames(), calls, output);
 			}
@@ -103,41 +102,42 @@ public abstract class AbstractQfinitiICG {
 		return calls;
 	}
 
-	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings){
-		//Read data files (.xls or .csv)
+	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
+		// Read data files (.xls or .csv)
 		recordings = readDataFiles(path, recordings);
-		
-		//Read audio files (.wav)
+
+		// Read audio files (.wav)
 		recordings = readWafFiles(path, recordings);
-		
-		//Find sub-folders
+
+		// Find sub-folders
 		recordings = findSubfolders(path, recordings);
-		
+
 		return recordings;
 	}
-	
+
 	/**
 	 * Read Excel files
+	 * 
 	 * @param path
 	 * @param recordings
 	 * @return
 	 */
 	protected abstract Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings);
-	
+
 	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
 		WavFilter wavfilter = new WavFilter();
 
-		//Read audio files (.wav)
+		// Read audio files (.wav)
 		File wavFiles[] = wavfilter.finder(path);
-		if(wavFiles != null && wavFiles.length >0) {
+		if (wavFiles != null && wavFiles.length > 0) {
 
 			CallRecording call = null;
 			for (File file : wavFiles) {
 				log.info(file.getPath());
-				
+
 				call = recordings.get(file.getName());
-				
-				if(call != null) {
+
+				if (call != null) {
 					try {
 						call.setPathName(file.getParentFile().getCanonicalPath());
 						recordings.put(call.getFileName(), call);
@@ -145,30 +145,31 @@ public abstract class AbstractQfinitiICG {
 						log.error(path + " --^-- " + e.getMessage());
 					}
 				}
-			}			
+			}
 		}
-		
-		return recordings;	
+
+		return recordings;
 	}
-	
+
 	/**
 	 * Find sub-folders
+	 * 
 	 * @param path
 	 * @param recordings
 	 * @return
 	 */
-	protected Map<String, CallRecording> findSubfolders(String path, Map<String, CallRecording> recordings){
+	protected Map<String, CallRecording> findSubfolders(String path, Map<String, CallRecording> recordings) {
 		FolderFilter folderfilter = new FolderFilter();
 
 		File folders[] = folderfilter.finder(path);
-		if(folders != null && folders.length >0) {
+		if (folders != null && folders.length > 0) {
 
 			for (File folder : folders) {
 				log.debug(folder.getPath());
 				recordings = generate(folder.getPath(), recordings);
-			}			
+			}
 		}
-		
+
 		return recordings;
 	}
 }

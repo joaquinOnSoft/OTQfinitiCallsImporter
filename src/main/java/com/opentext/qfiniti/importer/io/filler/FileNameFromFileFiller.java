@@ -11,13 +11,13 @@ public class FileNameFromFileFiller extends AbstractFiller {
 	public FileNameFromFileFiller(String path, String fileName) {
 		super(path, fileName);
 	}
-	
+
 	public FileNameFromFileFiller(String filePath) {
 		super(filePath);
-	}		
-	
+	}
+
 	@Override
 	public String getValue() {
-		return file == null? "" : file.getName();
+		return file == null ? "" : file.getName();
 	}
 }

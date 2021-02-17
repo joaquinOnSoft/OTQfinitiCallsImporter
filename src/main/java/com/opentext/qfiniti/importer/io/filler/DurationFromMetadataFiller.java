@@ -28,28 +28,28 @@ public class DurationFromMetadataFiller extends AbstractFiller {
 
 	@Override
 	public String getValue() {
-		String duration = getDuration(new JaudiotaggerMetadataExtractor());		
+		String duration = getDuration(new JaudiotaggerMetadataExtractor());
 		if (duration == null) {
 			duration = getDuration(new TikaMetadataExtractor());
-		} 
+		}
 
 		return duration;
 	}
-	
+
 	private String getDuration(IMetadataCreator extractor) {
 		Map<String, String> metadata = null;
 		String duration = null;
-		
+
 		try {
 			metadata = extractor.extract(file);
 		} catch (IOException e) {
 			log.warn(e.getMessage());
 		}
-		
+
 		if (metadata != null) {
 			duration = metadata.get(IMetadataCreator.DURATION);
 		}
-		
+
 		return duration;
 	}
 

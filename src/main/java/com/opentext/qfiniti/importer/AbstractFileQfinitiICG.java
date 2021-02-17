@@ -29,6 +29,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
  * @author Joaquín Garzón
  */
 public abstract class AbstractFileQfinitiICG extends AbstractQfinitiICG {
@@ -38,36 +39,37 @@ public abstract class AbstractFileQfinitiICG extends AbstractQfinitiICG {
 	}
 
 	protected abstract IReader getReader();
-	
+
 	/**
 	 * Read Excel files
+	 * 
 	 * @param path
 	 * @param recordings
 	 * @return
 	 */
-	protected Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings){
-		if(extension != null) {
+	protected Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings) {
+		if (extension != null) {
 			FileFilter fFilter = new FileFilter();
 
 			File metadataFiles[] = fFilter.finder(path, extension);
-			if(metadataFiles != null && metadataFiles.length >0) {
+			if (metadataFiles != null && metadataFiles.length > 0) {
 				IReader reader = getReader();
 				for (File file : metadataFiles) {
 					List<CallRecording> tmpRecordings = reader.read(file.getAbsolutePath(), mappingConfig);
 					recordings = dumpListToMap(recordings, tmpRecordings);
-				}			
-			}					
+				}
+			}
 		}
-		
+
 		return recordings;
 	}
-	
-	private Map<String, CallRecording> dumpListToMap(Map<String, CallRecording> map, List<CallRecording> list){
+
+	private Map<String, CallRecording> dumpListToMap(Map<String, CallRecording> map, List<CallRecording> list) {
 		for (CallRecording callRecording : list) {
 			map.put(callRecording.getFileName(), callRecording);
 		}
 
 		return map;
-	}	
+	}
 
 }

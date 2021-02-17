@@ -13,18 +13,17 @@ import com.opentext.qfiniti.importer.pojo.FieldMapping;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 public class JSonConfigReaderTest {
-	
-	
+
 	@Test
 	public void readFromFile() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("client-i/client-i-mapping.json").getFile());
-		
+
 		JSonConfigReader configReader = new JSonConfigReader();
 		MappingConfig config = configReader.read(file);
 		assertNotNull(config);
 		assertEquals("xls", config.getInputType());
-		
+
 		List<FieldMapping> fielMapping = config.getFieldMapping();
 		assertNotNull(fielMapping);
 		assertTrue(fielMapping.size() > 0);

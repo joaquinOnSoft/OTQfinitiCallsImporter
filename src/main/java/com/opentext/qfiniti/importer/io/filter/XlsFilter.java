@@ -22,17 +22,18 @@ package com.opentext.qfiniti.importer.io.filter;
 import java.io.File;
 
 /**
- * Find .xls files in specified folder [closed]
- * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
- * */
-public class XlsFilter extends FileFilter{
+ * Find .xls files in specified folder [closed] SEE:
+ * https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
+ */
+public class XlsFilter extends FileFilter {
 
 	/**
 	 * Find .xls files in specified folder
+	 * 
 	 * @param dirName - folder name
 	 * @return list of .xls files contained in a given folder
 	 */
-	public File[] finder( String dirName){
+	public File[] finder(String dirName) {
 		return finder(dirName, ".xls");
 	}
 }

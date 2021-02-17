@@ -11,7 +11,7 @@ public class TeamMemberFillerTest extends AbstractFillerTest {
 	public void testGetValue() {
 		TeamMemberFiller filler = new TeamMemberFiller(file);
 		String value = filler.getValue();
-		
+
 		assertNotNull(value);
 		assertTrue(value.contains(","));
 	}

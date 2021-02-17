@@ -24,17 +24,18 @@ import com.opentext.qfiniti.importer.io.IReader;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
  * @author Joaquín Garzón
  */
-public class CsvQfinitiICG extends AbstractFileQfinitiICG{
+public class CsvQfinitiICG extends AbstractFileQfinitiICG {
 
 	public CsvQfinitiICG(String path) {
 		super(path, ".csv");
 	}
-	
+
 	@Override
 	protected IReader getReader() {
 		// TODO Auto-generated method stub
 		return new CsvReader();
-	}	
+	}
 }

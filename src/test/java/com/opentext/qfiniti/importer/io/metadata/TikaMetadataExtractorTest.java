@@ -32,18 +32,18 @@ public class TikaMetadataExtractorTest extends AbstractMetadataExtractorTest {
 
 	@Test
 	public void testExtract() {
-		
+
 		assertNotNull(file);
-		
+
 		TikaMetadataExtractor extractor = new TikaMetadataExtractor();
 		Map<String, String> metadata = null;
-		
+
 		try {
 			metadata = extractor.extract(file);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		}
-		
+
 		System.out.println("--------------------------");
 		System.out.println(metadata);
 		System.out.println("--------------------------");

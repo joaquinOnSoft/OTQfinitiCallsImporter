@@ -32,20 +32,20 @@ public class FolderFilterTest {
 
 	@Test
 	public void testFinder() {
-			
+
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource(SAMPLES_FOLDER).getFile());
-		
+
 		assertNotNull(file);
-		
+
 		String path = file.getAbsolutePath();
 		System.out.println(path);
-		
+
 		assertNotNull(path);
-		
+
 		FolderFilter filter = new FolderFilter();
 		File[] files = filter.finder(path);
-		
+
 		assertNotNull(files);
 		assertEquals(2, files.length);
 		assertEquals("20191021", files[0].getName());

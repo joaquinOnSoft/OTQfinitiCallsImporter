@@ -31,25 +31,25 @@ public class WavFilterTest {
 
 	@Test
 	public void testFinder() {
-			
+
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("client-o/file_example_WAV_1MG.wav").getFile());
-		
+
 		assertNotNull(file);
-		
+
 		String path = file.getParentFile().getAbsolutePath();
-		
+
 		assertNotNull(path);
-		
+
 		WavFilter filter = new WavFilter();
 		File[] files = filter.finder(path);
-		
+
 		assertNotNull(files);
 		assertTrue(files.length > 0);
 		assertEquals("0001.wav", files[0].getName());
 		assertEquals("0002.wav", files[1].getName());
 		assertEquals("0003.wav", files[2].getName());
-		
+
 		assertEquals("file_example_WAV_1MG.wav", files[45].getName());
 		assertEquals("file_example_WAV_2MG.wav", files[46].getName());
 		assertEquals("file_example_WAV_5MG.wav", files[47].getName());

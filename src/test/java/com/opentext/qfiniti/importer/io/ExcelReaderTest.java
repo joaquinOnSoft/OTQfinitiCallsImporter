@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.importer.io;
 
-public class ExcelReaderTest extends AbstractReaderTest{
+public class ExcelReaderTest extends AbstractReaderTest {
 
 	@Override
 	public void initialize() {

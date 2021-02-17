@@ -7,14 +7,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class LocalPartyName2TeamMemberNameTransformerTest {
-	
+
 	private LocalPartyName2TeamMemberNameTransformer transformer;
-	
+
 	@Before
 	public void runBeforeTestMethod() {
 		transformer = new LocalPartyName2TeamMemberNameTransformer();
 	}
-	
+
 	@Test
 	public void transformOneFamilyName() {
 		String teamMemberName = transformer.transform("IVAN GARCIA");
@@ -33,21 +33,20 @@ public class LocalPartyName2TeamMemberNameTransformerTest {
 	public void transformTwoFirstNames() {
 		String teamMemberName = transformer.transform("MARIA FERNANDA GOMEZ GOMEZ");
 		assertNotNull(teamMemberName);
-		assertEquals("GOMEZ GOMEZ, MARIA FERNANDA", teamMemberName);		
+		assertEquals("GOMEZ GOMEZ, MARIA FERNANDA", teamMemberName);
 	}
 
-	
 	@Test
 	public void transformNullName() {
 		String teamMemberName = transformer.transform(null);
 		assertNotNull(teamMemberName);
-		assertEquals("Doe, John", teamMemberName);		
+		assertEquals("Doe, John", teamMemberName);
 	}
-	
+
 	@Test
 	public void transformEmptyString() {
 		String teamMemberName = transformer.transform("");
 		assertNotNull(teamMemberName);
-		assertEquals("Doe, John", teamMemberName);		
-	}	
+		assertEquals("Doe, John", teamMemberName);
+	}
 }

@@ -21,7 +21,7 @@ package com.opentext.qfiniti.importer;
 
 import org.junit.Before;
 
-public class XlsQfinitiICGTest extends AbstractQfinitiICGTest{
+public class XlsQfinitiICGTest extends AbstractQfinitiICGTest {
 
 	@Before
 	public void initilize() {
@@ -29,7 +29,7 @@ public class XlsQfinitiICGTest extends AbstractQfinitiICGTest{
 		jsonConfigPath = "client-i/client-i-mapping.json";
 		outputFileName = "calls-client-i.xls";
 	}
-	
+
 	@Override
 	public AbstractQfinitiICG getQfinitiICG(String path) {
 		return new XlsQfinitiICG(path);

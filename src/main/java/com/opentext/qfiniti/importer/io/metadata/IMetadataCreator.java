@@ -37,11 +37,11 @@ public interface IMetadataCreator {
 
 	final String DURATION = "duration";
 	final String ARTIST = "artist";
-	final String TITLE = "title";	
-	
+	final String TITLE = "title";
+
 	/**
 	 * 
-	 * @param audio Audio file 
+	 * @param audio Audio file
 	 * @return Map with a list of available metadata
 	 * @throws IOException If there is some problem accessing the file
 	 */

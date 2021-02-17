@@ -12,7 +12,7 @@ public class DnisFillerTest extends AbstractFillerTest {
 	public void testGetValue() {
 		DnisFiller filler = new DnisFiller(file);
 		String value = filler.getValue();
-		
+
 		assertNotNull(value);
 		assertEquals(4, value.length());
 		int iValue = Integer.parseInt(value);

@@ -10,19 +10,20 @@ import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
 import com.opentext.qfiniti.importer.io.transformer.ITransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
-public class ImportUtils implements IConfigGeneratorHeader{
+public class ImportUtils implements IConfigGeneratorHeader {
 	private static final Logger log = LogManager.getLogger(ImportUtils.class);
 
 	/**
 	 * Assigns a value in a field based on the field Name
-	 * @param call - Call recording object
+	 * 
+	 * @param call      - Call recording object
 	 * @param fieldName - Field name
-	 * @param value - Value to set in the field
+	 * @param value     - Value to set in the field
 	 * @return Call recording object with the field populated
 	 */
 	public static CallRecording setFieldValueByFieldName(CallRecording call, String fieldName, String value) {
 		switch (fieldName) {
-		case HEADER_PATH_NAME:	
+		case HEADER_PATH_NAME:
 			call.setPathName(value);
 			break;
 		case HEADER_DATE_TIME:
@@ -43,17 +44,16 @@ public class ImportUtils implements IConfigGeneratorHeader{
 		case HEADER_ANI:
 			call.setAni(value);
 			break;
-		case HEADER_FILE_NAME :
+		case HEADER_FILE_NAME:
 			call.setFileName(value);
 			break;
 		}
-		
+
 		return call;
 	}
 
-
 	public static String applyTransformer(String transformerName, String value) {
-		if(transformerName != null) {
+		if (transformerName != null) {
 			try {
 				Class<?> tClass = Class.forName(transformerName);
 				ITransformer itransformer = (ITransformer) tClass.getDeclaredConstructor().newInstance();
@@ -80,11 +80,12 @@ public class ImportUtils implements IConfigGeneratorHeader{
 
 	public static String applyFiller(String fillerName, String callFullPath) {
 		String value = null;
-		
-		if(fillerName != null) {
+
+		if (fillerName != null) {
 			try {
 				Class<?> tClass = Class.forName(fillerName);
-				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(String.class).newInstance(callFullPath);
+				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(String.class)
+						.newInstance(callFullPath);
 				value = ifiller.getValue();
 			} catch (ClassNotFoundException e) {
 				log.error("Filler class not found: " + e.getLocalizedMessage());

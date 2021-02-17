@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 public class InteractionIdKey2FileNameTransformerTest {
-	
+
 	@Test
 	public void transform() {
 		InteractionIdKey2FileNameTransformer transformer = new InteractionIdKey2FileNameTransformer();

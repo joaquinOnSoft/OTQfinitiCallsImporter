@@ -21,7 +21,7 @@ package com.opentext.qfiniti.importer;
 
 import org.junit.Before;
 
-public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest{
+public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest {
 
 	@Before
 	public void initilize() {
@@ -29,9 +29,9 @@ public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest{
 		jsonConfigPath = "client-o/client-o-mapping.json";
 		outputFileName = "calls-client-o.xls";
 	}
-	
+
 	@Override
 	public AbstractQfinitiICG getQfinitiICG(String path) {
 		return new NoMetadataQfinitiICG(path);
-	}	
+	}
 }

@@ -83,32 +83,30 @@ public class ImporterConfigGenerator {
 		}
 
 		String jsonConfig = cmd.getOptionValue("config");
-		if(jsonConfig != null) {
+		if (jsonConfig != null) {
 			File jsonConfigFile = new File(jsonConfig);
 			MappingConfig mapping = null;
 			if (jsonConfigFile.exists()) {
 				JSonConfigReader jsonConfigReader = new JSonConfigReader();
 				mapping = jsonConfigReader.read(jsonConfigFile);
-			}
-			else {
+			} else {
 				log.info("Config file " + jsonConfig + " doesn't exists");
 			}
-			
-			if(mapping != null) {
+
+			if (mapping != null) {
 				QfinitiICGFactory factory = new QfinitiICGFactory();
-				AbstractQfinitiICG configGenerator =factory.getConfigGenerator(mapping.getInputType(), path);
+				AbstractQfinitiICG configGenerator = factory.getConfigGenerator(mapping.getInputType(), path);
 				configGenerator.setOutput(output);
 				configGenerator.setMappingConfig(mapping);
-	
+
 				try {
 					configGenerator.generate();
 				} catch (IOException e) {
 					log.error("Error accessing : " + e.getMessage());
 				} catch (InvalidFormatException e) {
 					log.error("Invalid metadata value: " + e.getMessage());
-				}			
-			}
-			else {
+				}
+			} else {
 				log.info("No config file available. Skipping excel generation");
 			}
 		}

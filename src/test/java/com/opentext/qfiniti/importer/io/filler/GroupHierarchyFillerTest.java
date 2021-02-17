@@ -11,7 +11,7 @@ public class GroupHierarchyFillerTest extends AbstractFillerTest {
 	public void testGetValue() {
 		GroupHierarchyFiller filler = new GroupHierarchyFiller(file);
 		String value = filler.getValue();
-		
+
 		assertNotNull(value);
 		assertEquals("Client-i", value);
 	}

@@ -1,7 +1,6 @@
 package com.opentext.qfiniti.importer.io;
 
-
-public class CsvReaderTest extends AbstractReaderTest{
+public class CsvReaderTest extends AbstractReaderTest {
 
 	@Override
 	public void initialize() {

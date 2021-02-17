@@ -36,36 +36,29 @@ import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
 
 /**
- * Jaudiotagger is the Audio Tagging library used for tagging data in Audio files. 
- * It currently fully supports Mp3, Mp4 (Mp4 audio, M4a and M4p audio) Ogg Vorbis, 
- * Flac and Wma, there is limited support for Wav and Real formats.
+ * Jaudiotagger is the Audio Tagging library used for tagging data in Audio
+ * files. It currently fully supports Mp3, Mp4 (Mp4 audio, M4a and M4p audio)
+ * Ogg Vorbis, Flac and Wma, there is limited support for Wav and Real formats.
  * 
- * SEE: https://bitbucket.org/ijabz/jaudiotagger/src/master/
- * SEE: https://bitbucket.org/ijabz/jaudiotagger/src/65dcd55dfedee64a93890f114ddba9e025ec2095/srctest/org/jaudiotagger/tag/wav/WavMetadataTest.java#WavMetadataTest.java-35
+ * SEE: https://bitbucket.org/ijabz/jaudiotagger/src/master/ SEE:
+ * https://bitbucket.org/ijabz/jaudiotagger/src/65dcd55dfedee64a93890f114ddba9e025ec2095/srctest/org/jaudiotagger/tag/wav/WavMetadataTest.java#WavMetadataTest.java-35
  * 
  * @author Joaquín Garzón
  */
 public class JaudiotaggerMetadataExtractor implements IMetadataCreator {
 
 	private static final Logger log = LogManager.getLogger(JaudiotaggerMetadataExtractor.class);
-	
+
 	/**
 	 * 
 	 * @param audio
-	 * @return
-	 * Example of metadata provided:
-	 *    Encoding infos content:
-	 *      SAMPLING : 8000
-	 *      LENGTH : 33.536938
-	 *      VBR : false
-	 *      CHANNB : 2
-	 *      INFOS : 
-	 *      TYPE : WAV-RIFF 16 bits
-	 *      BITRATE : 256
+	 * @return Example of metadata provided: Encoding infos content: SAMPLING : 8000
+	 *         LENGTH : 33.536938 VBR : false CHANNB : 2 INFOS : TYPE : WAV-RIFF 16
+	 *         bits BITRATE : 256
 	 * @throws IOException
 	 */
 	@Override
-	public Map <String, String> extract(File audio) throws IOException{
+	public Map<String, String> extract(File audio) throws IOException {
 		AudioFile f;
 		try {
 			f = AudioFileIO.read(audio);
@@ -80,13 +73,13 @@ public class JaudiotaggerMetadataExtractor implements IMetadataCreator {
 
 		metadata.put(TITLE, tag.getFirst(FieldKey.TITLE));
 		metadata.put(ARTIST, tag.getFirst(FieldKey.ARTIST));
-		metadata.put(DURATION, Integer.toString( f.getAudioHeader().getTrackLength() ) ); // In seconds
-		metadata.put(SAMPLE_RATE, f.getAudioHeader().getSampleRate() ); 
-		metadata.put(BITS, f.getAudioHeader().getBitRate() ); 
-		metadata.put(CHANNELS, f.getAudioHeader().getChannels() ); 
+		metadata.put(DURATION, Integer.toString(f.getAudioHeader().getTrackLength())); // In seconds
+		metadata.put(SAMPLE_RATE, f.getAudioHeader().getSampleRate());
+		metadata.put(BITS, f.getAudioHeader().getBitRate());
+		metadata.put(CHANNELS, f.getAudioHeader().getChannels());
 
-		//System.out.println(metadata);
-		
-		return metadata;		       
+		// System.out.println(metadata);
+
+		return metadata;
 	}
 }

@@ -33,24 +33,24 @@ public class JaudiotaggerMetadataExtractorTest extends AbstractMetadataExtractor
 	@Test
 	public void testExtract() {
 		assertNotNull(file);
-		
+
 		Map<String, String> metadata = null;
 		IMetadataCreator extractor = new JaudiotaggerMetadataExtractor();
-		
+
 		try {
 			metadata = extractor.extract(file);
 		} catch (IOException e) {
 			fail(e.getMessage());
 		}
-		
+
 		assertNotNull(metadata);
 		assertEquals("", metadata.get(IMetadataCreator.TITLE));
 		assertEquals("", metadata.get(IMetadataCreator.ARTIST));
 		assertEquals("33", metadata.get(IMetadataCreator.DURATION));
 		assertEquals("8000", metadata.get(IMetadataCreator.SAMPLE_RATE));
-		assertEquals("256", metadata.get(IMetadataCreator.BITS));		
-		assertEquals("2", metadata.get(IMetadataCreator.CHANNELS));		
-		
+		assertEquals("256", metadata.get(IMetadataCreator.BITS));
+		assertEquals("2", metadata.get(IMetadataCreator.CHANNELS));
+
 	}
 
 }

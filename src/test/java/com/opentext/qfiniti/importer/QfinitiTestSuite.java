@@ -46,45 +46,29 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-	//com.opentext.qfiniti
-	CsvQfinitiICGTest.class,
-	JSonConfigReaderTest.class,
-	NoMetadataQfinitiICGTest.class,
-	QfinitiICGFactoryTest.class,
-	XlsQfinitiICGTest.class,
+		// com.opentext.qfiniti
+		CsvQfinitiICGTest.class, JSonConfigReaderTest.class, NoMetadataQfinitiICGTest.class,
+		QfinitiICGFactoryTest.class, XlsQfinitiICGTest.class,
 
-	//com.opentext.qfiniti.importer.io.filler
-	AniFillerTest.class,
-	DateFromFileFillerTest.class,
-	DnisFillerTest.class,
-	DurationFromMetadataFillerTest.class,
-	GroupHierarchyFillerTest.class,
-	TeamMemberFillerTest.class,
+		// com.opentext.qfiniti.importer.io.filler
+		AniFillerTest.class, DateFromFileFillerTest.class, DnisFillerTest.class, DurationFromMetadataFillerTest.class,
+		GroupHierarchyFillerTest.class, TeamMemberFillerTest.class,
 
-	//com.opentext.qfiniti.importer.io.
-	CsvReaderTest.class,
-	ExcelReaderTest.class,
-	ExcelWriterTest.class,	
-	
-	//com.opentext.qfiniti.importer.io.filter
-	CsvFilterTest.class,
-	FolderFilterTest.class,
-	WavFilterTest.class,
-	XlsFilterTest.class,
+		// com.opentext.qfiniti.importer.io.
+		CsvReaderTest.class, ExcelReaderTest.class, ExcelWriterTest.class,
 
-	//com.opentext.qfiniti.importer.io.metadata
-	JaudiotaggerMetadataExtractorTest.class,
-	TikaMetadataExtractorTest.class,
+		// com.opentext.qfiniti.importer.io.filter
+		CsvFilterTest.class, FolderFilterTest.class, WavFilterTest.class, XlsFilterTest.class,
 
-	//com.opentext.qfiniti.importer.io.transformer
-	DateMMddyyyyhhmmssaTransformerTest.class,
-	HoursMinutesSecondsToSecondsTransformerTest.class,
-	InteractionIdKey2FileNameTransformerTest.class,
-	LocalPartyName2TeamMemberNameTransformerTest.class,
-	
-	//com.opentext.qfiniti.importer.io.pojo
-	CallRecordingTest.class	
-})
+		// com.opentext.qfiniti.importer.io.metadata
+		JaudiotaggerMetadataExtractorTest.class, TikaMetadataExtractorTest.class,
+
+		// com.opentext.qfiniti.importer.io.transformer
+		DateMMddyyyyhhmmssaTransformerTest.class, HoursMinutesSecondsToSecondsTransformerTest.class,
+		InteractionIdKey2FileNameTransformerTest.class, LocalPartyName2TeamMemberNameTransformerTest.class,
+
+		// com.opentext.qfiniti.importer.io.pojo
+		CallRecordingTest.class })
 
 public class QfinitiTestSuite {
 

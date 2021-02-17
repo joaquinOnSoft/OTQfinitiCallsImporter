@@ -46,14 +46,13 @@ public class DateUtil {
 
 	public static String dateToQfinitiFormat(Date d) {
 		return dateToFormat(d, "dd/MM/yyyy HH:mm:ss");
-	}	
-	
+	}
+
 	public static String dateToFormat(Date d, String format) {
 		DateFormat dateFormat = new SimpleDateFormat(format);
 		return dateFormat.format(d);
 	}
-	
-	
+
 	/**
 	 * Generate a Date object from a string in UTC format
 	 * 

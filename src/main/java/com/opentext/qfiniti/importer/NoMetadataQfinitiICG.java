@@ -29,14 +29,15 @@ import com.opentext.qfiniti.importer.util.ImportUtils;
 
 /**
  * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
  * @author Joaquín Garzón
  */
-public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
+public class NoMetadataQfinitiICG extends AbstractQfinitiICG {
 
 	public NoMetadataQfinitiICG(String path) {
 		super(path);
 	}
-	
+
 	@Override
 	protected Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings) {
 		// Intentionally doing nothing
@@ -46,38 +47,36 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG{
 	@Override
 	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
 		WavFilter wavfilter = new WavFilter();
-		
-		//Read audio files (.wav)
+
+		// Read audio files (.wav)
 		File wavFiles[] = wavfilter.finder(path);
-		if(wavFiles != null && wavFiles.length >0) {
+		if (wavFiles != null && wavFiles.length > 0) {
 
 			CallRecording call = null;
 			for (File file : wavFiles) {
 				log.info(file.getPath());
-				
+
 				// Initialize call recording with path and file name
 				call = new CallRecording(path, file.getName(), 0);
-				
-				// Add field generated automatically with a 
+
+				// Add field generated automatically with a
 				// 'filler' or a default value
-				for(FieldFiller filler: mappingConfig.getFieldFiller()){
+				for (FieldFiller filler : mappingConfig.getFieldFiller()) {
 					String value = filler.getOvalue();
-					
-					if(filler.getFiller() != null) {
+
+					if (filler.getFiller() != null) {
 						String callFullPath = call.getPathName() + File.separator + call.getFileName();
 						value = ImportUtils.applyFiller(filler.getFiller(), callFullPath);
 					}
-					
+
 					call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);
 				}
 
 				recordings.put(call.getFileName(), call);
-			}			
-		}	
+			}
+		}
 
 		return recordings;
 	}
-	
-	
-	
+
 }

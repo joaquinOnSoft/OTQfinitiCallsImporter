@@ -10,7 +10,8 @@ public class FileNameFromFileFillerTest extends AbstractFillerTest {
 	public void testGetValue() {
 		FileNameFromFileFiller filler = new FileNameFromFileFiller(file);
 		String value = filler.getValue();
-		
+
 		assertNotNull(value);
 		assertEquals("file_example_WAV_1MG.wav", value);
-	}}
+	}
+}
