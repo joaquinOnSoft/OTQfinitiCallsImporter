@@ -76,7 +76,7 @@ usage: javac -jar OTQfinitiCallsImporter-20.4.jar
 ### Example of invocation
 
 ```
-$ java -jar OTQfinitiCallsImporter-20.4.jar -c client_i_mapping.json -o call_recordinds.xls
+$ java -jar OTQfinitiCallsImporter-21.1.jar -c client_i_mapping.json -o call_recordinds.xls
 ```
 
 ### Output
