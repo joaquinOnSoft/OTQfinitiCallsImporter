@@ -19,8 +19,10 @@
  */
 package com.opentext.qfiniti.importer.pojo;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -105,10 +107,16 @@ public class CallRecording implements IConfigGeneratorHeader {
 	}
 
 	public void setDuration(String duration) throws NumberFormatException {
-		try {
-			this.duration = Integer.parseInt(duration);
-		} catch (NumberFormatException e) {
-			throw new NumberFormatException("Invalid recording duration (in seconds): '" + duration + "'");
+		if (duration == null) {
+			log.warn("Invalud duration (null). Setting 0 sec as default");
+			this.duration = 0;
+		}
+		else {
+			try {
+				this.duration = Integer.parseInt(duration);
+			} catch (NumberFormatException e) {
+				throw new NumberFormatException("Invalid recording duration (in seconds): '" + duration + "'");
+			}
 		}
 	}
 
@@ -142,6 +150,12 @@ public class CallRecording implements IConfigGeneratorHeader {
 	 * @param dateTime in format "dd/MM/yyyy HH:mm:ss"
 	 */
 	public void setDateTime(String strDate) {
+		if (strDate == null) {
+			log.warn("Invalud date/time (null). Setting now as default");
+			SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+			strDate = sdf.format(new Date());
+		}
+		
 		try {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
 			this.dateTime = LocalDateTime.parse(strDate, formatter);
