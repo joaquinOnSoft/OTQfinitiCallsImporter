@@ -34,7 +34,10 @@ public class JavaMetadataExtractor implements IMetadataCreator {
 			metadata.put(TITLE, "");
 			metadata.put(ARTIST, "");
 			//time = FileLength / (Sample Rate * Channels * Bits per sample /8)
-			double duration = wavHeader.getChunkSize() / (wavHeader.getSampleRate() * wavHeader.getBitsPerSample() * wavHeader.getNumChannels()  / 8); 
+			double duration = 0;
+			if (wavHeader.getSampleRate() != 0 && wavHeader.getBitsPerSample() != 0 &&  wavHeader.getNumChannels() != 0) {
+				duration  = wavHeader.getChunkSize() / (wavHeader.getSampleRate() * wavHeader.getBitsPerSample() * wavHeader.getNumChannels() / 8);
+			}
 			metadata.put(DURATION, Integer.toString((int) duration)); // In seconds
 			metadata.put(SAMPLE_RATE, Integer.toString(wavHeader.getSampleRate()));
 			int bits = wavHeader.getBitsPerSample() * wavHeader.getSubChunk1Size();

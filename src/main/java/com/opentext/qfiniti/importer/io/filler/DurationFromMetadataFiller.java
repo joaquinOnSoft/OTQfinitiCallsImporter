@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.opentext.qfiniti.importer.io.metadata.IMetadataCreator;
 import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractor;
+import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractor;
 
 public class DurationFromMetadataFiller extends AbstractFiller {
@@ -31,6 +32,9 @@ public class DurationFromMetadataFiller extends AbstractFiller {
 		String duration = getDuration(new JaudiotaggerMetadataExtractor());
 		if (duration == null) {
 			duration = getDuration(new TikaMetadataExtractor());
+		} 
+		if (duration == null) {
+			duration = getDuration(new JavaMetadataExtractor());
 		}
 
 		return duration;
