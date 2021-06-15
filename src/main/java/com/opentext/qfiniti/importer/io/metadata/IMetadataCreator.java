@@ -23,6 +23,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public interface IMetadataCreator {
 
 	final String PARSED_BY = "X-Parsed-By";
@@ -39,6 +42,9 @@ public interface IMetadataCreator {
 	final String ARTIST = "artist";
 	final String TITLE = "title";
 
+	static final Logger log = LogManager.getLogger(IMetadataCreator.class);
+
+	
 	/**
 	 * 
 	 * @param audio Audio file

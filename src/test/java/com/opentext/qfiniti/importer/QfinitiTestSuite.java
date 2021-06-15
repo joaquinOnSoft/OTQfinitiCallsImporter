@@ -36,6 +36,7 @@ import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
 import com.opentext.qfiniti.importer.io.filter.XlsFilterTest;
 import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractorTest;
+import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractorTest;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractorTest;
 import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformerTest;
 import com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformerTest;
@@ -61,7 +62,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 		CsvFilterTest.class, FolderFilterTest.class, WavFilterTest.class, XlsFilterTest.class,
 
 		// com.opentext.qfiniti.importer.io.metadata
-		JaudiotaggerMetadataExtractorTest.class, TikaMetadataExtractorTest.class,
+		JaudiotaggerMetadataExtractorTest.class, JavaMetadataExtractorTest.class, TikaMetadataExtractorTest.class,
 
 		// com.opentext.qfiniti.importer.io.transformer
 		DateMMddyyyyhhmmssaTransformerTest.class, HoursMinutesSecondsToSecondsTransformerTest.class,
