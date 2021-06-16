@@ -181,6 +181,9 @@ Transformers are classes that implements the interface **com.opentext.qfiniti.im
 #### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer
 Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
 
+#### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformer
+Transforms a date from 'MM/dd/yyyy HH:mm' to format 'dd/MM/yyyy HH:mm:ss'
+
 #### com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer
 Transforms a duration expressed as hh:mm:ss to a number of seconds
 

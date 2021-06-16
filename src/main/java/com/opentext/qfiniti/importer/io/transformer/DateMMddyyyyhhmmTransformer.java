@@ -40,6 +40,7 @@ public class DateMMddyyyyhhmmTransformer implements ITransformer {
 	 * 
 	 * @param strDate - date expressed in format "MM/dd/yyyy hh:mm"
 	 * @return date in format 'dd/MM/yyyy HH:mm:ss'
+	 * @see https://www.programmersought.com/article/83121948467/
 	 */
 	@Override
 	public String transform(String strDate) {
