@@ -1,0 +1,86 @@
+{
+	"inputType": "csv",
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "\\\\WIN-FH7JGOHVC21\\Recordings\\dolce_vita_50000"
+		},		
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
+		},
+		{
+			"oname": "Date_Time",
+			"filler": "com.opentext.qfiniti.importer.io.filler.DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller"
+		}				
+	],
+	"fieldMapping": [
+		{
+			"iname": "Transaction ID",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Date/Time(Server)",
+			"itype": "String",
+			"mapped": "false"
+		},	
+		{
+			"iname": "Duration (sec)",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "duration",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer"			
+		},		
+		{
+			"iname": "ANI",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "ANI",
+			"otype": "String" 
+		},	
+		{
+			"iname": "Connection ID",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Call Direction",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Transferred Out",
+			"itype": "String",
+			"mapped": "false"
+		},	
+		{
+			"iname": "Num Holds",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Extension",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "HoldTime",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "SG",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Team",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "group_hierarchy",
+			"otype": "String" 
+		}																	
+	]
+}

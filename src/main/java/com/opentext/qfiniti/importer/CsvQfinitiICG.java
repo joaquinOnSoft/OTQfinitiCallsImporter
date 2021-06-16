@@ -35,7 +35,6 @@ public class CsvQfinitiICG extends AbstractFileQfinitiICG {
 
 	@Override
 	protected IReader getReader() {
-		// TODO Auto-generated method stub
 		return new CsvReader();
 	}
 }

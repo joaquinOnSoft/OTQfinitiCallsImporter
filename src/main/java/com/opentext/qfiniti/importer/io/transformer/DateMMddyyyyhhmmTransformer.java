@@ -22,20 +22,22 @@ package com.opentext.qfiniti.importer.io.transformer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class DateMMddyyyyhhmmssaTransformer implements ITransformer  {
+public class DateMMddyyyyhhmmTransformer implements ITransformer {
+	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmTransformer.class);
 
-	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmssaTransformer.class);
-		
-	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A = "MM/dd/yyyy hh:mm:ss a";
+	// Date format example: 04/05/2021 21:54
+	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu hh:mm:ss";
+
 	/**
-	 * Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
+	 * Transforms a date from 'MM/dd/yyyy hh:mm' to format 'dd/MM/yyyy HH:mm:ss'
 	 * 
-	 * @param strDate - date expressed in format 'MM/dd/yyyy hh:mm:ss a'
+	 * @param strDate - date expressed in format "MM/dd/yyyy hh:mm"
 	 * @return date in format 'dd/MM/yyyy HH:mm:ss'
 	 */
 	@Override
@@ -44,20 +46,19 @@ public class DateMMddyyyyhhmmssaTransformer implements ITransformer  {
 
 		if (strDate != null) {
 			try {
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A, Locale.ENGLISH);
-				date = LocalDateTime.parse(strDate, formatter);
-			} 
-			catch (DateTimeParseException  e) {
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM, Locale.ENGLISH)
+						.withResolverStyle(ResolverStyle.STRICT);
+				date = LocalDateTime.parse(strDate+":00", formatter);
+			} catch (DateTimeParseException e) {
 				log.error(e.getLocalizedMessage());
 				return null;
-			} 
-			catch (IllegalArgumentException e) {
+			} catch (IllegalArgumentException e) {
 				log.error(e.getLocalizedMessage());
 				return null;
 			}
 		}
 
 		DateTimeFormatter qfinitiFormatter = DateTimeFormatter.ofPattern(DATE_FORMAT_QFINITI, Locale.ENGLISH);
-		return qfinitiFormatter.format(date);		
+		return qfinitiFormatter.format(date);
 	}
 }

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer;
-
 public class DateMMddyyyyhhmmssaTransformerTest {
 
 	@Test

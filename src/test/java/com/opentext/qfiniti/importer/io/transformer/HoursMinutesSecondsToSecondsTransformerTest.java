@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer;
 
 public class HoursMinutesSecondsToSecondsTransformerTest {
 
