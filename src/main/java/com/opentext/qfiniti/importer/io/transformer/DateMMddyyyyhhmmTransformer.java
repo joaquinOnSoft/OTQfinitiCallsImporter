@@ -21,8 +21,9 @@ package com.opentext.qfiniti.importer.io.transformer;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
-import java.time.format.ResolverStyle;
+import java.time.temporal.ChronoField;
 import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
@@ -32,7 +33,7 @@ public class DateMMddyyyyhhmmTransformer implements ITransformer {
 	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmTransformer.class);
 
 	// Date format example: 04/05/2021 21:54
-	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu hh:mm:ss";
+	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu HH:mm";
 
 	/**
 	 * Transforms a date from 'MM/dd/yyyy hh:mm' to format 'dd/MM/yyyy HH:mm:ss'
@@ -46,9 +47,12 @@ public class DateMMddyyyyhhmmTransformer implements ITransformer {
 
 		if (strDate != null) {
 			try {
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM, Locale.ENGLISH)
-						.withResolverStyle(ResolverStyle.STRICT);
-				date = LocalDateTime.parse(strDate+":00", formatter);
+				DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM)
+			            .parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
+			            .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0)
+			            .parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
+			            .toFormatter();
+				date = LocalDateTime.parse(strDate, formatter);
 			} catch (DateTimeParseException e) {
 				log.error(e.getLocalizedMessage());
 				return null;
