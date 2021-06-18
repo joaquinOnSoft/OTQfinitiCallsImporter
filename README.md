@@ -168,6 +168,9 @@ Recover the duration in seconds from the .wav file
 #### com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller
 Recover the file name from the .wav file
 
+#### com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFiller
+Generate a random Group Hierarchy name that match this pattern: VS-TI-FL-Team<XX>
+
 #### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
 Generate a fix Group Hierarchy name: "Client-i"
 
