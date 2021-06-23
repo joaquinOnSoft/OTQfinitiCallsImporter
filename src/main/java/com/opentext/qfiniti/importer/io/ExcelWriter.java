@@ -76,6 +76,8 @@ public class ExcelWriter {
 		int rowNum = 1;
 		int maxNumCol = columns.length;
 		int col = 0;
+		String columnName = null;
+		
 		for (CallRecording recording : recordings) {
 			Row row = sheet.createRow(rowNum++);
 
@@ -83,7 +85,8 @@ public class ExcelWriter {
 				Cell cell = row.createCell(col);
 
 				String value = null;
-				switch (columns[nCol]) {
+				columnName = columns[nCol];
+				switch (columnName) {
 				case CallRecording.HEADER_PATH_NAME:
 					value = recording.getPathName();
 					break;
@@ -111,7 +114,10 @@ public class ExcelWriter {
 					value = recording.getDnis();
 					break;
 				default:
-					value = "";
+					value = recording.getExtendedField(columnName);
+					if (value == null) { 
+						value = "";
+					}
 				}
 
 				if (value != null) {

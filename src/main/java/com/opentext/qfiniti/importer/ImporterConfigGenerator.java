@@ -109,6 +109,8 @@ public class ImporterConfigGenerator {
 			} else {
 				log.info("No config file available. Skipping excel generation");
 			}
+			
+			log.debug("That's all folks!!!");
 		}
 	}
 }
