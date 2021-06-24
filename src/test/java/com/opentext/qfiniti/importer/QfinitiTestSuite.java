@@ -41,7 +41,7 @@ import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractorTest;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractorTest;
 import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformerTest;
 import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformer;
+import com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformerTest;
 import com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformerTest;
 import com.opentext.qfiniti.importer.io.transformer.InteractionIdKey2FileNameTransformerTest;
 import com.opentext.qfiniti.importer.io.transformer.LocalPartyName2TeamMemberNameTransformerTest;
@@ -68,7 +68,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 		JaudiotaggerMetadataExtractorTest.class, JavaMetadataExtractorTest.class, TikaMetadataExtractorTest.class,
 
 		// com.opentext.qfiniti.importer.io.transformer
-		ExtensionPrefix2FileNameTransformer.class, DateMMddyyyyhhmmssaTransformerTest.class, 
+		ExtensionPrefix2FileNameTransformerTest.class, DateMMddyyyyhhmmssaTransformerTest.class, 
 		DateMMddyyyyhhmmTransformerTest.class, HoursMinutesSecondsToSecondsTransformerTest.class, 
 		InteractionIdKey2FileNameTransformerTest.class, LocalPartyName2TeamMemberNameTransformerTest.class,
 
