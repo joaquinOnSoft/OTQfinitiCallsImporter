@@ -78,13 +78,16 @@ public class ExcelWriter {
 		int col = 0;
 		String columnName = null;
 		
+		Row row = null;
+		Cell cell = null;
+		String value = null;
 		for (CallRecording recording : recordings) {
-			Row row = sheet.createRow(rowNum++);
+			row = sheet.createRow(rowNum++);
 
 			for (int nCol = 0; nCol < maxNumCol; nCol++) {
-				Cell cell = row.createCell(col);
+				cell = row.createCell(col);
 
-				String value = null;
+				value = null;
 				columnName = columns[nCol];
 				switch (columnName) {
 				case CallRecording.HEADER_PATH_NAME:
@@ -93,7 +96,7 @@ public class ExcelWriter {
 				case CallRecording.HEADER_DATE_TIME:
 					cell.setCellValue(recording.getDateTime());
 					cell.setCellStyle(cellStyle);
-
+					value = null; //Avoid value assignment after the "case"	
 					break;
 				case CallRecording.HEADER_TEAM_MEMBER_NAME:
 					value = recording.getTeamMemberName();
@@ -115,15 +118,12 @@ public class ExcelWriter {
 					break;
 				default:
 					value = recording.getExtendedField(columnName);
-
 				}
 
-				if (value == null) { 
-					value = "";
+				if (value != null) { 
+					cell.setCellValue(value);	
 				}				
 				
-				cell.setCellValue(value);
-
 				col++;
 			}
 

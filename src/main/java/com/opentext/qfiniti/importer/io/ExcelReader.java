@@ -47,9 +47,11 @@ public class ExcelReader extends AbstractReader {
 				if (!isFirstRow) {
 					call = new CallRecording();
 
+					String parentFolder = (new File(filePath)).getParent();
+					
 					index = 0;
 					for (Cell cell : row) {
-						call = mapField(call, cell.getStringCellValue(), config.getFieldMapping().get(index), filePath);
+						call = mapField(call, cell.getStringCellValue(), config.getFieldMapping().get(index), parentFolder);
 
 						index++;
 					}

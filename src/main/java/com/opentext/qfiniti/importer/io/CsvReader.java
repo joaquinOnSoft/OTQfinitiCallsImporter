@@ -1,5 +1,6 @@
 package com.opentext.qfiniti.importer.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -45,10 +46,11 @@ public class CsvReader extends AbstractReader {
 				if (!isFirstRow) {
 					call = new CallRecording();
 
+					String parentFolder = (new File(filePath)).getParent();
+					
 					index = 0;
-
 					for (int cell = 0; cell < row.length; cell++) {
-						call = mapField(call, row[cell], config.getFieldMapping().get(index), filePath);
+						call = mapField(call, row[cell], config.getFieldMapping().get(index), parentFolder);
 
 						index++;
 					}

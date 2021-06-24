@@ -16,6 +16,15 @@ public abstract class AbstractReader implements IReader {
 	protected static final Logger log = LogManager.getLogger(AbstractReader.class);
 	protected List<CallRecording> recordings = null;
 
+	/**
+	 * 
+	 * @param call - Call recording information 
+	 * @param value - 
+	 * @param fMapping - Field Mapping information 
+	 * (provides the mapping between the input and the output fields)
+	 * @param path - Path where the call recording is stored
+	 * @return
+	 */
 	protected CallRecording mapField(CallRecording call, String value, FieldMapping fMapping, String path) {
 		if (fMapping.isMapped()) {
 			String transformerName = fMapping.getTransformer();

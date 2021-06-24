@@ -38,7 +38,9 @@ public class ExtensionPrefix2FileNameTransformer extends AbstractTransformer {
 			result = null;
 		}
 		
-		return result != null ? result.get(0).toFile().getName() : null;
+		log.debug("transform(" + prefix +") :" + result);
+		
+		return result != null && result.size() > 0? result.get(0).toFile().getName() : null;
 	}
 
 }
