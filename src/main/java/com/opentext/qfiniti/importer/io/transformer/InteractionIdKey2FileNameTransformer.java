@@ -1,9 +1,14 @@
 package com.opentext.qfiniti.importer.io.transformer;
 
-public class InteractionIdKey2FileNameTransformer implements ITransformer {
+public class InteractionIdKey2FileNameTransformer extends AbstractTransformer {
+
 	private static final String CALL_RECORDING_FILE_PREFIX = "IRCall_";
 	private static final String CALL_RECORDING_FILE_SUFIX = ".wav";
 
+	public InteractionIdKey2FileNameTransformer(String path) {
+		super(path);
+	}
+		
 	/**
 	 * Generates a call recording file name from an id, e.g. from and Id like
 	 * 2001788444D0191021 will generate a file name like:

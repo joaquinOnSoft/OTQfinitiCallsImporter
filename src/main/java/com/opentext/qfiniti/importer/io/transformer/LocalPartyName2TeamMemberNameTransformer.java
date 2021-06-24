@@ -1,9 +1,13 @@
 package com.opentext.qfiniti.importer.io.transformer;
 
-public class LocalPartyName2TeamMemberNameTransformer implements ITransformer {
+public class LocalPartyName2TeamMemberNameTransformer extends AbstractTransformer {
 
 	private static final String DEFAULT_NAME = "Doe, John";
-
+	
+	public LocalPartyName2TeamMemberNameTransformer(String path) {
+		super(path);
+	}
+	
 	/**
 	 * Transforms a team member name from one of these formats:
 	 * 

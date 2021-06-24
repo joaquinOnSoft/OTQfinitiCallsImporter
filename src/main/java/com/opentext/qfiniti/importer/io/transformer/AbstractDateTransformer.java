@@ -5,16 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+public abstract class AbstractDateTransformer extends AbstractTransformer{
 
-public abstract class AbstractDateTransformer implements ITransformer{
-
-	protected static final Logger log = LogManager.getLogger(AbstractDateTransformer.class);
-	protected static final String DATE_FORMAT_QFINITI = "dd/MM/yyyy HH:mm:ss";
-
-	public AbstractDateTransformer() {
-		super();
+	public AbstractDateTransformer(String path) {
+		super(path);
 	}
 
 	/**

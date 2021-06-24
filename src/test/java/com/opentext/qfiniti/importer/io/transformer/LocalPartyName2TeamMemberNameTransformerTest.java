@@ -6,13 +6,14 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LocalPartyName2TeamMemberNameTransformerTest {
+public class LocalPartyName2TeamMemberNameTransformerTest extends AbstractTransformerTest{
 
 	private LocalPartyName2TeamMemberNameTransformer transformer;
 
 	@Before
 	public void runBeforeTestMethod() {
-		transformer = new LocalPartyName2TeamMemberNameTransformer();
+		super.before();
+		transformer = new LocalPartyName2TeamMemberNameTransformer(path);
 	}
 
 	@Test

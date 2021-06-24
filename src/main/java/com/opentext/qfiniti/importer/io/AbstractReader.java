@@ -16,11 +16,11 @@ public abstract class AbstractReader implements IReader {
 	protected static final Logger log = LogManager.getLogger(AbstractReader.class);
 	protected List<CallRecording> recordings = null;
 
-	protected CallRecording mapField(CallRecording call, String value, FieldMapping fMapping) {
+	protected CallRecording mapField(CallRecording call, String value, FieldMapping fMapping, String path) {
 		if (fMapping.isMapped()) {
 			String transformerName = fMapping.getTransformer();
 			if (transformerName != null) {
-				value = ImportUtils.applyTransformer(transformerName, value);
+				value = ImportUtils.applyTransformer(transformerName, value, path);
 			}
 
 			call = ImportUtils.setFieldValueByFieldName(call, fMapping.getOname(), value);

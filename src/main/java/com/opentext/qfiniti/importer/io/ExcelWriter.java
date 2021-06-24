@@ -115,14 +115,14 @@ public class ExcelWriter {
 					break;
 				default:
 					value = recording.getExtendedField(columnName);
-					if (value == null) { 
-						value = "";
-					}
+
 				}
 
-				if (value != null) {
-					cell.setCellValue(value);
-				}
+				if (value == null) { 
+					value = "";
+				}				
+				
+				cell.setCellValue(value);
 
 				col++;
 			}

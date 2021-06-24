@@ -25,8 +25,6 @@ import java.io.File;
 
 import org.junit.Test;
 
-import com.opentext.qfiniti.importer.io.filter.WavFilter;
-
 public class WavFilterTest {
 
 	@Test

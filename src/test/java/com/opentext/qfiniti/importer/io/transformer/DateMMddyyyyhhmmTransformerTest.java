@@ -24,11 +24,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class DateMMddyyyyhhmmTransformerTest {
+public class DateMMddyyyyhhmmTransformerTest extends AbstractTransformerTest{
 
 	@Test
 	public void transform() {
-		DateMMddyyyyhhmmTransformer transformer = new DateMMddyyyyhhmmTransformer();
+		DateMMddyyyyhhmmTransformer transformer = new DateMMddyyyyhhmmTransformer(path);
 
 		String date = transformer.transform("10/21/2019 11:59");
 		assertNotNull(date);

@@ -1,6 +1,6 @@
 package com.opentext.qfiniti.importer.io.transformer;
 
-public class HoursMinutesSecondsToSecondsTransformer implements ITransformer {
+public class HoursMinutesSecondsToSecondsTransformer extends AbstractTransformer {
 
 	private static final int SECONDS_IN_A_MINUTE = 60;
 	private static final int SECONDS_IN_AN_HOUR = 3600;
@@ -9,6 +9,10 @@ public class HoursMinutesSecondsToSecondsTransformer implements ITransformer {
 	public static final int INDEX_MINUTES = 1;
 	public static final int INDEX_SECONDS = 2;
 
+	public HoursMinutesSecondsToSecondsTransformer(String path) {
+		super(path);
+	}	
+	
 	/**
 	 * Transforms a duration expressed as hh:mm:ss to a number of seconds
 	 * 

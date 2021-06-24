@@ -19,19 +19,14 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.Locale;
+public class DateMMddyyyyhhmmssaTransformer extends AbstractDateTransformer  {
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-public class DateMMddyyyyhhmmssaTransformer implements ITransformer  {
-
-	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmssaTransformer.class);
-		
 	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A = "MM/dd/yyyy hh:mm:ss a";
+			
+	public DateMMddyyyyhhmmssaTransformer(String path) {
+		super(path);
+	}
+	
 	/**
 	 * Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
 	 * 
@@ -40,24 +35,7 @@ public class DateMMddyyyyhhmmssaTransformer implements ITransformer  {
 	 */
 	@Override
 	public String transform(String strDate) {
-		LocalDateTime date = null;
-
-		if (strDate != null) {
-			try {
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A, Locale.ENGLISH);
-				date = LocalDateTime.parse(strDate, formatter);
-			} 
-			catch (DateTimeParseException  e) {
-				log.error(e.getLocalizedMessage());
-				return null;
-			} 
-			catch (IllegalArgumentException e) {
-				log.error(e.getLocalizedMessage());
-				return null;
-			}
-		}
-
-		DateTimeFormatter qfinitiFormatter = DateTimeFormatter.ofPattern(DATE_FORMAT_QFINITI, Locale.ENGLISH);
-		return qfinitiFormatter.format(date);		
+		return transform(strDate, DATE_FORMAT_MM_DD_YYYY_HH_MM_SS_A);		
 	}
+	
 }

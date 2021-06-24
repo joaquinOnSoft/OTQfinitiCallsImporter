@@ -5,11 +5,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
-public class HoursMinutesSecondsToSecondsTransformerTest {
+public class HoursMinutesSecondsToSecondsTransformerTest extends AbstractTransformerTest{
 
 	@Test
 	public void transform() {
-		HoursMinutesSecondsToSecondsTransformer adapter = new HoursMinutesSecondsToSecondsTransformer();
+		HoursMinutesSecondsToSecondsTransformer adapter = new HoursMinutesSecondsToSecondsTransformer(path);
 
 		String seconds = adapter.transform("00:10:10");
 		assertEquals("610", seconds);

@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.opentext.qfiniti.importer.IConfigGeneratorHeader;
 import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
-import com.opentext.qfiniti.importer.io.transformer.ITransformer;
+import com.opentext.qfiniti.importer.io.transformer.AbstractTransformer;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 public class ImportUtils implements IConfigGeneratorHeader {
@@ -54,12 +54,12 @@ public class ImportUtils implements IConfigGeneratorHeader {
 		return call;
 	}
 
-	public static String applyTransformer(String transformerName, String value) {
+	public static String applyTransformer(String transformerName, String value, String path) {
 		if (transformerName != null) {
 			try {
 				Class<?> tClass = Class.forName(transformerName);
-				ITransformer itransformer = (ITransformer) tClass.getDeclaredConstructor().newInstance();
-				value = itransformer.transform(value);
+				AbstractTransformer aTransformer = (AbstractTransformer) tClass.getConstructor(String.class).newInstance(path);
+				value = aTransformer.transform(value);
 			} catch (ClassNotFoundException e) {
 				log.error("Transformer class not found: " + e.getLocalizedMessage());
 			} catch (NoSuchMethodException e) {

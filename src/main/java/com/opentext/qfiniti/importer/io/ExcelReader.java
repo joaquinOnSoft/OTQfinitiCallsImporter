@@ -49,7 +49,7 @@ public class ExcelReader extends AbstractReader {
 
 					index = 0;
 					for (Cell cell : row) {
-						call = mapField(call, cell.getStringCellValue(), config.getFieldMapping().get(index));
+						call = mapField(call, cell.getStringCellValue(), config.getFieldMapping().get(index), filePath);
 
 						index++;
 					}

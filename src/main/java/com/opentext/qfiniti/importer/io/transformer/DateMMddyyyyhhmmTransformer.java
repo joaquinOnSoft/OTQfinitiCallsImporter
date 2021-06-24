@@ -26,14 +26,15 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-public class DateMMddyyyyhhmmTransformer implements ITransformer {
-	private static final Logger log = LogManager.getLogger(DateMMddyyyyhhmmTransformer.class);
+public class DateMMddyyyyhhmmTransformer extends AbstractTransformer {
 
 	// Date format example: 04/05/2021 21:54
 	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu HH:mm";
+
+	public DateMMddyyyyhhmmTransformer(String path) {
+		super(path);
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * Transforms a date from 'MM/dd/yyyy hh:mm' to format 'dd/MM/yyyy HH:mm:ss'
