@@ -8,7 +8,8 @@ public class ExtensionPrefix2FileNameTransformer extends AbstractTransformer {
 
 	/**
 	 * Generates a call recording file name from a prefix, e.g. from and prefix like
-	 * <strong>ext2960006643_05_04_2021_12;40;57</strong> will generate a file name like:
+	 * <strong>ext2960006643_05_04_2021_12;40;57</strong> will search a file in the 
+	 * provided path that match the given prefix:
 	 * 
 	 * ext2960006643_05_04_2021_12;40;57_18638_it1483yw.wav
 	 * 
