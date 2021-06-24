@@ -1,0 +1,124 @@
+{
+	"inputType": "csv",
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "\\\\WIN-FH7JGOHVC21\\Recordings\\dolce_vita_50000\\Estrazioni POC5"
+		}			
+	],
+	"fieldMapping": [
+		{
+			"iname": "Transaction ID",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "transaction_id",
+			"otype": "String"			
+		},
+		{
+			"iname": "Date/Time(Server)",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "Date_Time",
+			"otype": "String",			
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformer"
+		},		
+		{
+			"iname": "Duration (sec)",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "duration",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer"			
+		},		
+		{
+			"iname": "ANI",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "ani",
+			"otype": "String" 
+		},	
+		{
+			"iname": "Connection ID",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Call Direction",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "call_direction",
+			"otype": "String" 			
+		},
+		{
+			"iname": "Transferred Out",
+			"itype": "String",
+			"mapped": "false"
+		},	
+		{
+			"iname": "Num Holds",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "num_holds",
+			"otype": "String" 						
+		},
+		{
+			"iname": "Extension",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "HoldTime",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "hold_time",
+			"otype": "String" 
+		},
+		{
+			"iname": "SG",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "SG",
+			"otype": "String" 
+		},
+		{
+			"iname": "Team",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "group_hierarchy",
+			"otype": "String" 
+		},
+		{
+			"iname": "Day",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Month",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Year",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Hour",
+			"itype": "String",
+			"mapped": "false"
+		},																									
+		{
+			"iname": "Minutes",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "File Prefix",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "File_Name",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformer"			 
+		}				
+	]
+}
