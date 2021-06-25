@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ExtensionPrefix2FileNameTransformer extends AbstractTransformer {
+public class ExtensionPrefix2FileNameCachedTransformer extends AbstractTransformer {
 	
-	public ExtensionPrefix2FileNameTransformer(String path) {
+	public ExtensionPrefix2FileNameCachedTransformer(String path) {
 		super(path);
 	}
 

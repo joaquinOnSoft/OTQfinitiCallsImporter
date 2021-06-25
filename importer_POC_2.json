@@ -1,0 +1,262 @@
+{
+	"inputType": "csv",
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "C:\\Users\\jgarzonpena\\Documents\\000 - Clients\\Vodafone IT\\Vodafone 50000 calls\\Estrazioni POC2TEST"
+		}
+	],
+	"fieldMapping": [
+		{
+			"iname": "Transaction ID",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "transaction_id",
+			"otype": "String"			
+		},
+		{
+			"iname": "Agent",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "Team_Member_Name",
+			"otype": "String"			
+		},
+		{
+			"iname": "Recording Type",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Played Status",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Date(Server)",
+			"itype": "String",
+			"mapped": "false"
+		},	
+		{
+			"iname": "Time(Server)",
+			"itype": "String",
+			"mapped": "false"
+		},						
+		{
+			"iname": "Date/Time(Server)",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "Date_Time",
+			"otype": "String",			
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformer"
+		},		
+		{
+			"iname": "Date/Time(My)",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Last Played By",
+			"itype": "String",
+			"mapped": "false"
+		},						
+		{
+			"iname": "Duration (sec)",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "duration",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformer"			
+		},		
+		{
+			"iname": "DNIS",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "dnis",
+			"otype": "String" 
+		},	
+		{
+			"iname": "ANI",
+			"itype": "string",
+			"mapped": "true",
+			"oname": "ani",
+			"otype": "String" 
+		},
+		{
+			"iname": "Number Of Classifications",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Plan Type",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Status",
+			"itype": "String",
+			"mapped": "false"
+		},													
+		{
+			"iname": "Connection ID",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Linked Calls",
+			"itype": "String",
+			"mapped": "false"
+		},		
+		{
+			"iname": "Call Direction",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "call_direction",
+			"otype": "String" 			
+		},
+		{
+			"iname": "Transferred Out",
+			"itype": "String",
+			"mapped": "false"
+		},	
+		{
+			"iname": "Num Holds",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "num_holds",
+			"otype": "String" 						
+		},
+		{
+			"iname": "Channel Number",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "channel_number",
+			"otype": "String" 							
+		},	
+		{
+			"iname": "Extension",
+			"itype": "String",
+			"mapped": "false"			
+		},					
+		{
+			"iname": "Voice Server",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "voice_server",
+			"otype": "String" 						
+		},		
+		{
+			"iname": "Screen Server",
+			"itype": "String",
+			"mapped": "false"
+		},		
+		{
+			"iname": "Campaign Status",
+			"itype": "String",
+			"mapped": "false"
+		},				
+		{
+			"iname": "Autoscored",
+			"itype": "String",
+			"mapped": "false"
+		},		
+		{
+			"iname": "Last Modified On",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "25% to Keep",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "C",
+			"itype": "String",
+			"mapped": "false"
+		},				
+		{
+			"iname": "C_CUSTCODE",
+			"itype": "String",
+			"mapped": "false"
+		},			
+		{
+			"iname": "C_CUSTID",
+			"itype": "String",
+			"mapped": "false"
+		},		
+		{
+			"iname": "CALLTYPE",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "CC",
+			"itype": "String",
+			"mapped": "false"
+		},					
+		{
+			"iname": "CMS-CCM",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "HoldTime",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "hold_time",
+			"otype": "String" 
+		},		
+		{
+			"iname": "Position",
+			"itype": "String",
+			"mapped": "false"
+		},											
+		{
+			"iname": "SG",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "SG",
+			"otype": "String" 
+		},
+		{
+			"iname": "Team",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "group_hierarchy",
+			"otype": "String" 
+		},
+		{
+			"iname": "Day",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Month",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Year",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "Hour",
+			"itype": "String",
+			"mapped": "false"
+		},																									
+		{
+			"iname": "Minutes",
+			"itype": "String",
+			"mapped": "false"
+		},
+		{
+			"iname": "File Prefix",
+			"itype": "String",
+			"mapped": "true",
+			"oname": "File_Name",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformer"			 
+		}				
+	]
+}
