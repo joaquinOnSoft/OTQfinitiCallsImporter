@@ -177,6 +177,10 @@ Generate a fix Group Hierarchy name: "Client-i"
 #### com.opentext.qfiniti.importer.io.filler.TeamMemberFiller
 Generate a Team Member Name selected randomly from a predefined set of user names 
 
+#### com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFiller
+Generate a team member name from the properties "SG" and "Team"
+
+
 ### Available field transformers
 
 Transformers are classes that implements the interface **com.opentext.qfiniti.importer.io.transformer.ITransformer** and provides some kind of processing/data manipulation for a given field.

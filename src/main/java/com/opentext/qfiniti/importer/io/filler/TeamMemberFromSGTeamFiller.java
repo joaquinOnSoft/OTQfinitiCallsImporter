@@ -21,12 +21,18 @@ public class TeamMemberFromSGTeamFiller extends AbstractFiller {
 		super(call, file);
 	}
 
+	/**
+	 * Generate a member team name from the properties "SG" and "Team"
+	 */
 	@Override
 	public String getValue() {
 		String teamMember = null;
 		
 		String sg = call.getExtendedField(FIELD_SG);
 		String team = call.getExtendedField(FIELD_TEAM);
+		
+		// Recover the team name form the "Group hierarchy",
+		// just in case the "Team" field has been mapped
 		if(team == null) {
 			team = call.getGroupHierachy();
 		}
