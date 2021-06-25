@@ -10,7 +10,7 @@ public class DnisFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		DnisFiller filler = new DnisFiller(file);
+		DnisFiller filler = new DnisFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

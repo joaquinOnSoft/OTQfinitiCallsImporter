@@ -11,20 +11,21 @@ import com.opentext.qfiniti.importer.io.metadata.IMetadataCreator;
 import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractor;
+import com.opentext.qfiniti.importer.pojo.CallRecording;
 
 public class DurationFromMetadataFiller extends AbstractFiller {
 	private static final Logger log = LogManager.getLogger(DurationFromMetadataFiller.class);
 
-	public DurationFromMetadataFiller(String path, String fileName) {
-		super(path, fileName);
+	public DurationFromMetadataFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public DurationFromMetadataFiller(String filePath) {
-		super(filePath);
+	public DurationFromMetadataFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
-	public DurationFromMetadataFiller(File file) {
-		super(file);
+	public DurationFromMetadataFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
 	@Override

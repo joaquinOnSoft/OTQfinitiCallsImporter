@@ -9,7 +9,7 @@ public class GroupHierarchyFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		GroupHierarchyFiller filler = new GroupHierarchyFiller(file);
+		GroupHierarchyFiller filler = new GroupHierarchyFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

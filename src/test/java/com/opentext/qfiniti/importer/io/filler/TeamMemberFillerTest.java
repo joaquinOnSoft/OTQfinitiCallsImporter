@@ -9,7 +9,7 @@ public class TeamMemberFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		TeamMemberFiller filler = new TeamMemberFiller(file);
+		TeamMemberFiller filler = new TeamMemberFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

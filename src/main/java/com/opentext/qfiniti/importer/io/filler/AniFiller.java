@@ -2,18 +2,20 @@ package com.opentext.qfiniti.importer.io.filler;
 
 import java.io.File;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
+
 public class AniFiller extends AbstractFiller {
 
-	public AniFiller(String path, String fileName) {
-		super(path, fileName);
+	public AniFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public AniFiller(String filePath) {
-		super(filePath);
+	public AniFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
-	public AniFiller(File file) {
-		super(file);
+	public AniFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
 	/**

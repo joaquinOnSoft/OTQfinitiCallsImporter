@@ -2,18 +2,20 @@ package com.opentext.qfiniti.importer.io.filler;
 
 import java.io.File;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
+
 public class DnisFiller extends AbstractFiller {
 
-	public DnisFiller(String path, String fileName) {
-		super(path, fileName);
+	public DnisFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public DnisFiller(String filePath) {
-		super(filePath);
+	public DnisFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
-	public DnisFiller(File file) {
-		super(file);
+	public DnisFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
 	/**

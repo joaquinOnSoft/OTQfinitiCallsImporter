@@ -15,7 +15,7 @@ public class DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFillerTest extends Abst
 	public void testGetValue() {
 
 		DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller filler = new DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(
-				file);
+				call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

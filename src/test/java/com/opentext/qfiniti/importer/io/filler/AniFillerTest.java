@@ -9,7 +9,7 @@ public class AniFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		AniFiller filler = new AniFiller(file);
+		AniFiller filler = new AniFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

@@ -9,7 +9,7 @@ public class GroupHierarchyDolceVitaFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		GroupHierarchyDolceVitaFiller filler = new GroupHierarchyDolceVitaFiller(file);
+		GroupHierarchyDolceVitaFiller filler = new GroupHierarchyDolceVitaFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

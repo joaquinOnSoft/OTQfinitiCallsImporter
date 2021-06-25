@@ -7,22 +7,23 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.util.DateUtil;
 
 public class DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller extends AbstractFiller {
 
 	private static final Logger log = LogManager.getLogger(DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller.class);
 
-	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(File file) {
-		super(file);
+	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
-	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(String path, String fileName) {
-		super(path, fileName);
+	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(String filePath) {
-		super(filePath);
+	public DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
 	/**

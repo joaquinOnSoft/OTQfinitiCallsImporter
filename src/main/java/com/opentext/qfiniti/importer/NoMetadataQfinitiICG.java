@@ -66,7 +66,7 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG {
 
 					if (filler.getFiller() != null) {
 						String callFullPath = call.getPathName() + File.separator + call.getFileName();
-						value = ImportUtils.applyFiller(filler.getFiller(), callFullPath);
+						value = ImportUtils.applyFiller(filler.getFiller(), call, callFullPath);
 					}
 
 					call = ImportUtils.setFieldValueByFieldName(call, filler.getOname(), value);

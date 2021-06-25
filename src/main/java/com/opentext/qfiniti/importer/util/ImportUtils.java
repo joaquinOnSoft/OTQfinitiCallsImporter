@@ -80,14 +80,14 @@ public class ImportUtils implements IConfigGeneratorHeader {
 		return value;
 	}
 
-	public static String applyFiller(String fillerName, String callFullPath) {
+	public static String applyFiller(String fillerName, CallRecording call, String callFullPath) {
 		String value = null;
 
 		if (fillerName != null) {
 			try {
 				Class<?> tClass = Class.forName(fillerName);
-				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(String.class)
-						.newInstance(callFullPath);
+				AbstractFiller ifiller = (AbstractFiller) tClass.getDeclaredConstructor(CallRecording.class, String.class)
+						.newInstance(call, callFullPath);
 				value = ifiller.getValue();
 			} catch (ClassNotFoundException e) {
 				log.error("Filler class not found: " + e.getLocalizedMessage());

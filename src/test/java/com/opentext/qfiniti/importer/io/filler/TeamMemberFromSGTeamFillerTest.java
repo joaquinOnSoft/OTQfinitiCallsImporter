@@ -5,13 +5,14 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-public class FileNameFromFileFillerTest extends AbstractFillerTest {
+public class TeamMemberFromSGTeamFillerTest extends AbstractFillerTest {
+
 	@Test
 	public void testGetValue() {
-		FileNameFromFileFiller filler = new FileNameFromFileFiller(call, file);
+		TeamMemberFromSGTeamFiller filler = new TeamMemberFromSGTeamFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);
-		assertEquals("file_example_WAV_1MG.wav", value);
+		assertEquals("VS-TI-FL-Team36, VFS_TI_MV_RIC", value);
 	}
 }

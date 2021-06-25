@@ -9,7 +9,7 @@ public class DurationFromMetadataFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		DurationFromMetadataFiller filler = new DurationFromMetadataFiller(file);
+		DurationFromMetadataFiller filler = new DurationFromMetadataFiller(call, file);
 		String value = filler.getValue();
 		assertNotNull(value);
 		assertEquals("33", value);

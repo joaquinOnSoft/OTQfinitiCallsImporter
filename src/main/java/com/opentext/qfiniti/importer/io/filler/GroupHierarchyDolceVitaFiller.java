@@ -2,6 +2,8 @@ package com.opentext.qfiniti.importer.io.filler;
 
 import java.io.File;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
+
 public class GroupHierarchyDolceVitaFiller extends AbstractFiller {
 
 	private static final String groups[] = {
@@ -13,16 +15,16 @@ public class GroupHierarchyDolceVitaFiller extends AbstractFiller {
 			"VS-TI-FL-Team55", "VS-TI-FL-Team59"
 			};
 	
-	public GroupHierarchyDolceVitaFiller(String path, String fileName) {
-		super(path, fileName);
+	public GroupHierarchyDolceVitaFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public GroupHierarchyDolceVitaFiller(String filePath) {
-		super(filePath);
+	public GroupHierarchyDolceVitaFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
-	public GroupHierarchyDolceVitaFiller(File file) {
-		super(file);
+	public GroupHierarchyDolceVitaFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
 	@Override

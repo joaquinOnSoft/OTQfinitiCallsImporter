@@ -12,19 +12,21 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
+
 public class DateFromFileFiller extends AbstractFiller {
 	private static final Logger log = LogManager.getLogger(DateFromFileFiller.class);
 
-	public DateFromFileFiller(String path, String fileName) {
-		super(path, fileName);
+	public DateFromFileFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public DateFromFileFiller(String filePath) {
-		super(filePath);
+	public DateFromFileFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
-	public DateFromFileFiller(File file) {
-		super(file);
+	public DateFromFileFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
 	/**

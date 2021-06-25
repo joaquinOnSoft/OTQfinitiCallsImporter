@@ -8,7 +8,7 @@ public class DateFromFileFillerTest extends AbstractFillerTest {
 
 	@Test
 	public void testGetValue() {
-		DateFromFileFiller filler = new DateFromFileFiller(file);
+		DateFromFileFiller filler = new DateFromFileFiller(call, file);
 		String value = filler.getValue();
 
 		assertNotNull(value);

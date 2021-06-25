@@ -2,18 +2,20 @@ package com.opentext.qfiniti.importer.io.filler;
 
 import java.io.File;
 
+import com.opentext.qfiniti.importer.pojo.CallRecording;
+
 public class FileNameFromFileFiller extends AbstractFiller {
 
-	public FileNameFromFileFiller(File file) {
-		super(file);
+	public FileNameFromFileFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
-	public FileNameFromFileFiller(String path, String fileName) {
-		super(path, fileName);
+	public FileNameFromFileFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
 	}
 
-	public FileNameFromFileFiller(String filePath) {
-		super(filePath);
+	public FileNameFromFileFiller(CallRecording call, String filePath) {
+		super(call, filePath);
 	}
 
 	@Override

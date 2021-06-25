@@ -32,6 +32,7 @@ import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
+import com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFillerTest;
 import com.opentext.qfiniti.importer.io.filter.CsvFilterTest;
 import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
@@ -55,8 +56,9 @@ import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 		QfinitiICGFactoryTest.class, XlsQfinitiICGTest.class,
 
 		// com.opentext.qfiniti.importer.io.filler
-		AniFillerTest.class, DateFromFileFillerTest.class, DnisFillerTest.class, DurationFromMetadataFillerTest.class,
-		GroupHierarchyDolceVitaFillerTest.class, GroupHierarchyFillerTest.class, TeamMemberFillerTest.class,
+		AniFillerTest.class, DateFromFileFillerTest.class, DnisFillerTest.class, 
+		DurationFromMetadataFillerTest.class, GroupHierarchyDolceVitaFillerTest.class, GroupHierarchyFillerTest.class, 
+		TeamMemberFillerTest.class, TeamMemberFromSGTeamFillerTest.class,
 
 		// com.opentext.qfiniti.importer.io.
 		CsvReaderTest.class, ExcelReaderTest.class, ExcelWriterTest.class,
