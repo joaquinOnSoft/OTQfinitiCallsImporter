@@ -27,6 +27,9 @@ public class TeamMemberFromSGTeamFiller extends AbstractFiller {
 		
 		String sg = call.getExtendedField(FIELD_SG);
 		String team = call.getExtendedField(FIELD_TEAM);
+		if(team == null) {
+			team = call.getGroupHierachy();
+		}
 		
 		if (sg != null && team != null) {
 			teamMember = (new StringBuilder())

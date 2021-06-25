@@ -28,6 +28,9 @@ public class DurationFromMetadataFiller extends AbstractFiller {
 		super(call, file);
 	}
 
+	/**
+	 * Get the audio duration from the metadata embedded in the audio  
+	 */
 	@Override
 	public String getValue() {
 		String duration = getDuration(new JaudiotaggerMetadataExtractor());

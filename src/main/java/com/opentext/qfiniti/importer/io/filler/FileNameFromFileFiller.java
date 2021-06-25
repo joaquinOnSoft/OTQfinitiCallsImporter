@@ -18,6 +18,9 @@ public class FileNameFromFileFiller extends AbstractFiller {
 		super(call, filePath);
 	}
 
+	/**
+	 * Returns the file name of the call recording file
+	 */
 	@Override
 	public String getValue() {
 		return file == null ? "" : file.getName();

@@ -27,6 +27,18 @@ public class GroupHierarchyDolceVitaFiller extends AbstractFiller {
 		super(call, file);
 	}
 
+	/**
+	 * Generate a random team name for the "Dolce Vita" client.
+	 * The generated team name follows this pattern:
+	 * <br/> 
+	 *    VS-TI-FL-Team[XX]
+	 * <br/>   
+	 * Where: 
+	 * <ul>
+	 *    <li><strong>VS-TI-FL-Team</strong> is a hardcoded prefix</li>
+	 *    <li><strong>[XX]</strong> is a number from 01 to 99.</li>
+	 * </ul>   
+	 */
 	@Override
 	public String getValue() {
 		int index = getRandom(0, groups.length - 1);

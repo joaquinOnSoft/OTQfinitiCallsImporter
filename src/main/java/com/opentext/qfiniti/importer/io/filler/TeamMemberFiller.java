@@ -7,10 +7,14 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
 public class TeamMemberFiller extends AbstractFiller {
 
 	private static final String[] names = { 
-			"Chang, Monica", "Romanoff, Natasha", 
-			"Richards, Reed", "Wagner, Kurt",
-			"Parker, Peter", "Howlett, James", 
-			"Natchios, Elektra", "LeBeau, Remy" 
+			"Chang, Monica", 
+			"Romanoff, Natasha", 
+			"Richards, Reed", 
+			"Wagner, Kurt",
+			"Parker, Peter", 
+			"Howlett, James", 
+			"Natchios, Elektra", 
+			"LeBeau, Remy" 
 			};
 
 	public TeamMemberFiller(CallRecording call, String path, String fileName) {
@@ -25,6 +29,9 @@ public class TeamMemberFiller extends AbstractFiller {
 		super(call, file);
 	}
 
+	/**
+	 * Generate a Team Member Name selected randomly from a predefined set of user names
+	 */
 	@Override
 	public String getValue() {
 		int index = getRandom(0, names.length - 1);

@@ -80,7 +80,7 @@ public class ImportUtils implements IConfigGeneratorHeader {
 		return value;
 	}
 
-	public static String applyFiller(String fillerName, CallRecording call, String callFullPath) {
+	public static String applyFiller(CallRecording call, String callFullPath, String fillerName) {
 		String value = null;
 
 		if (fillerName != null) {
