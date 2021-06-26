@@ -53,6 +53,7 @@ public class FilesInFolderCache {
 		String fileName = null;
 
 		if(!cache.containsKey(path)) {
+			log.debug(path + " path NOT cached. Loading...");
 			// Uses Files.walk to list all files from a directory, including 
 			// all levels of sub-directories (default).
 			// SEE: https://mkyong.com/java/java-files-walk-examples/#list-all-files
@@ -71,6 +72,8 @@ public class FilesInFolderCache {
 		}
 		
 		if(cache.containsKey(path)){
+			log.debug("Cached path: " + path);
+			
 			List<Path> fileList = cache.get(path);
 
 			log.info(fileList.get(0).getFileName().toString());

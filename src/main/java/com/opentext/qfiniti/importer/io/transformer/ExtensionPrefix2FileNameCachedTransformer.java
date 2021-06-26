@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.opentext.qfiniti.importer.util.FilesInFolderCache;
+
 public class ExtensionPrefix2FileNameCachedTransformer extends AbstractTransformer {
 	
 	public ExtensionPrefix2FileNameCachedTransformer(String path) {
@@ -46,20 +48,13 @@ public class ExtensionPrefix2FileNameCachedTransformer extends AbstractTransform
 	 */
 	@Override
 	public String transform(String prefix) {			
-		List<Path> result = null;
+		String fileName = null;
 		
-		try (Stream<Path> walk = Files.walk(Path.of(path))) {
-			result = walk.filter(Files::isRegularFile)   // is a file
-             	.filter(p -> p.getFileName().toString().startsWith(prefix))
-             	.collect(Collectors.toList());
-        } catch (IOException e) {
-			log.error("", e);
-			result = null;
-		}
+		fileName = FilesInFolderCache.getInstance().getFileFromPrefix(Path.of(path), prefix);
 		
-		log.debug("transform(" + prefix +") :" + result);
+		log.debug("transform(" + prefix +") :" + fileName);
 		
-		return result != null && result.size() > 0? result.get(0).toFile().getName() : null;
+		return fileName;
 	}
 
 }
