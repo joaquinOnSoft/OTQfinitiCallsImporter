@@ -256,7 +256,7 @@
 			"mapped": "true",
 			"oname": "File_Name",
 			"otype": "String",
-			"transformer": "com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformer"			 
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameCachedTransformer"			 
 		}				
 	]
 }
