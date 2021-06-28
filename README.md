@@ -200,6 +200,12 @@ the given prefix:
    
 > NOTE: This transformer has been deprecated since release 21.3. Please use `ExtensionPrefix2FileNameCachedTransformer` in his place
 
+#### com.opentext.qfiniti.importer.io.transformer.CallDirectionTransformer
+Transform a text literal into a integer to indicate the 'call direction':
+ - 0:  Unknown
+ - 1: Inbound
+ - 2: Outbound
+
 #### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer
 Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'
 

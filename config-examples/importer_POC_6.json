@@ -51,7 +51,8 @@
 			"itype": "String",
 			"mapped": "true",
 			"oname": "call_direction",
-			"otype": "String" 			
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.CallDirectionTransformer"			 			
 		},
 		{
 			"iname": "Transferred Out",
