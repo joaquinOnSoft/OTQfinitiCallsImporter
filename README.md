@@ -185,12 +185,20 @@ Generate a team member name from the properties "SG" and "Team"
 
 Transformers are classes that implements the interface **com.opentext.qfiniti.importer.io.transformer.ITransformer** and provides some kind of processing/data manipulation for a given field.
 
+#### com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameCachedTransformer
+Generates a call recording file name from a prefix, e.g. from and prefix like 
+**ext2960006643_05_04_2021_12;40;57** will search a file in the provided path that match
+the given prefix:
+
+
 #### com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformer
 Generates a call recording file name from a prefix, e.g. from and prefix like 
 **ext2960006643_05_04_2021_12;40;57** will search a file in the provided path that match
 the given prefix:
 
    `ext2960006643_05_04_2021_12;40;57_18638_it1483yw.wav`
+   
+> NOTE: This transformer has been deprecated since release 21.3. Please use `ExtensionPrefix2FileNameCachedTransformer` in his place
 
 #### com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformer
 Transforms a date from 'MM/dd/yyyy hh:mm:ss a' to format 'dd/MM/yyyy HH:mm:ss'

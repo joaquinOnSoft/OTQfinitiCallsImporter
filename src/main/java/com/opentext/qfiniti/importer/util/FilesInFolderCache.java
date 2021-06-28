@@ -49,6 +49,19 @@ public class FilesInFolderCache {
 		return instance;
 	}
 
+	/**
+	 * Find a file name from a prefix, e.g. from and prefix like
+	 * <strong>ext2960006643_05_04_2021_12;40;57</strong> will search a file in the 
+	 * provided path that match the given prefix:
+	 * 
+	 * ext2960006643_05_04_2021_12;40;57_18638_it1483yw.wav
+	 * 
+	 * @param path - Base path to start the search
+	 * @param prefix - file name prefix
+	 * @return A file name that match the prefix
+	 * 
+	 * @see https://mkyong.com/java/java-files-walk-examples/#find-files-by-filename
+	 */
 	public String getFileFromPrefix(Path path, String prefix) {
 		String fileName = null;
 

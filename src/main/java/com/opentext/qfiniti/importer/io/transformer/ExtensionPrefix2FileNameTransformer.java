@@ -39,8 +39,13 @@ public class ExtensionPrefix2FileNameTransformer extends AbstractTransformer {
 	 * 
 	 * ext2960006643_05_04_2021_12;40;57_18638_it1483yw.wav
 	 * 
+	 * <strong>NOTE:</strong> This method could be slow when the base 
+	 * bath contains a large number of files
+	 * 
 	 * @param prefix - Call recording file name prefix
 	 * @return call recording file name
+	 * @deprecated Since 21.3. Use 
+	 * {@link com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameCachedTransformer#transform(String)}
 	 * 
 	 * @see https://mkyong.com/java/java-files-walk-examples/#find-files-by-filename
 	 */

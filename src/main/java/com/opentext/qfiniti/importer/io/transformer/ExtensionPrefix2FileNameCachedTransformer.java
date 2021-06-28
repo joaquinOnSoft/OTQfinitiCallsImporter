@@ -38,8 +38,6 @@ public class ExtensionPrefix2FileNameCachedTransformer extends AbstractTransform
 	 * 
 	 * @param prefix - Call recording file name prefix
 	 * @return call recording file name
-	 * 
-	 * @see https://mkyong.com/java/java-files-walk-examples/#find-files-by-filename
 	 */
 	@Override
 	public String transform(String prefix) {			
