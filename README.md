@@ -201,8 +201,8 @@ the given prefix:
 > NOTE: This transformer has been deprecated since release 21.3. Please use `ExtensionPrefix2FileNameCachedTransformer` in his place
 
 #### com.opentext.qfiniti.importer.io.transformer.CallDirectionTransformer
-Transform a text literal into a integer to indicate the 'call direction':
- - 0:  Unknown
+Transform a text literal ('Inbound' or 'Outbound') into a integer to indicate the 'call direction':
+ - 0: Unknown
  - 1: Inbound
  - 2: Outbound
 
