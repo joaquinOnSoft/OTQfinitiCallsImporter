@@ -4,7 +4,11 @@
 		{
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\Documents\\000 - Clients\\Vodafone IT\\Vodafone 50000 calls\\Estrazioni POC2TEST"
-		}
+		},
+		{
+			"oname": "Team_Member_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller"
+		}	
 	],
 	"fieldMapping": [
 		{
@@ -17,7 +21,7 @@
 		{
 			"iname": "Agent",
 			"itype": "String",
-			"mapped": "true",
+			"mapped": "false",
 			"oname": "Team_Member_Name",
 			"otype": "String"			
 		},

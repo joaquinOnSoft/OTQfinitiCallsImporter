@@ -4,7 +4,11 @@
 		{
 			"oname": "Path_Name",
 			"ovalue": "\\\\WIN-FH7JGOHVC21\\Recordings\\dolce_vita_50000\\Estrazioni POC2"
-		}
+		},
+		{
+			"oname": "Team_Member_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller"
+		}	
 	],
 	"fieldMapping": [
 		{
@@ -17,7 +21,7 @@
 		{
 			"iname": "Agent",
 			"itype": "String",
-			"mapped": "true",
+			"mapped": "false",
 			"oname": "Team_Member_Name",
 			"otype": "String"			
 		},
