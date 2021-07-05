@@ -7,7 +7,7 @@
 		},
 		{
 			"oname": "Team_Member_Name",
-			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFiller"
+			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller"
 		}			
 	],
 	"fieldMapping": [

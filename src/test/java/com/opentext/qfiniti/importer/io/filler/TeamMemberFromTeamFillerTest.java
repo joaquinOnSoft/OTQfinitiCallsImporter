@@ -19,29 +19,19 @@
  */
 package com.opentext.qfiniti.importer.io.filler;
 
-import java.io.File;
-import java.time.LocalDateTime;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import org.junit.Before;
+import org.junit.Test;
 
-import com.opentext.qfiniti.importer.pojo.CallRecording;
+public class TeamMemberFromTeamFillerTest extends AbstractFillerTest {
 
-public class AbstractFillerTest {
-	protected File file = null;
-	protected CallRecording call = null;
+	@Test
+	public void testGetValue() {
+		TeamMemberFromTeamFiller filler = new TeamMemberFromTeamFiller(call, file);
+		String value = filler.getValue();
 
-	protected String getFilePath() {
-		return "client-o/file_example_WAV_1MG.wav";
-	}
-
-	@Before
-	public void runBeforeTestMethod() {
-		ClassLoader classLoader = getClass().getClassLoader();
-		file = new File(classLoader.getResource(getFilePath()).getFile());
-		
-		//Placeholder values
-		call = new CallRecording(System.getProperty("user.dir"), "audio.wav", 249, LocalDateTime.now());
-		call.addExtendedField("SG", "VFS_TI_MV_RIC");
-		call.addExtendedField("Team", "VS-TI-FL-Team36");
+		assertNotNull(value);
+		assertEquals("VS-TI-FL-Team36, Agent36", value);
 	}
 }
