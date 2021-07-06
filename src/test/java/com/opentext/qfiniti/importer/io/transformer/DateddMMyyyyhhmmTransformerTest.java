@@ -19,25 +19,23 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-public class DateMMddyyyyhhmmTransformer extends AbstractDateTransformer {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-	// Date format example: 04/05/2021 21:54
-	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu HH:mm";
+import org.junit.Test;
 
-	public DateMMddyyyyhhmmTransformer(String path) {
-		super(path);
-		// TODO Auto-generated constructor stub
-	}
+public class DateddMMyyyyhhmmTransformerTest extends AbstractTransformerTest{
 
-	/**
-	 * Transforms a date from 'MM/dd/yyyy hh:mm' to format 'dd/MM/yyyy HH:mm:ss'
-	 * 
-	 * @param strDate - date expressed in format "MM/dd/yyyy hh:mm"
-	 * @return date in format 'dd/MM/yyyy HH:mm:ss'
-	 * @see https://www.programmersought.com/article/83121948467/
-	 */
-	@Override
-	public String transform(String strDate) {
-		return transformDateWithOptionalTime(strDate, DATE_FORMAT_MM_DD_YYYY_HH_MM);
+	@Test
+	public void transform() {
+		DateddMMyyyyhhmmTransformer transformer = new DateddMMyyyyhhmmTransformer(path);
+
+		String date = transformer.transform("21/10/2019 11:59");
+		assertNotNull(date);
+		assertEquals("21/10/2019 11:59:00", date);
+
+		date = transformer.transform("21/10/2019 23:59");
+		assertNotNull(date);
+		assertEquals("21/10/2019 23:59:00", date);
 	}
 }

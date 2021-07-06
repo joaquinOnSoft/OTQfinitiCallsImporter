@@ -26,7 +26,7 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
 public class TeamMemberFromTeamFiller extends AbstractFiller {
 
 	private static final String FIELD_TEAM = "Team";
-	
+
 	private static final String TEAM_PREFIX = "VS-TI-FL-Team";
 
 	public TeamMemberFromTeamFiller(CallRecording call, String path, String fileName) {
@@ -47,26 +47,43 @@ public class TeamMemberFromTeamFiller extends AbstractFiller {
 	@Override
 	public String getValue() {
 		String teamMember = null;
-		
+
 		String team = call.getExtendedField(FIELD_TEAM);
-		
+
 		// Recover the team name form the "Group hierarchy",
 		// just in case the "Team" field has been mapped
 		if(team == null) {
 			team = call.getGroupHierachy();
 		}
-		
-		if (team != null) {
-			String teamId = team.replace(TEAM_PREFIX, "");
-			
-			teamMember = (new StringBuilder())
-					.append(team)
-					.append(", agent")
-					.append(teamId)
-					.toString();		
+
+		if(team == null || team.compareTo("") == 0) {
+			team = "UNKNOWN";
+		}		
+
+		String teamId = team.replace(TEAM_PREFIX, "");
+		if(!isNumeric(teamId)) {
+			teamId = "";
 		}
-		
+
+		teamMember = (new StringBuilder())
+				.append(team)
+				.append(", agent")
+				.append(teamId)
+				.toString();		
+
+
 		return teamMember;
+	}
+
+	/**
+	 * Check if a string is numeric.
+	 * Match a number with optional '-' and decimal.
+	 * @see https://stackoverflow.com/questions/1102891/how-to-check-if-a-string-is-numeric-in-java
+	 * @param str - String that can contain a numeric value
+	 * @return true if is numeric, false in other case
+	 */
+	public  boolean isNumeric(String str) {
+		return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
 	}
 }
 

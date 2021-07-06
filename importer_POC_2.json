@@ -51,7 +51,7 @@
 			"mapped": "true",
 			"oname": "Date_Time",
 			"otype": "String",			
-			"transformer": "com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformer"
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.DateddMMyyyyhhmmTransformer"
 		},		
 		{
 			"iname": "Date/Time(My)",

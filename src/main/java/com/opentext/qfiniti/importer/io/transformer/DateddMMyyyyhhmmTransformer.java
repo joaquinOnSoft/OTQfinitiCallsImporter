@@ -19,14 +19,13 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-public class DateMMddyyyyhhmmTransformer extends AbstractDateTransformer {
+public class DateddMMyyyyhhmmTransformer extends AbstractDateTransformer {
 
-	// Date format example: 04/05/2021 21:54
-	private static final String DATE_FORMAT_MM_DD_YYYY_HH_MM = "MM/dd/uuuu HH:mm";
+	// Date format example: 29/05/2021 21:54
+	private static final String DATE_FORMAT_DD_MM_YYYY_HH_MM = "dd/MM/uuuu HH:mm";
 
-	public DateMMddyyyyhhmmTransformer(String path) {
+	public DateddMMyyyyhhmmTransformer(String path) {
 		super(path);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -38,6 +37,6 @@ public class DateMMddyyyyhhmmTransformer extends AbstractDateTransformer {
 	 */
 	@Override
 	public String transform(String strDate) {
-		return transformDateWithOptionalTime(strDate, DATE_FORMAT_MM_DD_YYYY_HH_MM);
+		return transformDateWithOptionalTime(strDate, DATE_FORMAT_DD_MM_YYYY_HH_MM);
 	}
 }

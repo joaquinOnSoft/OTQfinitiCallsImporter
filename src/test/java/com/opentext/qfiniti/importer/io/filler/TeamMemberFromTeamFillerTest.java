@@ -34,4 +34,16 @@ public class TeamMemberFromTeamFillerTest extends AbstractFillerTest {
 		assertNotNull(value);
 		assertEquals("VS-TI-FL-Team36, agent36", value);
 	}
+	
+	@Test
+	public void testGetValueWithEmptyTeam() {
+		call.addExtendedField("Team", null);
+		call.setGroupHierachy(null);
+
+		TeamMemberFromTeamFiller filler = new TeamMemberFromTeamFiller(call, file);
+		String value = filler.getValue();
+
+		assertNotNull(value);
+		assertEquals("UNKNOWN, agent", value);
+	}	
 }
