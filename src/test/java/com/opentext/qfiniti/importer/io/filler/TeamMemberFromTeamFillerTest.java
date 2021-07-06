@@ -32,6 +32,6 @@ public class TeamMemberFromTeamFillerTest extends AbstractFillerTest {
 		String value = filler.getValue();
 
 		assertNotNull(value);
-		assertEquals("VS-TI-FL-Team36, Agent36", value);
+		assertEquals("VS-TI-FL-Team36, agent36", value);
 	}
 }

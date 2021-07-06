@@ -220,7 +220,7 @@
 			"iname": "SG",
 			"itype": "String",
 			"mapped": "true",
-			"oname": "SG",
+			"oname": "ivr_option",
 			"otype": "String" 
 		},
 		{

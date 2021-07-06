@@ -61,7 +61,7 @@ public class TeamMemberFromTeamFiller extends AbstractFiller {
 			
 			teamMember = (new StringBuilder())
 					.append(team)
-					.append(", Agent")
+					.append(", agent")
 					.append(teamId)
 					.toString();		
 		}
