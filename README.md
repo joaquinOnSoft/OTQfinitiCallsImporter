@@ -414,7 +414,7 @@ Let'see some examples:
 ## Tips & tricks
 
 ### Qfiniti Call Importer
-The Qfiniti Data Import tool (referred to below simply as “the importer”) is used to import recording transactions from etalk Recorder, older versions of Qfiniti, or a 3rd party recording device into HP Qfiniti 10. It can also be used to add teams and team members, especially ones associated with those transactions, if those teams and or team members do not already exist in HP Qfiniti.
+The **Qfiniti Data Import tool** is used to import recording transactions from etalk Recorder, older versions of Qfiniti, or a 3rd party recording device into Qfiniti. It can also be used to add teams and team members, especially ones associated with those transactions, if those teams and or team members do not already exist in HP Qfiniti.
 
 #### Executing Qfiniti Call Importer
 The importer can be run as a service or by command line. When run on command line, it is invoked as follows to run one time, immediately.
