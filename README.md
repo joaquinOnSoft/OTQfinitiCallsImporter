@@ -137,8 +137,6 @@ These are the valid output field names admitted by  **OpenText Qfiniti Data Impo
    - **File_Name**: Call recording file name (usually a .wav file)
  
  
-
-    
 ### Available field fillers
 
 Fillers are classes that extends com.opentext.qfiniti.importer.io.filler.AbstractFiller and provides an automatically generated value for a given field, or extract some metadata from the .wav file.
@@ -412,3 +410,40 @@ Let'see some examples:
 ```
 
 > **NOTE**: fielMapping field is an empty array. In this scenario there is no input file, so, we don't need to define mapping between input and output file.
+
+## Tips & tricks
+
+### Qfiniti Call Importer
+The Qfiniti Data Import tool (referred to below simply as “the importer”) is used to import recording transactions from etalk Recorder, older versions of Qfiniti, or a 3rd party recording device into HP Qfiniti 10. It can also be used to add teams and team members, especially ones associated with those transactions, if those teams and or team members do not already exist in HP Qfiniti.
+
+#### Executing Qfiniti Call Importer
+The importer can be run as a service or by command line. When run on command line, it is invoked as follows to run one time, immediately.
+
+```
+	QfinitiDataImport.exe /runonce
+```
+
+#### Creating user during the import process
+**Qfiniti Data Import** can create users and groups during the import process, you just need to set as `true` the fields `CreateUsers` and `CreateGroups` in the **QfinitiDataImport.exe.config** file:
+
+```xml
+	<plugin type="UserLookupPlugin">
+		<CacheUsers>true</CacheUsers>
+		<CreateUsers>true</CreateUsers>
+		<CreateGroups>true</CreateGroups>
+		<LoginType>0</LoginType>
+		<LoginFormat>
+			<field select="login_id" />
+		</LoginFormat>
+	</plugin>
+```
+
+#### Assign licenses to users on Qfiniti
+If you have created users/groups during the import process you must review `Qfiniti > Teams > Organization` to check if each new user has a transcription license assigned:
+
+![Qfiniti - Teams - Organization](img/qfiniti-teams-organization.png)
+
+
+![Qfiniti - Teams - Organization - Edit user](img/qfiniti-edit-user-popup.png)
+
+
