@@ -81,23 +81,13 @@ public class JSONReader extends AbstractReader {
 		
 		
 		for(FieldMapping field: config.getFieldMapping()) {
-			log.debug(field.getIname());	
-			log.debug("\t" + invokeGetter(genesysCall, field.getIname()));
-			//call = mapField(call, invokeGetter(genesysCall, field.getIname()), config.getFieldMappingByIName(field.getIname()), parentFolder);
+			log.debug(field.getIname() + "\t" + invokeGetter(genesysCall, field.getIname()));	
+			call = mapField(call, invokeGetter(genesysCall, field.getIname()), config.getFieldMappingByIName(field.getIname()), parentFolder);
 		}
 		
-		/*
-		index = 0;
-		for (Cell cell : row) {
-			call = mapField(call, cell.getStringCellValue(), config.getFieldMapping().get(index), parentFolder);
-
-			index++;
-		}
-
 		call = generateField(call, config.getFieldFiller());
-		*/
-
-		//recordings.add(call);		
+		
+		recordings.add(call);		
 		
 
 		return recordings;

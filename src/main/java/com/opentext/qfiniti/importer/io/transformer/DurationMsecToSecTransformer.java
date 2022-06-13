@@ -22,6 +22,8 @@ package com.opentext.qfiniti.importer.io.transformer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.opentext.qfiniti.importer.util.MathUtil;
+
 /**
  * Convert call duration from milliseconds to seconds
  */
@@ -49,6 +51,6 @@ public class DurationMsecToSecTransformer extends AbstractTransformer {
 			log.debug("Invalid duration time in milliseconds: " + durationInMSec);
 		}
 		
-		return Double.toString(duration);
+		return Long.toString((long) MathUtil.round(duration, 0));
 	}
 }
