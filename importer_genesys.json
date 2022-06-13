@@ -49,7 +49,7 @@
 			"mapped": "true",
 			"oname": "call_direction",
 			"otype": "String",
-			"transformer": "com.opentext.qfiniti.importer.io.transformer.GenesysDirectionToCallDirectionTransformer"
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.CallDirectionTransformer"
 		},
 		{
 			"iname": "queueIds",
