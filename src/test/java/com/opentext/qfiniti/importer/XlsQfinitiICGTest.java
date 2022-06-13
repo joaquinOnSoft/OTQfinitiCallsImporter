@@ -21,6 +21,9 @@ package com.opentext.qfiniti.importer;
 
 import org.junit.Before;
 
+import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.XlsQfinitiICG;
+
 public class XlsQfinitiICGTest extends AbstractQfinitiICGTest {
 
 	@Before

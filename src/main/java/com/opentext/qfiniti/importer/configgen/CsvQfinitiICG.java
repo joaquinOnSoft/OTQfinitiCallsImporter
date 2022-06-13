@@ -17,24 +17,24 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer;
+package com.opentext.qfiniti.importer.configgen;
 
-import org.junit.Before;
+import com.opentext.qfiniti.importer.io.CsvReader;
+import com.opentext.qfiniti.importer.io.IReader;
 
-import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
-import com.opentext.qfiniti.importer.configgen.NoMetadataQfinitiICG;
+/**
+ * OpenText(TM) Qfiniti Importer Configuration Generator
+ * 
+ * @author Joaquín Garzón
+ */
+public class CsvQfinitiICG extends AbstractFileQfinitiICG {
 
-public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest {
-
-	@Before
-	public void initilize() {
-		folderPath = "client-o";
-		jsonConfigPath = "client-o/client-o-mapping.json";
-		outputFileName = "calls-client-o.xls";
+	public CsvQfinitiICG(String path) {
+		super(path, ".csv");
 	}
 
 	@Override
-	public AbstractQfinitiICG getQfinitiICG(String path) {
-		return new NoMetadataQfinitiICG(path);
+	protected IReader getReader() {
+		return new CsvReader();
 	}
 }

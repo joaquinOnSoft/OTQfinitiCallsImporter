@@ -17,7 +17,7 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer;
+package com.opentext.qfiniti.importer.configgen;
 
 import java.io.File;
 import java.util.Map;

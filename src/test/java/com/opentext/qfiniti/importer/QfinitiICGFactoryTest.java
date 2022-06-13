@@ -5,6 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.CsvQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.NoMetadataQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.XlsQfinitiICG;
+
 public class QfinitiICGFactoryTest {
 	private QfinitiICGFactory factory = new QfinitiICGFactory();
 	private AbstractQfinitiICG config = null;

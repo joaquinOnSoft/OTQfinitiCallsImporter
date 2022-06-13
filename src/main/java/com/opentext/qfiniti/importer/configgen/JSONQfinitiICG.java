@@ -17,9 +17,9 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer;
+package com.opentext.qfiniti.importer.configgen;
 
-import com.opentext.qfiniti.importer.io.CsvReader;
+import com.opentext.qfiniti.importer.io.JSONReader;
 import com.opentext.qfiniti.importer.io.IReader;
 
 /**
@@ -27,14 +27,14 @@ import com.opentext.qfiniti.importer.io.IReader;
  * 
  * @author Joaquín Garzón
  */
-public class CsvQfinitiICG extends AbstractFileQfinitiICG {
+public class JSONQfinitiICG extends AbstractFileQfinitiICG {
 
-	public CsvQfinitiICG(String path) {
-		super(path, ".csv");
+	public JSONQfinitiICG(String path) {
+		super(path, ".json");
 	}
 
 	@Override
 	protected IReader getReader() {
-		return new CsvReader();
+		return new JSONReader();
 	}
 }

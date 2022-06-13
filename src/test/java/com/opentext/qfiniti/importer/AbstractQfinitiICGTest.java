@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Test;
 
+import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 

@@ -71,7 +71,19 @@ public class MappingConfig {
 	public List<FieldMapping> getFieldMapping() {
 		return fieldMapping;
 	}
-
+	
+	public FieldMapping getFieldMappingByIName(String fieldName) {		
+		if(fieldMapping != null) {
+			for(FieldMapping field: fieldMapping) {
+				if(field.getIname().compareToIgnoreCase(fieldName) == 0) {
+					return field;
+				}
+			}
+		}
+		
+		return null;
+	}	
+	
 	@JsonProperty("fieldMapping")
 	public void setFieldMapping(List<FieldMapping> fieldMapping) {
 		this.fieldMapping = fieldMapping;

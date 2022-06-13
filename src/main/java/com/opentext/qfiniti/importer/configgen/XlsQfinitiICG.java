@@ -17,7 +17,7 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer;
+package com.opentext.qfiniti.importer.configgen;
 
 import com.opentext.qfiniti.importer.io.ExcelReader;
 import com.opentext.qfiniti.importer.io.IReader;

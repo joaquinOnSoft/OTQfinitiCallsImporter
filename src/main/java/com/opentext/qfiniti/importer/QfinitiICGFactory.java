@@ -19,11 +19,18 @@
  */
 package com.opentext.qfiniti.importer;
 
+import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.CsvQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.JSONQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.NoMetadataQfinitiICG;
+import com.opentext.qfiniti.importer.configgen.XlsQfinitiICG;
+
 public class QfinitiICGFactory {
 
 	private static final String TYPE_NO_METADATA = "NoMetadata";
 	private static final String TYPE_EXCEL = "xls";
 	private static final String TYPE_CSV = "csv";
+	private static final String TYPE_JSON = "json";	
 
 	public AbstractQfinitiICG getConfigGenerator(String type, String path) {
 		AbstractQfinitiICG configGenerator = null;
@@ -35,7 +42,9 @@ public class QfinitiICGFactory {
 				configGenerator = new XlsQfinitiICG(path);
 			} else if (type.equalsIgnoreCase(TYPE_CSV)) {
 				configGenerator = new CsvQfinitiICG(path);
-			}
+			} else if (type.equalsIgnoreCase(TYPE_JSON)) {
+				configGenerator = new JSONQfinitiICG(path);
+			}			
 		}
 
 		if (configGenerator == null) {
