@@ -23,6 +23,7 @@ jar {
     
     //https://discuss.gradle.org/t/generate-runnable-jar-pakage-dependencies/28171
 	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE	
 }
 
 repositories {
