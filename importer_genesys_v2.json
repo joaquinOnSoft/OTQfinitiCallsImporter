@@ -4,6 +4,14 @@
 		{
 			"oname": "Path_Name",
 			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-genesys"
+		},		
+		{
+			"oname": "user_data",
+			"filler": "com.opentext.qfiniti.importer.io.filler.ExtendedFields2UserDataFiller"
+		},
+		{
+			"oname": "user_data_delimiter",
+			"ovalue": "#"
 		}	
 	],
 	"fieldMapping": [

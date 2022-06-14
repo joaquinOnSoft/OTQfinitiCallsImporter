@@ -27,6 +27,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
@@ -35,7 +36,7 @@ import com.opentext.qfiniti.importer.pojo.MappingConfig;
 import com.opentext.qfiniti.importer.pojo.genesys.GenesysCall;
 
 public class JSONReader extends AbstractReader {
-
+	
     public String invokeGetter(Object obj, String variableName)
     {
     	String value = null;
@@ -78,19 +79,16 @@ public class JSONReader extends AbstractReader {
 		call = new CallRecording();
 
 		String parentFolder = (new File(filePath)).getParent();
-		
-		
+				
 		for(FieldMapping field: config.getFieldMapping()) {
 			log.debug(field.getIname() + "\t" + invokeGetter(genesysCall, field.getIname()));	
 			call = mapField(call, invokeGetter(genesysCall, field.getIname()), config.getFieldMappingByIName(field.getIname()), parentFolder);
 		}
 		
 		call = generateField(call, config.getFieldFiller());
-		
+					
 		recordings.add(call);		
 		
-
 		return recordings;
 	}
-
 }

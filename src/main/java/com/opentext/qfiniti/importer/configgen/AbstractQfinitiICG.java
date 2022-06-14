@@ -103,7 +103,7 @@ public abstract class AbstractQfinitiICG {
 	}
 
 	protected Map<String, CallRecording> generate(String path, Map<String, CallRecording> recordings) {
-		// Read data files (.xls or .csv)
+		// Read data files (.json, .xls or .csv)
 		recordings = readDataFiles(path, recordings);
 
 		// Read audio files (.wav)
@@ -116,7 +116,7 @@ public abstract class AbstractQfinitiICG {
 	}
 
 	/**
-	 * Read Excel files
+	 * Read Metadata files (.xls, .csv, .json)
 	 * 
 	 * @param path
 	 * @param recordings
@@ -127,7 +127,7 @@ public abstract class AbstractQfinitiICG {
 	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
 		WavFilter wavfilter = new WavFilter();
 
-		// Read audio files (.wav)
+		// Read metadata files (.xls, .csv, .json)
 		File wavFiles[] = wavfilter.finder(path);
 		if (wavFiles != null && wavFiles.length > 0) {
 

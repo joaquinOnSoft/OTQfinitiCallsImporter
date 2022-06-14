@@ -66,6 +66,9 @@ public class ImportUtils implements IConfigGeneratorHeader {
 		case HEADER_FILE_NAME:
 			call.setFileName(value);
 			break;
+		case HEADER_USER_DATA:
+			call.setUserData(value);
+			break;						
 		default:
 			call.addExtendedField(fieldName, value);	
 		}

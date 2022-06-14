@@ -116,6 +116,9 @@ public class ExcelWriter {
 				case CallRecording.HEADER_DNIS:
 					value = recording.getDnis();
 					break;
+				case CallRecording.HEADER_USER_DATA:
+					value = recording.getUserData();
+					break;					
 				default:
 					value = recording.getExtendedField(columnName);
 				}

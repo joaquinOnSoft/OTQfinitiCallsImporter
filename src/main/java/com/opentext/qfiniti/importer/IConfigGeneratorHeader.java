@@ -28,4 +28,5 @@ public interface IConfigGeneratorHeader {
 	public static final String HEADER_FILE_NAME = "File_Name";
 	public static final String HEADER_ANI = "ani";
 	public static final String HEADER_DNIS = "dnis";
+	public static final String HEADER_USER_DATA = "user_data";
 }

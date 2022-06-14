@@ -1,0 +1,19 @@
+{
+    "mediaType": "Call",
+    "provider": "Edge",
+    "userIds": ["25854d84-c59e-417d-ae00-3c62a424bea0"],
+    "startTime": "2022-06-06T11:04:21.460+0000",
+    "endTime": "2022-06-06T11:12:37.040+0000",
+    "durationMs": 495580,
+    "initialDirection": "outbound",
+    "queueIds": ["ca803875-393c-4107-b051-b9c8fd017191"],
+    "wrapupCodes": ["27b9020a-453c-4e5b-a915-81536fcabf16", "0e720a24-c4d4-4cbe-9f32-973b6d46575a"],
+    "organizationId": "31e3aeb2-fd7d-4202-97e7-7150b0783eeb",
+    "conversationId": "090fdf51-1231-4f29-abc6-40c73807fa50",
+    "conversationStartTime": "2022-06-06T11:04:15.746+0000",
+    "conversationEndTime": "2022-06-06T11:12:37.060+0000",
+    "recordingId": "9f2f7a66-00f5-42bf-bebe-ad1ec4770252",
+    "filePath": "s3://genesys-dump-pro/31e3aeb2-fd7d-4202-97e7-7150b0783eeb/year\u003d2022/month\u003d6/day\u003d6/hour\u003d11/conversation_id\u003d090fdf51-1231-4f29-abc6-40c73807fa50/9f2f7a66-00f5-42bf-bebe-ad1ec4770252.wav",
+    "fileSize": 3964698,
+    "screenInformation": {}
+}

@@ -48,11 +48,15 @@ public class CallRecording implements IConfigGeneratorHeader {
 	private String groupHierachy;
 	private String ani;
 	private String dnis;
+	
+	private String userData;
+	private String userDataDelimiter;
 
 	private Map<String, String> extendedFields;
 
 	public CallRecording() {
 		this(null, null, 0);
+		this.userDataDelimiter = "#";
 	}
 
 	public CallRecording(String pathName, String fileName, int duration) {
@@ -76,6 +80,7 @@ public class CallRecording implements IConfigGeneratorHeader {
 		this.dateTime = dateTime;
 
 		extendedFields = new HashMap<String, String>();
+		this.userDataDelimiter = "#";
 	}
 
 	public String getPathName() {
@@ -265,6 +270,10 @@ public class CallRecording implements IConfigGeneratorHeader {
 			header.add(HEADER_DNIS);
 		}
 
+		if (userData != null) {
+			header.add(HEADER_USER_DATA);
+		}		
+		
 		return header.toArray(new String[header.size()]);
 	}
 
@@ -296,6 +305,26 @@ public class CallRecording implements IConfigGeneratorHeader {
 
 	public String getExtendedField(String key) {
 		return extendedFields.get(key);
+	}
+
+	public Map<String, String> getExtendedFields() {
+		return extendedFields;
+	}	
+		
+	public String getUserData() {
+		return userData;
+	}
+
+	public void setUserData(String userData) {
+		this.userData = userData;
+	}
+
+	public String getUserDataDelimiter() {
+		return userDataDelimiter;
+	}
+
+	public void setUserDataDelimiter(String userDataDelimiter) {
+		this.userDataDelimiter = userDataDelimiter;
 	}
 
 	@Override
