@@ -9,6 +9,9 @@ public class DateyyyyMMddTHHmmssSSSTransformer extends AbstractDateTransformer {
 		super(path);
 	}
 
+	/**
+	 * Transforms a date from "yyyy-MM-dd'T'HH:mm:ss.SSS'+'0000" to format 'dd/MM/yyyy HH:mm:ss'
+	 */
 	@Override
 	public String transform(String strDate) {
 		return transformDateWithOptionalTime(strDate, DATE_FORMAT_YYYY_MM_DDTHH_MM_SS_SSS);
