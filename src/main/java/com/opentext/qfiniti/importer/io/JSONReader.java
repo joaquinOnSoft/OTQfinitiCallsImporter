@@ -36,7 +36,8 @@ import com.opentext.qfiniti.importer.pojo.genesys.GenesysCall;
 
 public class JSONReader extends AbstractReader {
 	
-    public String invokeGetter(Object obj, String variableName)
+    @SuppressWarnings("unchecked")
+	public String invokeGetter(Object obj, String variableName)
     {
     	String value = null;
     	
@@ -44,7 +45,15 @@ public class JSONReader extends AbstractReader {
             PropertyDescriptor pd = new PropertyDescriptor(variableName, obj.getClass());
             Method getter = pd.getReadMethod();
             Object f = getter.invoke(obj);
-            value = f.toString();
+            if(f instanceof List) {
+            	value = ((List<String>) f).get(0);
+            }
+            else if(f instanceof String[]) {
+                value = ((String[]) f)[0];
+            }
+            else {
+            	value = f.toString();
+            }
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | IntrospectionException e) {
 			log.error(e.getMessage());
         }

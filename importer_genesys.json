@@ -19,8 +19,11 @@
 		},
 		{
 			"iname": "userIds",
-			"itype": "String",
-			"mapped": "false"
+			"itype": "String",			
+			"mapped": "true",
+			"oname": "team_member_first_name",
+			"otype": "String",
+			"transformer": "com.opentext.qfiniti.importer.io.transformer.RemoveHyphensTransformer"
 		},
 		{
 			"iname": "startTime",
