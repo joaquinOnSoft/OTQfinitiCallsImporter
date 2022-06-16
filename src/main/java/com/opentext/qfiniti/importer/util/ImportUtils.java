@@ -19,6 +19,8 @@
  */
 package com.opentext.qfiniti.importer.util;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.logging.log4j.LogManager;
@@ -83,23 +85,37 @@ public class ImportUtils implements IConfigGeneratorHeader {
 				AbstractTransformer aTransformer = (AbstractTransformer) tClass.getConstructor(String.class).newInstance(path);
 				value = aTransformer.transform(value);
 			} catch (ClassNotFoundException e) {
-				log.error("Transformer class not found: " + e.getLocalizedMessage());
+				log.error("Transformer class not found (" + transformerName + "): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (NoSuchMethodException e) {
 				log.error("Not 'transform' method in Transformer class: " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (SecurityException e) {
-				log.error("Invalid Transformer (1): " + e.getLocalizedMessage());
+				log.error("Invalid Transformer (" + transformerName + ") (1): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (InstantiationException e) {
-				log.error("Invalid Transformer (2): " + e.getLocalizedMessage());
+				log.error("Invalid Transformer (" + transformerName + ") (2): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (IllegalAccessException e) {
-				log.error("Invalid Transformer (3): " + e.getLocalizedMessage());
+				log.error("Invalid Transformer (" + transformerName + ") (3): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (IllegalArgumentException e) {
-				log.error("Invalid Transformer (4): " + e.getLocalizedMessage());
+				log.error("Invalid Transformer (" + transformerName + ") (4): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			} catch (InvocationTargetException e) {
-				log.error("Invalid Transformer (5): " + e.getLocalizedMessage());
+				log.error("Invalid Transformer (" + transformerName + ") (5): " + e.getLocalizedMessage());
+				logStackTrace(e);
 			}
 		}
 
 		return value;
+	}
+
+	private static void logStackTrace(Exception e) {
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		e.printStackTrace(pw);				
+		log.error(sw.toString());
 	}
 
 	public static String applyFiller(CallRecording call, String callFullPath, String fillerName) {

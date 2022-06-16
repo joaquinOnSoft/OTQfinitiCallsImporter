@@ -51,7 +51,7 @@ import com.opentext.qfiniti.importer.io.transformer.InteractionIdKey2FileNameTra
 import com.opentext.qfiniti.importer.io.transformer.LocalPartyName2TeamMemberNameTransformerTest;
 import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
 import com.opentext.qfiniti.importer.util.FilesInFolderCacheTest;
-import com.opentext.qfiniti.importer.util.TestDateUtil;
+import com.opentext.qfiniti.importer.util.DateUtilTest;
 
 @RunWith(Suite.class)
 
@@ -84,7 +84,7 @@ import com.opentext.qfiniti.importer.util.TestDateUtil;
 		CallRecordingTest.class,
 		
 		// com.opentext.qfiniti.importer.util
-		FilesInFolderCacheTest.class, TestDateUtil.class
+		FilesInFolderCacheTest.class, DateUtilTest.class
 	})
 
 public class QfinitiTestSuite {

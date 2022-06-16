@@ -1,5 +1,5 @@
 /*
- *   (C) Copyright 2022 OpenText and others.
+ *   (C) Copyright 2021 OpenText and others.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -17,28 +17,21 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer.io.transformer;
+package com.opentext.qfiniti.importer.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Before;
 import org.junit.Test;
 
-public class DurationMsecToSecTransformerTest extends AbstractTransformerTest{
-
-	private DurationMsecToSecTransformer transformer;
-	
-	@Before
-	public void runBeforeTestMethod() {
-		super.before();
-		transformer = new DurationMsecToSecTransformer(null);
-	}	
+public class PropertiesCacheTest{
 
 	@Test
-	public void transform() {
-		String duration = transformer.transform("495580");
-		assertNotNull(duration);
-		assertEquals("496", duration); //round to next integer		
+	public void testIsFile() {
+		PorpertiesCache instance = PorpertiesCache.getInstance("user-mapping.properties");
+		assertNotNull(instance);
+		assertEquals("Natasha Romanoff", instance.getProperty("93754d84-c59e-417d-ae00-3c62a424fae3"));
+		assertEquals("Bruce Banner", instance.getProperty("35424d84-c59e-417d-be63-3c62a458cad3"));
+		assertEquals("Peter Parker", instance.getProperty("25854d84-c59e-417d-ae00-3c62a424bea0"));
 	}
 }

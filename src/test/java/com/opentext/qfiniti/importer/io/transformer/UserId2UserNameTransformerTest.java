@@ -25,20 +25,41 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DurationMsecToSecTransformerTest extends AbstractTransformerTest{
+public class UserId2UserNameTransformerTest extends AbstractTransformerTest{
 
-	private DurationMsecToSecTransformer transformer;
+	private UserId2UserNameTransformer transformer;
 	
 	@Before
 	public void runBeforeTestMethod() {
 		super.before();
-		transformer = new DurationMsecToSecTransformer(null);
+		transformer = new UserId2UserNameTransformer(null);
 	}	
 
 	@Test
 	public void transform() {
-		String duration = transformer.transform("495580");
-		assertNotNull(duration);
-		assertEquals("496", duration); //round to next integer		
+		//25854d84-c59e-417d-ae00-3c62a424bea0=Peter Parker
+		String value = transformer.transform("25854d84-c59e-417d-ae00-3c62a424bea0");
+		assertNotNull(value);
+		assertEquals("Peter", value);				
 	}
+	
+	@Test
+	public void transformNullValue() {
+		String value = transformer.transform(null);
+		assertNotNull(value);
+		assertEquals("", value);			
+	}	
+	
+	@Test
+	public void transformNameWithPoint() {
+		//37474a46-e22c-276c-cd39-4f64b424bfc2=Mr. Fantastico
+		String value = transformer.transform("37474a46-e22c-276c-cd39-4f64b424bfc2");
+		assertNotNull(value);
+		assertEquals("Mr", value);			
+
+		//99454d43-b82a-893e-fe88-5f64b424aeb1=Bruce Banner Jr.
+		value = transformer.transform("99454d43-b82a-893e-fe88-5f64b424aeb1");
+		assertNotNull(value);
+		assertEquals("Bruce Banner Jr", value);		
+	}		
 }
