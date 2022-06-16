@@ -288,7 +288,6 @@ This file looks like this:
 25854d84-c59e-417d-ae00-3c62a424bea0=Peter Parker
 ```
 
-
 ### Configuration file examples
 
 Let'see some examples:
