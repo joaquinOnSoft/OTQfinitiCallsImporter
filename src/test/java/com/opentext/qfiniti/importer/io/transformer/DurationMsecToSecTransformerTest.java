@@ -39,6 +39,6 @@ public class DurationMsecToSecTransformerTest extends AbstractTransformerTest{
 	public void transform() {
 		String duration = transformer.transform("495580");
 		assertNotNull(duration);
-		assertEquals("495", duration);		
+		assertEquals("496", duration); //round to next integer		
 	}
 }
