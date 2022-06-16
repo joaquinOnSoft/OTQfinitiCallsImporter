@@ -28,7 +28,7 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-public class TestDateUtil extends TestCase {
+public class DateUtilTest extends TestCase {
 
 	private int subStringToInt(String str, int init, int end) {
 		return Integer.parseInt(str.substring(init, end));
