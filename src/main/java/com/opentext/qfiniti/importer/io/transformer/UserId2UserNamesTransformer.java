@@ -22,7 +22,7 @@ package com.opentext.qfiniti.importer.io.transformer;
 import com.opentext.qfiniti.importer.util.PorpertiesCache;
 
 /**
- * Transform a user id to a user name.
+ * Transform a user id to a user name + surname.
  */
 public abstract class UserId2UserNamesTransformer extends AbstractTransformer {
 	
@@ -32,7 +32,6 @@ public abstract class UserId2UserNamesTransformer extends AbstractTransformer {
 	public UserId2UserNamesTransformer(String path) {
 		super(path);
 	}
-
 	
 	protected String[] getNamesFromUserId(String userId) {		
 		String fullName;

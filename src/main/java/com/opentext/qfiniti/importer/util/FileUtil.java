@@ -49,7 +49,7 @@ public class FileUtil {
 	 * @param fileName
 	 * @return
 	 */
-	public static File getFileFromResources(String fileName) {
+	public static File getFileFromResources(String fileName) throws IllegalArgumentException{
 	    System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         URL resource = FileUtil.class.getClassLoader().getResource(fileName);
@@ -61,10 +61,10 @@ public class FileUtil {
 
     }	
 	
-	public static InputStream getStreamFromResources(String fileName) {
+	public static InputStream getStreamFromResources(String fileName) throws IllegalArgumentException {
         InputStream resource = FileUtil.class.getClassLoader().getResourceAsStream(fileName);
         if (resource == null) {
-            throw new IllegalArgumentException("file is not found!");
+            throw new IllegalArgumentException("File '" + fileName + "' is not found!");
         } else {
             return resource;
         }
