@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 
 java {
-	version = '22.06.16' 
+	version = '23.01.02' 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
@@ -34,39 +34,39 @@ repositories {
 
 dependencies {
 	// https://mvnrepository.com/artifact/commons-cli/commons-cli
-	implementation 'commons-cli:commons-cli:1.4' 
+	implementation 'commons-cli:commons-cli:1.5.0' 
 
 	// https://mvnrepository.com/artifact/org.apache.poi/poi
-	implementation 'org.apache.poi:poi:5.0.0' 
+	implementation 'org.apache.poi:poi:5.2.3' 
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
-	implementation 'org.apache.poi:poi-ooxml:5.0.0' 
+	implementation 'org.apache.poi:poi-ooxml:5.2.3' 
 
 	// https://mvnrepository.com/artifact/org/jaudiotagger
 	implementation 'org:jaudiotagger:2.0.3'
 	
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-core
-	implementation 'org.apache.tika:tika-core:1.26'
+	implementation 'org.apache.tika:tika-core:2.6.0'
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-parsers
-	implementation 'org.apache.tika:tika-parsers:1.26'
+	implementation 'org.apache.tika:tika-parsers:2.6.0'
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-serialization
-	implementation 'org.apache.tika:tika-serialization:1.26'
+	implementation 'org.apache.tika:tika-serialization:2.6.0'
 	
 	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
-	implementation 'org.apache.logging.log4j:log4j-api:2.14.1'	
+	implementation 'org.apache.logging.log4j:log4j-api:2.19.0'	
 	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
-	implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
+	implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
 		
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
 	
 	// https://mvnrepository.com/artifact/com.opencsv/opencsv
-	implementation 'com.opencsv:opencsv:5.4'
+	implementation 'com.opencsv:opencsv:5.7.1'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13.2'	 
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-	testImplementation 'org.slf4j:slf4j-api:1.7.30'        
+	testImplementation 'org.slf4j:slf4j-api:2.0.6'        
 	// https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-	testImplementation 'org.slf4j:slf4j-simple:1.7.30'    
+	testImplementation 'org.slf4j:slf4j-simple:2.0.6'    
 }
