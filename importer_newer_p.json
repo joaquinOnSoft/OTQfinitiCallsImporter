@@ -1,0 +1,43 @@
+{
+	"inputType": "NoMetadata",
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "C:\\Users\\jgarzonpena\\eclipse-workspace\\OTQfinitiCallsImporter\\src\\test\\resources\\client-p"
+		},
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
+		},
+		{
+			"oname": "Date_Time",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDateFiller"
+		},
+		{
+			"oname": "duration",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDurationFiller"
+		},
+		{
+			"oname": "group_hierarchy",
+			"ovalue": "Planeta"
+		},
+		{
+			"oname": "Team_Member_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionAgentFiller"
+		},
+		{
+			"oname": "dnis",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionTelephoneFiller"
+		},
+		{
+			"oname": "ani",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionRouteFiller"
+		},
+		{
+			"oname": "service",
+			"filler": "com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionRouteFiller"
+		}
+	],
+	"fieldMapping": [
+	]
+}

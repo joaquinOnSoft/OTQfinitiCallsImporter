@@ -31,6 +31,14 @@ import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionAgentFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDateFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDurationFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionIdFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionRouteFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionServiceFillerTest;
+import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionTelephoneFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFillerTest;
@@ -63,8 +71,16 @@ import com.opentext.qfiniti.importer.util.DateUtilTest;
 		// com.opentext.qfiniti.importer.io.filler
 		AniFillerTest.class, DateFromFileFillerTest.class, DnisFillerTest.class, 
 		DurationFromMetadataFillerTest.class, GroupHierarchyDolceVitaFillerTest.class, GroupHierarchyFillerTest.class, 
+		PlanetaNamingConventionAgentFillerTest.class, 
+		PlanetaNamingConventionDateFillerTest.class, 
+		PlanetaNamingConventionDurationFillerTest.class, 
+		PlanetaNamingConventionFillerTest.class, 
+		PlanetaNamingConventionIdFillerTest.class, 
+		PlanetaNamingConventionRouteFillerTest.class, 
+		PlanetaNamingConventionServiceFillerTest.class, 
+		PlanetaNamingConventionTelephoneFillerTest.class,
 		TeamMemberFillerTest.class, TeamMemberFromSGTeamFillerTest.class, TeamMemberFromTeamFillerTest.class,
-
+		
 		// com.opentext.qfiniti.importer.io.
 		CsvReaderTest.class, ExcelReaderTest.class, ExcelWriterTest.class,
 
