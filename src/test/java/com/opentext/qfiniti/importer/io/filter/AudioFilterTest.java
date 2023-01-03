@@ -1,5 +1,5 @@
 /*
- *   (C) Copyright 2019 OpenText and others.
+ *   (C) Copyright 2023 OpenText and others.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
