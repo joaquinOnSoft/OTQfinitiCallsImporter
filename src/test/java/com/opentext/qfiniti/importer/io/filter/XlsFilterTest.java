@@ -19,6 +19,8 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
+import java.io.File;
+
 import org.junit.Before;
 
 public class XlsFilterTest extends FileFilterTest {
@@ -28,4 +30,9 @@ public class XlsFilterTest extends FileFilterTest {
 		dataFileFullPath = "client-i/20191021.xls";
 		dataFileName = "20191021.xls";
 	}
+	
+	protected File[] applyFilter(String path) {
+		XlsFilter filter = new XlsFilter();
+		return filter.finder(path);
+	}	
 }

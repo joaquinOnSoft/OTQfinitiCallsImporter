@@ -1,4 +1,4 @@
-package com.opentext.qfiniti.importer.io.filler;
+package com.opentext.qfiniti.importer.io.filler.planeta;
 
 import java.io.File;
 import java.text.ParseException;
@@ -7,6 +7,7 @@ import java.util.Date;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.opentext.qfiniti.importer.io.filler.AbstractFiller;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.util.DateUtil;
 
@@ -109,8 +110,12 @@ public abstract class PlanetaNamingConventionFiller extends AbstractFiller {
 					break;			
 				case FIELD_TELEPHONE:
 					//The first 4 digits correspond to a route to be ignored for processing.
-					value = matches[INDEX_TELEPHONE];				
-					value  = value.replace(".gsm", "").substring(4);
+					value = matches[INDEX_TELEPHONE];	
+					int extensionInitIndex = value.indexOf(".");
+					if(extensionInitIndex > 4) {
+						value  = value.substring(4, extensionInitIndex);	
+					}
+					
 					break;
 				}
 			}

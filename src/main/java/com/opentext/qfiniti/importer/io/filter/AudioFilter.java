@@ -22,18 +22,18 @@ package com.opentext.qfiniti.importer.io.filter;
 import java.io.File;
 
 /**
- * Find .xls files in specified folder
+ * Find audio files (.wav, .gsm, .mp3, .ogg) in specified folder 
  * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
  */
-public class XlsFilter extends FileFilter {
+public class AudioFilter extends FileFilter {
 
 	/**
-	 * Find .xls files in specified folder
+	 * Find audio files (.wav, .gsm, .mp3, .ogg) in specified folder
 	 * 
 	 * @param dirName - folder name
-	 * @return list of .xls files contained in a given folder
+	 * @return list of .wav, .gsm, .mp3, .ogg files contained in a given folder
 	 */
 	public File[] finder(String dirName) {
-		return finder(dirName, ".xls");
+		return finder(dirName, ".wav", ".gsm", ".mp3", ".ogg");
 	}
 }

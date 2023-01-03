@@ -37,6 +37,24 @@ import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 public class ImporterConfigGenerator {
+	/** SHORT OPTION: UNC Path to the call recordings files */	
+	private static final String OPT_SHORT_PATH = "p";
+	/** SHORT OPTION: Output file name. 'calls.xls' by default */	
+	private static final String OPT_SHORT_OUTPUT = "o";
+	/** SHORT OPTION: JSON Config file */	
+	private static final String OPT_SHORT_CONFIG = "c";
+	/** SHORT OPTION: Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed */
+	private static final String OPT_SHORT_ALL_AUDIO = "a";
+	
+	/** OPTION: UNC Path to the call recordings files */
+	private static final String OPT_PATH = "path";
+	/** OPTION: Output file name. 'calls.xls' by default */
+	private static final String OPT_OUTPUT = "output";
+	/** OPTION: JSON Config file */
+	private static final String OPT_CONFIG = "config";
+	/** OPTION: Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed */
+	private static final String OPT_ALL_AUDIO = "allaudio";
+
 	private static final Logger log = LogManager.getLogger(ImporterConfigGenerator.class);
 
 	private static final String DEFAULT_OUTPUT_FILE = "calls.xls";
@@ -52,13 +70,16 @@ public class ImporterConfigGenerator {
 	public static void main(String args[]) {
 		Options options = new Options();
 
-		Option configOpt = new Option("c", "config", true, "JSON Config file");
+		Option audioOpt = new Option(OPT_SHORT_ALL_AUDIO, OPT_ALL_AUDIO, false, "Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed");
+		options.addOption(audioOpt);		
+		
+		Option configOpt = new Option(OPT_SHORT_CONFIG, OPT_CONFIG, true, "JSON Config file");
 		options.addOption(configOpt);
 
-		Option outputOpt = new Option("o", "output", true, "Output file name. 'calls.xls' by default");
+		Option outputOpt = new Option(OPT_SHORT_OUTPUT, OPT_OUTPUT, true, "Output file name. 'calls.xls' by default");
 		options.addOption(outputOpt);
 
-		Option pathOpt = new Option("p", "path", true, "UNC Path to the call recordings files");
+		Option pathOpt = new Option(OPT_SHORT_PATH, OPT_PATH, true, "UNC Path to the call recordings files");
 		pathOpt.setRequired(true);
 		options.addOption(pathOpt);
 
@@ -76,14 +97,16 @@ public class ImporterConfigGenerator {
 			return;
 		}
 
-		String path = cmd.getOptionValue("path");
+		boolean allAudioFormats = cmd.hasOption(OPT_ALL_AUDIO);
+		
+		String path = cmd.getOptionValue(OPT_PATH);
 
-		String output = cmd.getOptionValue("output");
+		String output = cmd.getOptionValue(OPT_OUTPUT);
 		if (output == null) {
 			output = DEFAULT_OUTPUT_FILE;
 		}
 
-		String jsonConfig = cmd.getOptionValue("config");
+		String jsonConfig = cmd.getOptionValue(OPT_CONFIG);
 		if (jsonConfig != null) {
 			File jsonConfigFile = new File(jsonConfig);
 			MappingConfig mapping = null;
@@ -99,6 +122,7 @@ public class ImporterConfigGenerator {
 				AbstractQfinitiICG configGenerator = factory.getConfigGenerator(mapping.getInputType(), path);
 				configGenerator.setOutput(output);
 				configGenerator.setMappingConfig(mapping);
+				configGenerator.setAllAudioFormats(allAudioFormats);
 
 				try {
 					configGenerator.generate();

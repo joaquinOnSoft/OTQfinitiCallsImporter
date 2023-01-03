@@ -22,8 +22,8 @@ package com.opentext.qfiniti.importer.io.filter;
 import java.io.File;
 
 /**
- * Find .csv files in specified folder [closed] SEE:
- * https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
+ * Find .csv files in specified folder
+ * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
  */
 public class CsvFilter extends FileFilter {
 

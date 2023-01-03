@@ -13,6 +13,8 @@ public abstract class FileFilterTest {
 	protected String dataFileFullPath;
 	protected String dataFileName;
 
+	protected abstract File[] applyFilter(String path);
+	
 	@Test
 	public void testFinder() {
 
@@ -24,9 +26,8 @@ public abstract class FileFilterTest {
 		String path = file.getParentFile().getAbsolutePath();
 
 		assertNotNull(path);
-
-		XlsFilter filter = new XlsFilter();
-		File[] files = filter.finder(path);
+		
+		File[] files = applyFilter(path);
 
 		assertNotNull(files);
 		assertTrue(files.length > 0);

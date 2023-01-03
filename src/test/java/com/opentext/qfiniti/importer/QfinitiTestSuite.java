@@ -31,17 +31,18 @@ import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
 import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFillerTest;
 import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionAgentFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDateFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionDurationFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionIdFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionRouteFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionServiceFillerTest;
-import com.opentext.qfiniti.importer.io.filler.PlanetaNamingConventionTelephoneFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFillerTest;
 import com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionAgentFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionDateFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionDurationFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionIdFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionRouteFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionServiceFillerTest;
+import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionTelephoneFillerTest;
+import com.opentext.qfiniti.importer.io.filter.AudioFilterTest;
 import com.opentext.qfiniti.importer.io.filter.CsvFilterTest;
 import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
 import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
@@ -85,7 +86,8 @@ import com.opentext.qfiniti.importer.util.DateUtilTest;
 		CsvReaderTest.class, ExcelReaderTest.class, ExcelWriterTest.class,
 
 		// com.opentext.qfiniti.importer.io.filter
-		CsvFilterTest.class, FolderFilterTest.class, WavFilterTest.class, XlsFilterTest.class,
+		AudioFilterTest.class, CsvFilterTest.class, FolderFilterTest.class, 
+		WavFilterTest.class, XlsFilterTest.class,
 
 		// com.opentext.qfiniti.importer.io.metadata
 		JaudiotaggerMetadataExtractorTest.class, JavaMetadataExtractorTest.class, TikaMetadataExtractorTest.class,

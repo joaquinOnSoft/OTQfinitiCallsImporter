@@ -21,19 +21,17 @@ package com.opentext.qfiniti.importer.io.filter;
 
 import java.io.File;
 
-/**
- * Find .xls files in specified folder
- * SEE: https://stackoverflow.com/questions/1384947/java-find-txt-files-in-specified-folder/1385015
- */
-public class XlsFilter extends FileFilter {
+import org.junit.Before;
 
-	/**
-	 * Find .xls files in specified folder
-	 * 
-	 * @param dirName - folder name
-	 * @return list of .xls files contained in a given folder
-	 */
-	public File[] finder(String dirName) {
-		return finder(dirName, ".xls");
+public class AudioFilterTest extends FileFilterTest {
+	@Before
+	public void initialize() {
+		dataFileFullPath = "client-p/13032476-31122021_143358-2622-5631-00307-0204697244857.gsm";
+		dataFileName = "13032476-31122021_143358-2622-5631-00307-0204697244857.gsm";		
+	}
+	
+	protected File[] applyFilter(String path) {
+		AudioFilter filter = new AudioFilter();
+		return filter.finder(path);
 	}
 }

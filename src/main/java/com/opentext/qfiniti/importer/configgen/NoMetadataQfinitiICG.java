@@ -22,6 +22,7 @@ package com.opentext.qfiniti.importer.configgen;
 import java.io.File;
 import java.util.Map;
 
+import com.opentext.qfiniti.importer.io.filter.AudioFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 import com.opentext.qfiniti.importer.pojo.FieldFiller;
@@ -45,15 +46,24 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG {
 	}
 
 	@Override
-	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
-		WavFilter wavfilter = new WavFilter();
-
-		// Read audio files (.wav)
-		File wavFiles[] = wavfilter.finder(path);
-		if (wavFiles != null && wavFiles.length > 0) {
+	protected Map<String, CallRecording> readAudioFiles(String path, Map<String, CallRecording> recordings) {
+		File audioFiles[] = null;
+		
+		if(allAudioFormats) {
+			// Read audio files (.wav, .gsm, .mp3, .ogg)
+			AudioFilter wavfilter = new AudioFilter();
+			audioFiles = wavfilter.finder(path);			
+		}
+		else {
+			// Read audio files (.wav)			
+			WavFilter wavfilter = new WavFilter();
+			audioFiles = wavfilter.finder(path);
+		}
+		
+		if (audioFiles != null && audioFiles.length > 0) {
 
 			CallRecording call = null;
-			for (File file : wavFiles) {
+			for (File file : audioFiles) {
 				log.info(file.getPath());
 
 				// Initialize call recording with path and file name

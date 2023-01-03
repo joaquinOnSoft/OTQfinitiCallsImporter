@@ -27,7 +27,33 @@ public class FileFilter {
 	 * Find files with a given extension in specified folder
 	 * 
 	 * @param dirName - folder name
-	 * @return list of .xls files contained in a given folder
+	 * @param extension - file extension to be filtered
+	 * @return list of files contained in a given folder that matches the given extension, e.g. .xls
+	 */
+	public File[] finder(String dirName, String... extensions) {
+		String[] exts = extensions;
+		File dir = new File(dirName);
+
+		return dir.listFiles(new FilenameFilter() {
+			public boolean accept(File dir, String filename) {
+		        for (String ext : exts) {
+		             if (filename.endsWith(ext)) {
+		                 return true;
+		             }
+		        }
+		        
+		        return false;
+			}
+		});
+
+	}	
+	
+	/**
+	 * Find files with a given extension in specified folder
+	 * 
+	 * @param dirName - folder name
+	 * @param extension - file extension to be filtered
+	 * @return list of files contained in a given folder that matches the given extension, e.g. .xls
 	 */
 	public File[] finder(String dirName, String extension) {
 		File dir = new File(dirName);

@@ -1,4 +1,4 @@
-package com.opentext.qfiniti.importer.io.filler;
+package com.opentext.qfiniti.importer.io.filler.planeta;
 
 import java.io.File;
 
@@ -15,23 +15,23 @@ import com.opentext.qfiniti.importer.pojo.CallRecording;
  *    <li>Telephone: The first 4 digits correspond to a route to be ignored for processing.</li>
  * </ul>
  */ 
-public class PlanetaNamingConventionRouteFiller extends PlanetaNamingConventionFiller {
+public class PlanetaNamingConventionServiceFiller extends PlanetaNamingConventionFiller {
 		
-	public PlanetaNamingConventionRouteFiller(CallRecording call, String path, String fileName) {
+	public PlanetaNamingConventionServiceFiller(CallRecording call, String path, String fileName) {
 		super(call, path, fileName);
 	}
 
-	public PlanetaNamingConventionRouteFiller(CallRecording call, String filePath) {
+	public PlanetaNamingConventionServiceFiller(CallRecording call, String filePath) {
 		super(call, filePath);
 	}
 
-	public PlanetaNamingConventionRouteFiller(CallRecording call, File file) {
+	public PlanetaNamingConventionServiceFiller(CallRecording call, File file) {
 		super(call, file);
 	}
 	
 	
 	@Override
 	public String getValue() {
-		return getField(FIELD_ROUTE);
+		return getField(FIELD_SERVICE);
 	}
 }

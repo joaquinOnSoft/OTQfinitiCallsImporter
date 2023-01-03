@@ -20,14 +20,20 @@
 package com.opentext.qfiniti.importer.io.metadata;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.tika.Tika;
+import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.AutoDetectParser;
+
+import org.apache.tika.sax.BodyContentHandler;
+import org.xml.sax.SAXException;
 
 /**
  * The Apache Tika™ toolkit detects and extracts metadata and text from over a
@@ -38,7 +44,7 @@ import org.apache.tika.metadata.Metadata;
 public class TikaMetadataExtractor implements IMetadataCreator {
 
 	private static final Logger log = LogManager.getLogger(TikaMetadataExtractor.class);
-
+	
 	/**
 	 * Detects and extracts metadata from over a thousand different file types (such
 	 * as PPT, XLS, and PDF).
@@ -46,29 +52,37 @@ public class TikaMetadataExtractor implements IMetadataCreator {
 	 * @param f - File to be processed
 	 * @return Metadata extracted from the file. Example of metadata extracted:
 	 * 
-	 *         X-Parsed-By=org.apache.tika.parser.DefaultParser
-	 *         X-Parsed-By=org.apache.tika.parser.audio.AudioParser
-	 *         xmpDM:audioSampleRate=8000 channels=2 bits=16
-	 *         resourceName=file_example_WAV_1MG.wav Content-Length=1073218
-	 *         encoding=PCM_SIGNED xmpDM:audioSampleType=16Int
-	 *         Content-Type=audio/vnd.wave samplerate=8000.0
+	 *         xmpDM: audioSampleRate = 8000,
+	 *         channels = 2,
+	 *         X - TIKA: Parsed - By = org.apache.tika.parser.DefaultParser,
+	 *         X - TIKA: Parsed - By - Full - Set = org.apache.tika.parser.DefaultParser,
+	 *         bits = 16,
+	 *         encoding = PCM_SIGNED,
+	 *         xmpDM: audioSampleType = 16Int,
+	 *         Content - Type = audio / vnd.wave,
+	 *         samplerate = 8000.0
 	 * 
 	 * @throws IOException
 	 */
 	public Map<String, String> extract(File f) throws IOException {
 		Map<String, String> output = null;
 
-		if (f != null) {
-			Tika tika = new Tika();
-			Metadata metadata = new Metadata();
-
-			try {
-				tika.parse(f, metadata);
-			} catch (IOException e) {
-				log.error(e.getMessage());
-				throw e;
+		if (f != null) {			
+			// SEE: Tika Auto Detector Parser
+			// https://www.javatpoint.com/tika-auto-detector-parser
+	        BodyContentHandler handler = new BodyContentHandler();  
+	        
+	        AutoDetectParser parser = new AutoDetectParser();  
+	        Metadata metadata = new Metadata();  
+	        try (InputStream stream = new FileInputStream(f) ) {  
+	            parser.parse(stream, handler, metadata);  
+	        }          
+	        catch (SAXException e) {
+				log.error("Tika auto detector parser (SAX): ", e);
+			} catch (TikaException e) {
+				log.error("Tika auto detector parser: ", e);
 			}
-
+	        
 			// System.out.println(metadata);
 			if (metadata != null) {
 				String[] names = metadata.names();

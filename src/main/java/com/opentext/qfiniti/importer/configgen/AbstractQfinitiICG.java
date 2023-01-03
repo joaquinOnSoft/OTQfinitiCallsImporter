@@ -32,6 +32,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.opentext.qfiniti.importer.io.ExcelWriter;
+import com.opentext.qfiniti.importer.io.filter.AudioFilter;
 import com.opentext.qfiniti.importer.io.filter.FolderFilter;
 import com.opentext.qfiniti.importer.io.filter.WavFilter;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
@@ -49,15 +50,21 @@ public abstract class AbstractQfinitiICG {
 	protected String extension;
 	protected String output;
 	protected MappingConfig mappingConfig;
+	protected boolean allAudioFormats;
 
 	public AbstractQfinitiICG(String path) {
 		this(path, null);
 	}
 
 	public AbstractQfinitiICG(String path, String extension) {
+		this(path, extension, false);
+	}
+	
+	public AbstractQfinitiICG(String path, String extension, boolean allAudioFormats) {
 		this.path = path;
 		this.extension = extension;
-	}
+		this.allAudioFormats = allAudioFormats;
+	}	
 
 	public String getPath() {
 		return path;
@@ -71,8 +78,21 @@ public abstract class AbstractQfinitiICG {
 		return output;
 	}
 
+	public boolean isAllAudioFormats() {
+		return allAudioFormats;
+	}
+
+	public void setAllAudioFormats(boolean allAudioFormats) {
+		this.allAudioFormats = allAudioFormats;
+	}
+
 	public void setOutput(String output) {
 		this.output = output;
+	}
+
+	public AbstractQfinitiICG(boolean allAudioFormats) {
+		super();
+		this.allAudioFormats = allAudioFormats;
 	}
 
 	public MappingConfig getMappingConfig() {
@@ -106,8 +126,8 @@ public abstract class AbstractQfinitiICG {
 		// Read data files (.json, .xls or .csv)
 		recordings = readDataFiles(path, recordings);
 
-		// Read audio files (.wav)
-		recordings = readWafFiles(path, recordings);
+		// Read audio files (.wav) or all formats (.wav, .gsm, .mp3, .ogg) 
+		recordings = readAudioFiles(path, recordings);
 
 		// Find sub-folders
 		recordings = findSubfolders(path, recordings);
@@ -124,15 +144,29 @@ public abstract class AbstractQfinitiICG {
 	 */
 	protected abstract Map<String, CallRecording> readDataFiles(String path, Map<String, CallRecording> recordings);
 
-	protected Map<String, CallRecording> readWafFiles(String path, Map<String, CallRecording> recordings) {
-		WavFilter wavfilter = new WavFilter();
-
-		// Read metadata files (.xls, .csv, .json)
-		File wavFiles[] = wavfilter.finder(path);
-		if (wavFiles != null && wavFiles.length > 0) {
-
+	/**
+	 * Read audio files (.wav) or all formats (.wav, .gsm, .mp3, .ogg) 
+	 * @param path
+	 * @param recordings
+	 * @return
+	 */
+	protected Map<String, CallRecording> readAudioFiles(String path, Map<String, CallRecording> recordings) {	
+		File audioFiles[] = null;
+		
+		if(allAudioFormats) {
+			// Read audio files (.wav, .gsm, .mp3, .ogg)
+			AudioFilter wavfilter = new AudioFilter();
+			audioFiles = wavfilter.finder(path);			
+		}
+		else {
+			// Read audio files (.wav)			
+			WavFilter wavfilter = new WavFilter();
+			audioFiles = wavfilter.finder(path);
+		}
+				
+		if (audioFiles != null && audioFiles.length > 0) {
 			CallRecording call = null;
-			for (File file : wavFiles) {
+			for (File file : audioFiles) {
 				log.info(file.getPath());
 
 				call = recordings.get(file.getName());

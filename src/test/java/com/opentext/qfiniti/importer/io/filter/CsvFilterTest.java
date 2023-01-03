@@ -19,12 +19,19 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
+import java.io.File;
+
 import org.junit.Before;
 
 public class CsvFilterTest extends FileFilterTest {
 	@Before
 	public void initialize() {
-		dataFileFullPath = "client-i/20191021.xls";
-		dataFileName = "20191021.xls";
+		dataFileFullPath = "client-i/20191021.csv";
+		dataFileName = "20191021.csv";		
+	}
+	
+	protected File[] applyFilter(String path) {
+		CsvFilter filter = new CsvFilter();
+		return filter.finder(path);
 	}
 }
