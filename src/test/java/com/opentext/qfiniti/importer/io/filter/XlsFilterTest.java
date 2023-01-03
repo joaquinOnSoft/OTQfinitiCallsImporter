@@ -21,11 +21,11 @@ package com.opentext.qfiniti.importer.io.filter;
 
 import java.io.File;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class XlsFilterTest extends FileFilterTest {
 
-	@Before
+	@BeforeEach
 	public void initialize() {
 		dataFileFullPath = "client-i/20191021.xls";
 		dataFileName = "20191021.xls";

@@ -1,14 +1,14 @@
 package com.opentext.qfiniti.importer;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.pojo.CallRecording;

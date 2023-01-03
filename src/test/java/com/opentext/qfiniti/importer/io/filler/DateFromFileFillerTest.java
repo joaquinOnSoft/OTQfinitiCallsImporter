@@ -1,8 +1,8 @@
 package com.opentext.qfiniti.importer.io.filler;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DateFromFileFillerTest extends AbstractFillerTest {
 

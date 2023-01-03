@@ -19,19 +19,19 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class UserId2UserFullNameTransformerTest extends AbstractTransformerTest{
 
 	private UserId2UserFullNameTransformer transformer;
 	
-	@Before
+	@BeforeEach
 	public void runBeforeTestMethod() {
-		super.before();
+		super.setup();
 		transformer = new UserId2UserFullNameTransformer(null);
 	}	
 

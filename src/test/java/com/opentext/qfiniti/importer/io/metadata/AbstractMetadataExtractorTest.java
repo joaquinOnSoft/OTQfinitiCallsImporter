@@ -21,7 +21,7 @@ package com.opentext.qfiniti.importer.io.metadata;
 
 import java.io.File;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class AbstractMetadataExtractorTest {
 
@@ -31,7 +31,7 @@ public class AbstractMetadataExtractorTest {
 		super();
 	}
 
-	@Before
+	@BeforeEach
 	public void runBeforeTestMethod() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		file = new File(classLoader.getResource("client-o/file_example_WAV_1MG.wav").getFile());

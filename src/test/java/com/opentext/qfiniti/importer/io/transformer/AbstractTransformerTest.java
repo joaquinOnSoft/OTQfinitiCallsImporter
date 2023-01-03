@@ -19,13 +19,13 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractTransformerTest {
 	protected String path;
 	
-	@Before // setup()
-    public void before() {
+	@BeforeEach 
+    public void setup() {
 		path =  System.getProperty("user.dir");
 	}
 }

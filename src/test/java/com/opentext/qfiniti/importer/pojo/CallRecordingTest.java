@@ -1,15 +1,15 @@
 package com.opentext.qfiniti.importer.pojo;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CallRecordingTest {
 
 	private CallRecording call;
 
-	@Before
+	@BeforeEach
 	public void initialize() {
 		call = new CallRecording();
 	}

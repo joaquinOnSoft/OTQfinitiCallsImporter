@@ -19,16 +19,19 @@
  */
 package com.opentext.qfiniti.importer.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import junit.framework.TestCase;
 
-public class DateUtilTest extends TestCase {
+public class DateUtilTest {
 
 	private int subStringToInt(String str, int init, int end) {
 		return Integer.parseInt(str.substring(init, end));

@@ -19,14 +19,14 @@
  */
 package com.opentext.qfiniti.importer;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.configgen.NoMetadataQfinitiICG;
 
 public class NoMetadataQfinitiICGTest extends AbstractQfinitiICGTest {
 
-	@Before
+	@BeforeEach
 	public void initilize() {
 		folderPath = "client-o";
 		jsonConfigPath = "client-o/client-o-mapping.json";

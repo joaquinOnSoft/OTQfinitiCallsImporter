@@ -1,7 +1,8 @@
 package com.opentext.qfiniti.importer.io;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.opentext.qfiniti.importer.JSonConfigReader;
 import com.opentext.qfiniti.importer.pojo.CallRecording;

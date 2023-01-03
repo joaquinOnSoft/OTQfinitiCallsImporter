@@ -21,10 +21,10 @@ package com.opentext.qfiniti.importer.io.filter;
 
 import java.io.File;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public class AudioFilterTest extends FileFilterTest {
-	@Before
+	@BeforeEach
 	public void initialize() {
 		dataFileFullPath = "client-p/13032476-31122021_143358-2622-5631-00307-0204697244857.gsm";
 		dataFileName = "13032476-31122021_143358-2622-5631-00307-0204697244857.gsm";		

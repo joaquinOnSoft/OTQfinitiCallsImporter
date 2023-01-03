@@ -19,19 +19,19 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RemoveHyphensTransformerTest extends AbstractTransformerTest{
 
 	private RemoveHyphensTransformer transformer;
 	
-	@Before
+	@BeforeEach
 	public void runBeforeTestMethod() {
-		super.before();
+		super.setup();
 		transformer = new RemoveHyphensTransformer(null);
 	}	
 
@@ -39,8 +39,7 @@ public class RemoveHyphensTransformerTest extends AbstractTransformerTest{
 	public void transform() {
 		String value = transformer.transform("25854d84-c59e-417d-ae00-3c62a424bea0");
 		assertNotNull(value);
-		assertEquals("25854d84c59e417dae003c62a424bea0", value);		
-		
+		assertEquals("25854d84c59e417dae003c62a424bea0", value);				
 	}
 	
 	@Test

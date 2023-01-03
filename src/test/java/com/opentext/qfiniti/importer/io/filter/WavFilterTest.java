@@ -19,11 +19,13 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class WavFilterTest {
 
@@ -51,7 +53,6 @@ public class WavFilterTest {
 		assertEquals("file_example_WAV_1MG.wav", files[45].getName());
 		assertEquals("file_example_WAV_2MG.wav", files[46].getName());
 		assertEquals("file_example_WAV_5MG.wav", files[47].getName());
-
 	}
 
 }

@@ -22,7 +22,7 @@ package com.opentext.qfiniti.importer.io.filler;
 import java.io.File;
 import java.time.LocalDateTime;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.opentext.qfiniti.importer.pojo.CallRecording;
 
@@ -34,7 +34,7 @@ public class AbstractFillerTest {
 		return "client-o/file_example_WAV_1MG.wav";
 	}
 
-	@Before
+	@BeforeEach
 	public void runBeforeTestMethod() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		file = new File(classLoader.getResource(getFilePath()).getFile());

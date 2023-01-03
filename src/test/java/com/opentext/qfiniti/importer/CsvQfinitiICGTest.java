@@ -19,14 +19,14 @@
  */
 package com.opentext.qfiniti.importer;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.configgen.CsvQfinitiICG;
 
 public class CsvQfinitiICGTest extends AbstractQfinitiICGTest {
 
-	@Before
+	@BeforeEach
 	public void initilize() {
 		folderPath = "client-i/samples-flatered";
 		jsonConfigPath = "client-i/client-i-mapping-from-csv.json";

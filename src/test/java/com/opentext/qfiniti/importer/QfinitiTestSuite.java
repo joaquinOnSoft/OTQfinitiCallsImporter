@@ -19,92 +19,26 @@
  */
 package com.opentext.qfiniti.importer;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
 
-import com.opentext.qfiniti.importer.io.CsvReaderTest;
-import com.opentext.qfiniti.importer.io.ExcelReaderTest;
-import com.opentext.qfiniti.importer.io.ExcelWriterTest;
-import com.opentext.qfiniti.importer.io.filler.AniFillerTest;
-import com.opentext.qfiniti.importer.io.filler.DateFromFileFillerTest;
-import com.opentext.qfiniti.importer.io.filler.DnisFillerTest;
-import com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFillerTest;
-import com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFillerTest;
-import com.opentext.qfiniti.importer.io.filler.GroupHierarchyFillerTest;
-import com.opentext.qfiniti.importer.io.filler.TeamMemberFillerTest;
-import com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFillerTest;
-import com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionAgentFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionDateFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionDurationFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionIdFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionRouteFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionServiceFillerTest;
-import com.opentext.qfiniti.importer.io.filler.planeta.PlanetaNamingConventionTelephoneFillerTest;
-import com.opentext.qfiniti.importer.io.filter.AudioFilterTest;
-import com.opentext.qfiniti.importer.io.filter.CsvFilterTest;
-import com.opentext.qfiniti.importer.io.filter.FolderFilterTest;
-import com.opentext.qfiniti.importer.io.filter.WavFilterTest;
-import com.opentext.qfiniti.importer.io.filter.XlsFilterTest;
-import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractorTest;
-import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractorTest;
-import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractorTest;
-import com.opentext.qfiniti.importer.io.transformer.CallDirectionTransformerTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.DateMMddyyyyhhmmssaTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.DateddMMyyyyhhmmTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.ExtensionPrefix2FileNameTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.HoursMinutesSecondsToSecondsTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.InteractionIdKey2FileNameTransformerTest;
-import com.opentext.qfiniti.importer.io.transformer.LocalPartyName2TeamMemberNameTransformerTest;
-import com.opentext.qfiniti.importer.pojo.CallRecordingTest;
-import com.opentext.qfiniti.importer.util.FilesInFolderCacheTest;
-import com.opentext.qfiniti.importer.util.DateUtilTest;
-
-@RunWith(Suite.class)
-
-@Suite.SuiteClasses({
-		// com.opentext.qfiniti
-		CsvQfinitiICGTest.class, JSonConfigReaderTest.class, NoMetadataQfinitiICGTest.class,
-		QfinitiICGFactoryTest.class, XlsQfinitiICGTest.class,
-
-		// com.opentext.qfiniti.importer.io.filler
-		AniFillerTest.class, DateFromFileFillerTest.class, DnisFillerTest.class, 
-		DurationFromMetadataFillerTest.class, GroupHierarchyDolceVitaFillerTest.class, GroupHierarchyFillerTest.class, 
-		PlanetaNamingConventionAgentFillerTest.class, 
-		PlanetaNamingConventionDateFillerTest.class, 
-		PlanetaNamingConventionDurationFillerTest.class, 
-		PlanetaNamingConventionFillerTest.class, 
-		PlanetaNamingConventionIdFillerTest.class, 
-		PlanetaNamingConventionRouteFillerTest.class, 
-		PlanetaNamingConventionServiceFillerTest.class, 
-		PlanetaNamingConventionTelephoneFillerTest.class,
-		TeamMemberFillerTest.class, TeamMemberFromSGTeamFillerTest.class, TeamMemberFromTeamFillerTest.class,
-		
-		// com.opentext.qfiniti.importer.io.
-		CsvReaderTest.class, ExcelReaderTest.class, ExcelWriterTest.class,
-
-		// com.opentext.qfiniti.importer.io.filter
-		AudioFilterTest.class, CsvFilterTest.class, FolderFilterTest.class, 
-		WavFilterTest.class, XlsFilterTest.class,
-
-		// com.opentext.qfiniti.importer.io.metadata
-		JaudiotaggerMetadataExtractorTest.class, JavaMetadataExtractorTest.class, TikaMetadataExtractorTest.class,
-
-		// com.opentext.qfiniti.importer.io.transformer
-		CallDirectionTransformerTransformerTest.class, ExtensionPrefix2FileNameTransformerTest.class,
-		DateddMMyyyyhhmmTransformerTest.class, DateMMddyyyyhhmmssaTransformerTest.class, 
-		DateMMddyyyyhhmmTransformerTest.class, HoursMinutesSecondsToSecondsTransformerTest.class, 
-		InteractionIdKey2FileNameTransformerTest.class, LocalPartyName2TeamMemberNameTransformerTest.class,
-
-		// com.opentext.qfiniti.importer.io.pojo
-		CallRecordingTest.class,
-		
-		// com.opentext.qfiniti.importer.util
-		FilesInFolderCacheTest.class, DateUtilTest.class
+/**
+ * SEE: JUnit 5 Test Suites
+ * https://howtodoinjava.com/junit5/junit5-test-suites-examples/ 
+ **/
+@Suite
+@SelectPackages({
+	"com.opentext.qfiniti.importer",
+	"com.opentext.qfiniti.importer.io",
+	"com.opentext.qfiniti.importer.io.filler",
+	"com.opentext.qfiniti.importer.io.filler.planeta",
+	"com.opentext.qfiniti.importer.io.metadata",
+	"com.opentext.qfiniti.importer.io.transformer",
+	"com.opentext.qfiniti.importer.pojo",
+	"com.opentext.qfiniti.importer.util",	
 	})
-
+@SuiteDisplayName("OTQfinitCallsImporter Suite Demo")
 public class QfinitiTestSuite {
 
 }

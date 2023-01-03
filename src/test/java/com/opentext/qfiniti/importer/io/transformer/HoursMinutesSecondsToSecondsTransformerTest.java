@@ -19,10 +19,9 @@
  */
 package com.opentext.qfiniti.importer.io.transformer;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 
 public class HoursMinutesSecondsToSecondsTransformerTest extends AbstractTransformerTest{
 
@@ -35,6 +34,5 @@ public class HoursMinutesSecondsToSecondsTransformerTest extends AbstractTransfo
 
 		seconds = adapter.transform("10:00:10");
 		assertEquals("36010", seconds);
-
 	}
 }

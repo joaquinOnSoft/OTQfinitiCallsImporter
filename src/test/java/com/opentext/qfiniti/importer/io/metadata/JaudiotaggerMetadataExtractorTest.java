@@ -19,14 +19,14 @@
  */
 package com.opentext.qfiniti.importer.io.metadata;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class JaudiotaggerMetadataExtractorTest extends AbstractMetadataExtractorTest {
 
@@ -50,7 +50,5 @@ public class JaudiotaggerMetadataExtractorTest extends AbstractMetadataExtractor
 		assertEquals("8000", metadata.get(IMetadataCreator.SAMPLE_RATE));
 		assertEquals("256", metadata.get(IMetadataCreator.BITS));
 		assertEquals("2", metadata.get(IMetadataCreator.CHANNELS));
-
 	}
-
 }

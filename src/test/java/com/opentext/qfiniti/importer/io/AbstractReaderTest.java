@@ -1,13 +1,13 @@
 package com.opentext.qfiniti.importer.io;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import com.opentext.qfiniti.importer.JSonConfigReader;
 import com.opentext.qfiniti.importer.pojo.CallRecording;
@@ -18,7 +18,7 @@ public abstract class AbstractReaderTest {
 	protected String dataFilePath = null;
 	protected IReader reader;
 
-	@Before
+	@BeforeEach
 	public abstract void initialize();
 
 	@Test

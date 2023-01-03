@@ -19,11 +19,12 @@
  */
 package com.opentext.qfiniti.importer.io.filter;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FolderFilterTest {
 	public static String SAMPLES_FOLDER = "client-i/samples";
