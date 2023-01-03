@@ -18,7 +18,10 @@ public abstract class AbstractReaderTest {
 	protected String dataFilePath = null;
 	protected IReader reader;
 
-	@BeforeEach
+	/**
+	 * NOTE: Add @BeforeEach annotation in the methods 
+	 * that overrides this method 
+	 */
 	public abstract void initialize();
 
 	@Test
