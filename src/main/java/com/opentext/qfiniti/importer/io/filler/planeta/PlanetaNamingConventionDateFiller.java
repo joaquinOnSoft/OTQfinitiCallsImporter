@@ -47,8 +47,7 @@ public class PlanetaNamingConventionDateFiller extends PlanetaNamingConventionFi
 	public PlanetaNamingConventionDateFiller(CallRecording call, File file) {
 		super(call, file);
 	}
-	
-	
+		
 	@Override
 	public String getValue() {
 		return getField(FIELD_DATE);

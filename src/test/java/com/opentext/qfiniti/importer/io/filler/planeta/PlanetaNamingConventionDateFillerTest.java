@@ -29,6 +29,6 @@ public class PlanetaNamingConventionDateFillerTest extends PlanetaNamingConventi
 	public void getValue() {
 		PlanetaNamingConventionDateFiller filler = new PlanetaNamingConventionDateFiller(call, file);
 		
-		assertEquals("31/12/2021 14:33:58", filler.getValue());
+		assertEquals("12/31/2021 02:33:58 PM", filler.getValue());
 	}
 }

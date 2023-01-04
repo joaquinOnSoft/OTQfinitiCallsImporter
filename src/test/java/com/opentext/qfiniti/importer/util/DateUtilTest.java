@@ -24,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.ParseException;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -84,5 +85,35 @@ public class DateUtilTest {
 			fail(e.getMessage());
 		}
 	}
+	
+	@Test
+	public void dateToQfinitiFormat() {
+		//2016-09-13T23:30:52.123Z
+		Instant now = Instant.now();
+		String nowStr = now.toString();
+		
+		String dateStr = DateUtil.dateToQfinitiFormat(Date.from(now));
+		
+		assertNotNull(dateStr);
+		//dd/MM/yyyy HH:mm:ss
+		assertEquals(nowStr.substring(0, 4), dateStr.substring(6, 10));  //year
+		assertEquals(nowStr.substring(5, 7), dateStr.substring(3, 5));  //month
+		assertEquals(nowStr.substring(8, 10), dateStr.substring(0, 2)); //day
+	}
 
+	
+	@Test
+	public void dateToQfiniti204Format() {
+		//2016-09-13T23:30:52.123Z
+		Instant now = Instant.now();
+		String nowStr = now.toString();
+		
+		String dateStr = DateUtil.dateToQfiniti204Format(Date.from(now));
+		
+		assertNotNull(dateStr);
+		//12/31/2021 02:33:58 P. M.
+		assertEquals(nowStr.substring(0, 4), dateStr.substring(6, 10));  //year
+		assertEquals(nowStr.substring(5, 7), dateStr.substring(0, 2));  //month
+		assertEquals(nowStr.substring(8, 10), dateStr.substring(3, 5)); //day		
+	}
 }
