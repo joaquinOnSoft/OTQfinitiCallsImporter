@@ -151,18 +151,7 @@ public abstract class AbstractQfinitiICG {
 	 * @return
 	 */
 	protected Map<String, CallRecording> readAudioFiles(String path, Map<String, CallRecording> recordings) {	
-		File audioFiles[] = null;
-		
-		if(allAudioFormats) {
-			// Read audio files (.wav, .gsm, .mp3, .ogg)
-			AudioFilter wavfilter = new AudioFilter();
-			audioFiles = wavfilter.finder(path);			
-		}
-		else {
-			// Read audio files (.wav)			
-			WavFilter wavfilter = new WavFilter();
-			audioFiles = wavfilter.finder(path);
-		}
+		File audioFiles[] = getAudioFiles(path);
 				
 		if (audioFiles != null && audioFiles.length > 0) {
 			CallRecording call = null;
@@ -183,6 +172,21 @@ public abstract class AbstractQfinitiICG {
 		}
 
 		return recordings;
+	}
+
+	protected File[] getAudioFiles(String path) {
+		File[] audioFiles;
+		if(allAudioFormats) {
+			// Read audio files (.wav, .gsm, .mp3, .ogg)
+			AudioFilter wavfilter = new AudioFilter();
+			audioFiles = wavfilter.finder(path);			
+		}
+		else {
+			// Read audio files (.wav)			
+			WavFilter wavfilter = new WavFilter();
+			audioFiles = wavfilter.finder(path);
+		}
+		return audioFiles;
 	}
 
 	/**

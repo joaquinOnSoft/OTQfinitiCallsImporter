@@ -3,11 +3,10 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 
 java {
-	version = '23.01.03' 
+	version = '23.01.04' 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
-
 
 // Include dependent libraries in archive.
 jar {
