@@ -100,20 +100,4 @@ public class DateUtilTest {
 		assertEquals(nowStr.substring(5, 7), dateStr.substring(3, 5));  //month
 		assertEquals(nowStr.substring(8, 10), dateStr.substring(0, 2)); //day
 	}
-
-	
-	@Test
-	public void dateToQfiniti204Format() {
-		//2016-09-13T23:30:52.123Z
-		Instant now = Instant.now();
-		String nowStr = now.toString();
-		
-		String dateStr = DateUtil.dateToQfiniti204Format(Date.from(now));
-		
-		assertNotNull(dateStr);
-		//12/31/2021 02:33:58 P. M.
-		assertEquals(nowStr.substring(0, 4), dateStr.substring(6, 10));  //year
-		assertEquals(nowStr.substring(5, 7), dateStr.substring(0, 2));  //month
-		assertEquals(nowStr.substring(8, 10), dateStr.substring(3, 5)); //day		
-	}
 }

@@ -107,7 +107,7 @@ public abstract class PlanetaNamingConventionFiller extends AbstractFiller {
 					try {
 						//ddmmaaaa_hhmmss
 						Date date = DateUtil.strToDate(value, "ddMMyyyy_HHmmss");
-						value = DateUtil.dateToQfiniti204Format(date);
+						value = DateUtil.dateToQfinitiFormat(date);
 					} catch (ParseException e) {
 						log.error("Expected format 'dd/MM/yyyy HH:mm:ss'. Value: " + value, e);			
 					}
