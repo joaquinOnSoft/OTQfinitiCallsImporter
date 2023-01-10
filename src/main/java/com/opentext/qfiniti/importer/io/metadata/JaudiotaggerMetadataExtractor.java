@@ -32,7 +32,6 @@ import org.jaudiotagger.audio.exceptions.CannotReadException;
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException;
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException;
 import org.jaudiotagger.tag.Tag;
-//import org.jaudiotagger.audio.wav.WavTag;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.TagException;
 
@@ -68,7 +67,6 @@ public class JaudiotaggerMetadataExtractor implements IMetadataCreator {
 			throw new IOException(e.getMessage());
 		}
 
-		//WavTag tag = (WavTag) f.getTag();
 		Tag tag =  f.getTag();
 
 		HashMap<String, String> metadata = new HashMap<String, String>();
