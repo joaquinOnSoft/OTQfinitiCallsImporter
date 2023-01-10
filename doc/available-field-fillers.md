@@ -2,13 +2,15 @@
 
 Fillers are classes that extends com.opentext.qfiniti.importer.io.filler.AbstractFiller and provides an automatically generated value for a given field, or extract some metadata from the .wav file.
 
-## com.opentext.qfiniti.importer.io.filler.AniFiller
+## Generic fillers
+
+### com.opentext.qfiniti.importer.io.filler.AniFiller
 Generate a random ANI (Client phone number)
 
-## com.opentext.qfiniti.importer.io.filler.DateFromFileFiller
+### com.opentext.qfiniti.importer.io.filler.DateFromFileFiller
 Recover the creation date and time from the .wav file
 
-## com.opentext.qfiniti.importer.io.filler.DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller
+### com.opentext.qfiniti.importer.io.filler.DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFiller
 Recover the creation date and time from the .wav file name. The file name MUST match this pattern:
 
 > ExtXXXXX_MM_dd_yyyy_HH;mm;ss
@@ -18,35 +20,36 @@ Some examples:
    - ext42098_03_30_2015_11;35;46.wav
    - ext42110_02_16_2017_15;39;00.wav
 
-## com.opentext.qfiniti.importer.io.filler.DnisFiller
+### com.opentext.qfiniti.importer.io.filler.DnisFiller
 Generate a random DNIS (Call type)
 
-## com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller
+### com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller
 Recover the duration in seconds from the .wav file
 
-## com.opentext.qfiniti.importer.io.filler.ExtendedFields2UserDataFiller
+### com.opentext.qfiniti.importer.io.filler.ExtendedFields2UserDataFiller
 Generate "user_data" field based on extended fields values
 
 > user_data/UUData for the transaction. These are **key=value** pairs, separated by the delimiter. For example 2#;zip=54321#;accnt=123456789#;
 
-## com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller
+### com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller
 Recover the file name from the .wav file
 
-## com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFiller
+### com.opentext.qfiniti.importer.io.filler.GroupHierarchyDolceVitaFiller
 Generate a random Group Hierarchy name that match this pattern: VS-TI-FL-Team<XX>
 
-## com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
+### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
 Generate a fix Group Hierarchy name: "Client-i"
 
-## com.opentext.qfiniti.importer.io.filler.TeamMemberFiller
+### com.opentext.qfiniti.importer.io.filler.TeamMemberFiller
 Generate a Team Member Name selected randomly from a predefined set of user names 
 
-## com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFiller
+### com.opentext.qfiniti.importer.io.filler.TeamMemberFromSGTeamFiller
 Generate a team member name from the properties "SG" and "Team"
 
-## com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller
+### com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller
 Generate a team member name from the properties "Team", i.e. the 'Team' 
 value 'VS-TI-FL-Team36' will generate a Team Member name 'VS-TI-FL-Team36, agent36'
+
 
 ## Planeta Naming Convention fillers
 

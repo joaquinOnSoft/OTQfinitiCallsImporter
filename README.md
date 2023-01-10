@@ -121,6 +121,7 @@ There are 3 main properties:
 
 
 For further details about the JSON mapping configuration file, please visit these pages:
+
  - [Valid output field names](doc/valid-output-field-names.md)
  - [Available field fillers](doc/available-field-fillers.md)
  - [Available field transformers](doc/available-field-transformers.md)
