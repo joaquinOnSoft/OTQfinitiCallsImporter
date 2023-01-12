@@ -96,8 +96,8 @@ public class DateUtilTest {
 		
 		assertNotNull(dateStr);
 		//dd/MM/yyyy HH:mm:ss
-		assertEquals(nowStr.substring(0, 4), dateStr.substring(6, 10));  //year
-		assertEquals(nowStr.substring(5, 7), dateStr.substring(3, 5));  //month
-		assertEquals(nowStr.substring(8, 10), dateStr.substring(0, 2)); //day
+		assertEquals(nowStr.substring(0, 4), dateStr.substring(6, 10)); //year
+		assertEquals(nowStr.substring(5, 7), dateStr.substring(0, 2));  //day
+		assertEquals(nowStr.substring(8, 10), dateStr.substring(3, 5)); //month
 	}
 }

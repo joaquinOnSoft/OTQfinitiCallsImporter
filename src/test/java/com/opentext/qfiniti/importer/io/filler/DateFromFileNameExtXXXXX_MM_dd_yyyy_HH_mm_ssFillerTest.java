@@ -19,6 +19,6 @@ public class DateFromFileNameExtXXXXX_MM_dd_yyyy_HH_mm_ssFillerTest extends Abst
 		String value = filler.getValue();
 
 		assertNotNull(value);
-		assertEquals("14/01/2016 16:29:15", value);
+		assertEquals("01/14/2016 16:29:15", value);
 	}
 }

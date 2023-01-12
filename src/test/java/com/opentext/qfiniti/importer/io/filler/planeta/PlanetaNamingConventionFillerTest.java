@@ -36,7 +36,7 @@ public class PlanetaNamingConventionFillerTest extends AbstractFillerTest {
 		PlanetaNamingConventionFiller filler = new PlanetaNamingConventionIdFiller(call, file);
 	
 		assertEquals("13032476", filler.getField(PlanetaNamingConventionFiller.FIELD_ID));
-		assertEquals("31/12/2021 14:33:58", filler.getField(PlanetaNamingConventionFiller.FIELD_DATE));
+		assertEquals("12/31/2021 14:33:58", filler.getField(PlanetaNamingConventionFiller.FIELD_DATE));
 		assertEquals("2622", filler.getField(PlanetaNamingConventionFiller.FIELD_SERVICE));
 		assertEquals("5631", filler.getField(PlanetaNamingConventionFiller.FIELD_AGENT));
 		assertEquals("00307", filler.getField(PlanetaNamingConventionFiller.FIELD_DURATION));

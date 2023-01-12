@@ -45,7 +45,7 @@ public class DateUtil {
 	}
 
 	public static String dateToQfinitiFormat(Date d) {
-		return dateToFormat(d, "dd/MM/yyyy HH:mm:ss");
+		return dateToFormat(d, "MM/dd/yyyy HH:mm:ss");
 	}
 
 	public static String dateToFormat(Date d, String format) {
