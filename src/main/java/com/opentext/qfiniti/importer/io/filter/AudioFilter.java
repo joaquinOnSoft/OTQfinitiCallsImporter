@@ -27,6 +27,11 @@ import java.io.File;
  */
 public class AudioFilter extends FileFilter {
 
+	private static final String EXTENSION_OGG = "ogg";
+	private static final String EXTENSION_MP3 = "mp3";
+	private static final String EXTENSION_GSM = "gsm";
+	private static final String EXTENSION_WAV = "wav";
+
 	/**
 	 * Find audio files (.wav, .gsm, .mp3, .ogg) in specified folder
 	 * 
@@ -34,6 +39,10 @@ public class AudioFilter extends FileFilter {
 	 * @return list of .wav, .gsm, .mp3, .ogg files contained in a given folder
 	 */
 	public File[] finder(String dirName) {
-		return finder(dirName, ".wav", ".gsm", ".mp3", ".ogg");
+		return finder(false, dirName, EXTENSION_WAV, EXTENSION_GSM, EXTENSION_MP3, EXTENSION_OGG);
 	}
+	
+	public File[] finder(boolean recursive, String dirName) {
+		return finder(recursive, dirName, EXTENSION_WAV, EXTENSION_GSM, EXTENSION_MP3, EXTENSION_OGG);
+	}		
 }

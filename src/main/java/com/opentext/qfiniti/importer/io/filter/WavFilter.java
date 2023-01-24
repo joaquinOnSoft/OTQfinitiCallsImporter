@@ -27,6 +27,8 @@ import java.io.File;
  */
 public class WavFilter extends FileFilter {
 
+	private static final String WAV_EXTENSION = "wav";
+
 	/**
 	 * Find .wav files in specified folder
 	 * 
@@ -34,6 +36,10 @@ public class WavFilter extends FileFilter {
 	 * @return list of .wav files contained in a given folder
 	 */
 	public File[] finder(String dirName) {
-		return finder(dirName, ".wav");
+		return finder(false, dirName, WAV_EXTENSION);
 	}
+	
+	public File[] finder(boolean recursive, String dirName ) {
+		return finder(recursive, dirName, WAV_EXTENSION);
+	}	
 }

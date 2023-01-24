@@ -40,6 +40,9 @@ Generate a random Group Hierarchy name that match this pattern: VS-TI-FL-Team<XX
 ### com.opentext.qfiniti.importer.io.filler.GroupHierarchyFiller
 Generate a fix Group Hierarchy name: "Client-i"
 
+### com.opentext.qfiniti.importer.io.filler.PathNameFromFileFiller
+Recover the file parent directory from the audio file (usually a .wav file)
+
 ### com.opentext.qfiniti.importer.io.filler.TeamMemberFiller
 Generate a Team Member Name selected randomly from a predefined set of user names 
 
@@ -49,7 +52,6 @@ Generate a team member name from the properties "SG" and "Team"
 ### com.opentext.qfiniti.importer.io.filler.TeamMemberFromTeamFiller
 Generate a team member name from the properties "Team", i.e. the 'Team' 
 value 'VS-TI-FL-Team36' will generate a Team Member name 'VS-TI-FL-Team36, agent36'
-
 
 ## Planeta Naming Convention fillers
 

@@ -34,6 +34,6 @@ public class XlsFilter extends FileFilter {
 	 * @return list of .xls files contained in a given folder
 	 */
 	public File[] finder(String dirName) {
-		return finder(dirName, ".xls");
+		return finder(dirName, "xls");
 	}
 }

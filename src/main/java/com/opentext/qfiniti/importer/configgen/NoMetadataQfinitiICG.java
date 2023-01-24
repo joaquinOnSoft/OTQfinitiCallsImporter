@@ -53,8 +53,8 @@ public class NoMetadataQfinitiICG extends AbstractQfinitiICG {
 			for (File file : audioFiles) {
 				log.info(file.getPath());
 
-				// Initialize call recording with path and file name
-				call = new CallRecording(path, file.getName(), 0);
+				// Initialize call recording with path and file name				
+				call = new CallRecording(file.getParent(), file.getName(), 0);
 
 				// Add field generated automatically with a
 				// 'filler' or a default value

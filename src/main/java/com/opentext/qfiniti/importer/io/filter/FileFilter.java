@@ -20,49 +20,43 @@
 package com.opentext.qfiniti.importer.io.filter;
 
 import java.io.File;
-import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 
 public class FileFilter {
+
+	public File[] finder(boolean recursive, String dirName, String... extensions) {
+		String[] exts = extensions;
+		List<File> files = (List<File>) FileUtils.listFiles(new File(dirName), exts, recursive);
+
+		File[] array = new File[files.size()];
+		return files.toArray(array); 
+	}		
+	
 	/**
-	 * Find files with a given extension in specified folder
+	 * Find files with a given list of extensions in specified folder
 	 * 
 	 * @param dirName - folder name
 	 * @param extension - file extension to be filtered
 	 * @return list of files contained in a given folder that matches the given extension, e.g. .xls
 	 */
 	public File[] finder(String dirName, String... extensions) {
-		String[] exts = extensions;
-		File dir = new File(dirName);
-
-		return dir.listFiles(new FilenameFilter() {
-			public boolean accept(File dir, String filename) {
-		        for (String ext : exts) {
-		             if (filename.endsWith(ext)) {
-		                 return true;
-		             }
-		        }
-		        
-		        return false;
-			}
-		});
-
+		return finder(false, dirName, extensions);
 	}	
-	
+		
 	/**
-	 * Find files with a given extension in specified folder
-	 * 
-	 * @param dirName - folder name
-	 * @param extension - file extension to be filtered
-	 * @return list of files contained in a given folder that matches the given extension, e.g. .xls
+	 * Get all files with certain extensions in a directory 
+	 * @param path
+	 * @param fileExtension
+	 * @return
+	 * @throws IOException
+	 * @see http://www.avajava.com/tutorials/lessons/how-do-i-get-all-files-with-certain-extensions-in-a-directory-including-subdirectories.html
 	 */
-	public File[] finder(String dirName, String extension) {
-		File dir = new File(dirName);
-
-		return dir.listFiles(new FilenameFilter() {
-			public boolean accept(File dir, String filename) {
-				return filename.endsWith(extension);
-			}
-		});
-
-	}
+    public File[]  finder(String path, String extension) {
+    	String[] extensions = new String[] { extension};
+		return finder(false, path, extensions);
+    }
+    
 }

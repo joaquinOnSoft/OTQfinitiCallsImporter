@@ -1,5 +1,5 @@
 /*
- *   (C) Copyright 2019 OpenText and others.
+ *   (C) Copyright 2022 OpenText and others.
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -17,24 +17,31 @@
  *     Joaquín Garzón - initial implementation
  *
  */
-package com.opentext.qfiniti.importer.configgen;
+package com.opentext.qfiniti.importer.io.filler;
 
-import com.opentext.qfiniti.importer.io.CsvReader;
-import com.opentext.qfiniti.importer.io.IReader;
+import java.io.File;
 
-/**
- * OpenText(TM) Qfiniti Importer Configuration Generator
- * 
- * @author Joaquín Garzón
- */
-public class CsvQfinitiICG extends AbstractFileQfinitiICG {
+import com.opentext.qfiniti.importer.pojo.CallRecording;
 
-	public CsvQfinitiICG(String path) {
-		super(path, "csv");
+public class PathNameFromFileFiller extends AbstractFiller {
+
+	public PathNameFromFileFiller(CallRecording call, File file) {
+		super(call, file);
 	}
 
+	public PathNameFromFileFiller(CallRecording call, String path, String fileName) {
+		super(call, path, fileName);
+	}
+
+	public PathNameFromFileFiller(CallRecording call, String filePath) {
+		super(call, filePath);
+	}
+
+	/**
+	 * Returns the path name of the call recording file
+	 */
 	@Override
-	protected IReader getReader() {
-		return new CsvReader();
+	public String getValue() {
+		return file == null ? "" : file.getParent();
 	}
 }

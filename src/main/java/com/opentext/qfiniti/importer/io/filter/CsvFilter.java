@@ -34,6 +34,6 @@ public class CsvFilter extends FileFilter {
 	 * @return list of .csv files contained in a given folder
 	 */
 	public File[] finder(String dirName) {
-		return finder(dirName, ".csv");
+		return finder(dirName, "csv");
 	}
 }

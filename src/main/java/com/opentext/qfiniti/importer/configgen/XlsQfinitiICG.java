@@ -30,12 +30,11 @@ import com.opentext.qfiniti.importer.io.IReader;
 public class XlsQfinitiICG extends AbstractFileQfinitiICG {
 
 	public XlsQfinitiICG(String path) {
-		super(path, ".xls");
+		super(path, "xls");
 	}
 
 	@Override
 	protected IReader getReader() {
-		// TODO Auto-generated method stub
 		return new ExcelReader();
 	}
 }

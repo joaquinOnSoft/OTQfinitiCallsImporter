@@ -29,6 +29,16 @@ import org.junit.jupiter.api.Test;
 
 public class WavFilterTest {
 
+	private File[] finder(boolean recursive, File file) {
+		String path = file.getParentFile().getAbsolutePath();
+
+		assertNotNull(path);
+
+		WavFilter filter = new WavFilter();
+		File[] files = filter.finder(recursive, path);
+		return files;
+	}		
+	
 	@Test
 	public void testFinder() {
 
@@ -37,12 +47,7 @@ public class WavFilterTest {
 
 		assertNotNull(file);
 
-		String path = file.getParentFile().getAbsolutePath();
-
-		assertNotNull(path);
-
-		WavFilter filter = new WavFilter();
-		File[] files = filter.finder(path);
+		File[] files = finder(false, file);
 
 		assertNotNull(files);
 		assertTrue(files.length > 0);
@@ -55,4 +60,38 @@ public class WavFilterTest {
 		assertEquals("file_example_WAV_5MG.wav", files[47].getName());
 	}
 
+	private File[] finder3Parameters(boolean recursive) {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("client-p/13032476-31122021_143358-2622-5631-00307-0204697244857.wav").getFile());
+
+		assertNotNull(file);
+
+		File[] files = finder(recursive, file);
+		return files;
+	}	
+	
+	@Test
+	public void testFinder3ParametersRecursive() {
+		
+		File[] files = finder3Parameters(true);
+
+		assertNotNull(files);
+		assertEquals(3, files.length);
+		assertEquals("13032476-31122021_143358-2622-5631-00307-0204697244857.wav", files[0].getName());
+		assertEquals("13032476-30122021_154123-2622-5631-00307-0204697244857.wav", files[1].getName());
+		assertEquals("13032476-24122021_165114-2622-5631-00307-0204697244857.wav", files[2].getName());	
+	}
+	
+	
+	@Test
+	public void testFinder3ParametersNotRecursive() {
+		
+		File[] files = finder3Parameters(false);
+
+		assertNotNull(files);
+		assertEquals(1, files.length);
+		assertEquals("13032476-31122021_143358-2622-5631-00307-0204697244857.wav", files[0].getName());
+	}
+
+	
 }

@@ -30,7 +30,7 @@ import com.opentext.qfiniti.importer.io.IReader;
 public class JSONQfinitiICG extends AbstractFileQfinitiICG {
 
 	public JSONQfinitiICG(String path) {
-		super(path, ".json");
+		super(path, "json");
 	}
 
 	@Override
