@@ -18,8 +18,17 @@ IF "%~1"=="" GOTO NO_PARAMS
 :GSM2WAV
 REM Please, modify this path with the right one of your environment
 SET FFMPEG=C:\ffmpeg-2023-01-12-git-fc263f073e-essentials_build\bin\ffmpeg.exe
+REM SET FFMPEG="C:\Program Files (x86)\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe"
+
+REM Save current working directory
+SET CWD=%cd%
+
 cd %1
 FOR %%G IN (*.gsm) DO %FFMPEG% -i %%G %%~nG.wav
+
+REM Back to previous working directory
+cd %CWD%
+
 EXIT /B
 
 
