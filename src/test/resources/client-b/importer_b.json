@@ -1,0 +1,39 @@
+{
+	"inputType": "NoMetadata",
+	"fieldFiller": [
+		{
+			"oname": "Path_Name",
+			"ovalue": "C:\\Users\\jgarzonpena\\Documents\\000 - Clients\\YYY - FRANCE\\Bouygues Telecom\\Audio_Bouygues_Telecom\\audios"
+		},	
+		{
+			"oname": "File_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.FileNameFromFileFiller"
+		},
+		{
+			"oname": "Date_Time",
+			"filler": "com.opentext.qfiniti.importer.io.filler.DateFromFileFiller"
+		},
+		{
+			"oname": "duration",
+			"filler": "com.opentext.qfiniti.importer.io.filler.DurationFromMetadataFiller"
+		},
+		{
+			"oname": "group_hierarchy",
+			"ovalue": "Bouygues"
+		},
+		{
+			"oname": "Team_Member_Name",
+			"filler": "com.opentext.qfiniti.importer.io.filler.TeamMemberFiller"
+		},
+		{
+			"oname": "dnis",
+			"ovalue": "033"
+		},
+		{
+			"oname": "ani",
+			"filler": "com.opentext.qfiniti.importer.io.filler.AniFiller"
+		}
+	],
+	"fieldMapping": [
+	]
+}
