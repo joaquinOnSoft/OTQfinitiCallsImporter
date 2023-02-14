@@ -41,7 +41,7 @@ import org.xml.sax.SAXException;
  * 
  * @author Joaquín Garzón
  */
-public class TikaMetadataExtractor implements IMetadataCreator {
+public class TikaMetadataExtractor extends AbstractAudioMetadataExtractor {
 
 	private static final Logger log = LogManager.getLogger(TikaMetadataExtractor.class);
 	
@@ -82,8 +82,7 @@ public class TikaMetadataExtractor implements IMetadataCreator {
 			} catch (TikaException e) {
 				log.error("Tika auto detector parser: ", e);
 			}
-	        
-			// System.out.println(metadata);
+	        			
 			if (metadata != null) {
 				String[] names = metadata.names();
 				int size = names.length;
@@ -92,6 +91,13 @@ public class TikaMetadataExtractor implements IMetadataCreator {
 				for (int i = 0; i < size; i++) {
 					output.put(names[i], metadata.get(names[i]));
 				}
+				
+				//Calculate file duration in seconds
+				float duration = getDuration(f.length(),
+						metadata.get(SAMPLE_RATE), 
+						metadata.get(CHANNELS),
+						metadata.get(BITS));
+				output.put(DURATION, Integer.toString((int) duration));
 			}
 		}
 

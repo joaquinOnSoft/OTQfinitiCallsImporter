@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'application'
 
 java {
-	version = '23.01.24' 
+	version = '23.02.14' 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
@@ -43,22 +43,25 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation 'org.apache.poi:poi-ooxml:5.2.3' 
 
-	// Jaudiotagger
+	// Jaudiotagger. 
+	// The aim of this project is to provide a world class Java library 
+	// for editing tag information in audio files. Most existing solutions 
+	// are not java based inhibiting the use of java applications with digital files.
 	// https://mvnrepository.com/artifact/org/jaudiotagger
 	implementation 'org:jaudiotagger:2.0.3'
 	
 	// Apache Tika Core
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-core
-	implementation 'org.apache.tika:tika-core:2.6.0'
+	implementation 'org.apache.tika:tika-core:2.7.0'
 	// Apache Tika Parser Modules	
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-parsers
-	implementation 'org.apache.tika:tika-parsers:2.6.0'
+	implementation 'org.apache.tika:tika-parsers:2.7.0'
 	// Apache Tika AudioVideo Parser Module
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-parser-audiovideo-module
-	implementation 'org.apache.tika:tika-parser-audiovideo-module:2.6.0'
+	implementation 'org.apache.tika:tika-parser-audiovideo-module:2.7.0'
 	// Apache Tika Serialization
 	// https://mvnrepository.com/artifact/org.apache.tika/tika-serialization
-	implementation 'org.apache.tika:tika-serialization:2.6.0'
+	implementation 'org.apache.tika:tika-serialization:2.7.0'
 	
 	// Apache Log4j API
 	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
@@ -69,12 +72,16 @@ dependencies {
 
 	// Jackson Databind		
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
 	
 	// OpenCSV. A simple library for reading and writing CSV in Java
 	// https://mvnrepository.com/artifact/com.opencsv/opencsv
 	implementation 'com.opencsv:opencsv:5.7.1'
-
+	
+	// Jaffree. Java ffmpeg command-line wrapper.	
+	// https://mvnrepository.com/artifact/com.github.kokorin.jaffree/jaffree
+	implementation 'com.github.kokorin.jaffree:jaffree:2022.06.03'
+	
 	// JUnit Jupiter API » 5.9.1 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'

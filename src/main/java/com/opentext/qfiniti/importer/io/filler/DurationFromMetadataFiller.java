@@ -27,6 +27,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.opentext.qfiniti.importer.io.metadata.IMetadataCreator;
+import com.opentext.qfiniti.importer.io.metadata.JaffreeMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.JaudiotaggerMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.JavaMetadataExtractor;
 import com.opentext.qfiniti.importer.io.metadata.TikaMetadataExtractor;
@@ -59,7 +60,13 @@ public class DurationFromMetadataFiller extends AbstractFiller {
 		if (duration == null) {
 			duration = getDuration(new JavaMetadataExtractor());
 		}
-
+		if (duration == null || duration.compareTo("0") == 0) {
+			String ffmpegPath = System.getProperty("FFMPEG_BIN");
+			if(ffmpegPath != null) {
+				duration = getDuration(new JaffreeMetadataExtractor());
+			}
+		}		
+		
 		return duration;
 	}
 

@@ -26,11 +26,12 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public interface IMetadataCreator {
-
+public interface IMetadataCreator {	
+	
 	final String PARSED_BY = "X-Parsed-By";
 	final String SAMPLE_RATE = "xmpDM:audioSampleRate";
 	final String CHANNELS = "channels";
+	final String BIT_RATE = "bitRate";
 	final String BITS = "bits";
 	final String RESOURCE_NAME = "resourceName";
 	final String CONTENT_LENGTH = "Content-Length";
@@ -38,6 +39,7 @@ public interface IMetadataCreator {
 	final String SAMPLE_TYPE = "xmpDM:audioSampleType";
 	final String CONTENT_TYPE = "Content-Type";
 
+	final String LENGTH= "LENGTH";
 	final String DURATION = "duration";
 	final String ARTIST = "artist";
 	final String TITLE = "title";

@@ -71,14 +71,17 @@ public class JaudiotaggerMetadataExtractor implements IMetadataCreator {
 
 		HashMap<String, String> metadata = new HashMap<String, String>();
 
-		metadata.put(TITLE, tag.getFirst(FieldKey.TITLE));
-		metadata.put(ARTIST, tag.getFirst(FieldKey.ARTIST));
+		if(tag.getFieldCount() > 0) {
+			metadata.put(TITLE, tag.getFirst(FieldKey.TITLE));
+			metadata.put(ARTIST, tag.getFirst(FieldKey.ARTIST));
+		}
+		
 		metadata.put(DURATION, Integer.toString(f.getAudioHeader().getTrackLength())); // In seconds
-		metadata.put(SAMPLE_RATE, f.getAudioHeader().getSampleRate());
-		metadata.put(BITS, f.getAudioHeader().getBitRate());
 		metadata.put(CHANNELS, f.getAudioHeader().getChannels());
-
-		// System.out.println(metadata);
+		metadata.put(SAMPLE_RATE, f.getAudioHeader().getSampleRate());
+		metadata.put(BIT_RATE, f.getAudioHeader().getBitRate());
+		//No info about bits per sample
+		//metadata.put(BITS, f.getAudioHeader().getBitRate()); 
 
 		return metadata;
 	}

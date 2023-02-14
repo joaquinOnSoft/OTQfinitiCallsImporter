@@ -50,8 +50,6 @@ public class JavaMetadataExtractor implements IMetadataCreator {
         }
 
         if(wavHeader != null) {
-			metadata.put(TITLE, "");
-			metadata.put(ARTIST, "");
 			//time = FileLength / (Sample Rate * Channels * Bits per sample /8)
 			double duration = 0;
 			if (wavHeader.getSampleRate() != 0 && wavHeader.getBitsPerSample() != 0 &&  wavHeader.getNumChannels() != 0) {
@@ -59,8 +57,8 @@ public class JavaMetadataExtractor implements IMetadataCreator {
 			}
 			metadata.put(DURATION, Integer.toString((int) duration)); // In seconds
 			metadata.put(SAMPLE_RATE, Integer.toString(wavHeader.getSampleRate()));
-			int bits = wavHeader.getBitsPerSample() * wavHeader.getSubChunk1Size();
-			metadata.put(BITS, Integer.toString(bits));
+			metadata.put(BIT_RATE, Integer.toString(wavHeader.getByteRate() * 8));
+			metadata.put(BITS, Integer.toString(wavHeader.getBitsPerSample()));
 			metadata.put(CHANNELS, Integer.toString(wavHeader.getNumChannels()));
         }
         else {

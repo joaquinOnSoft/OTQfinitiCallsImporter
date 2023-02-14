@@ -19,37 +19,12 @@
  */
 package com.opentext.qfiniti.importer.io.metadata;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.io.IOException;
-import java.util.Map;
-
-import org.junit.jupiter.api.Test;
-
 public class TikaMetadataExtractorTest extends AbstractMetadataExtractorTest {
 
-	@Test
-	public void testExtract() {
+	@Override
+	protected IMetadataCreator getMetadataExtractor() {
+		return new TikaMetadataExtractor();
+	}	
 
-		assertNotNull(file);
-
-		TikaMetadataExtractor extractor = new TikaMetadataExtractor();
-		Map<String, String> metadata = null;
-
-		try {
-			metadata = extractor.extract(file);
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-
-		System.out.println("--------------------------");
-		System.out.println(metadata);
-		System.out.println("--------------------------");
-		assertNotNull(metadata);
-		assertEquals("8000", metadata.get(IMetadataCreator.SAMPLE_RATE));
-		assertEquals("audio/vnd.wave", metadata.get(IMetadataCreator.CONTENT_TYPE));
-		assertEquals("2", metadata.get(IMetadataCreator.CHANNELS));
-	}
+	//		assertEquals("audio/vnd.wave", metadata.get(IMetadataCreator.CONTENT_TYPE));
 }

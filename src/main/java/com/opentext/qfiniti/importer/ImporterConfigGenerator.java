@@ -37,27 +37,35 @@ import com.opentext.qfiniti.importer.configgen.AbstractQfinitiICG;
 import com.opentext.qfiniti.importer.pojo.MappingConfig;
 
 public class ImporterConfigGenerator {
-	/** SHORT OPTION: UNC Path to the call recordings files */	
-	private static final String OPT_SHORT_PATH = "p";
-	/** SHORT OPTION: Output file name. 'calls.xls' by default */	
-	private static final String OPT_SHORT_OUTPUT = "o";
-	/** SHORT OPTION: JSON Config file */	
-	private static final String OPT_SHORT_CONFIG = "c";
+
 	/** SHORT OPTION: Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed */
 	private static final String OPT_SHORT_ALL_AUDIO = "a";
-	
-	/** OPTION: UNC Path to the call recordings files */
-	private static final String OPT_PATH = "path";
-	/** OPTION: Output file name. 'calls.xls' by default */
-	private static final String OPT_OUTPUT = "output";
+	/** SHORT OPTION: JSON Config file */	
+	private static final String OPT_SHORT_CONFIG = "c";	
+	/** SHORT OPTION: Path to ffprobe executable, a ffmpeg command line utility used to read metadata from audio files */	
+	private static final String OPT_SHORT_FFMPEG_PATH = "f";	
+	/** SHORT OPTION: Output file name. 'calls.xls' by default */		
+	private static final String OPT_SHORT_OUTPUT = "o";
+	/** SHORT OPTION: UNC Path to the call recordings files */	
+	private static final String OPT_SHORT_PATH = "p";
+
+	/** OPTION: Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed */
+	private static final String OPT_ALL_AUDIO = "allaudio";	
 	/** OPTION: JSON Config file */
 	private static final String OPT_CONFIG = "config";
-	/** OPTION: Process ALL audio formats (.wav, .gsm, .mp3, .ogg). By default only .wav is processed */
-	private static final String OPT_ALL_AUDIO = "allaudio";
+	/** OPTION: Path to ffprobe executable, a ffmpeg command line utility used to read metadata from audio files */	
+	private static final String OPT_FFMPEG_PATH = "ffmpeg-path";		
+	/** OPTION: Output file name. 'calls.xls' by default */
+	private static final String OPT_OUTPUT = "output";	
+	/** OPTION: UNC Path to the call recordings files */
+	private static final String OPT_PATH = "path";
 
 	private static final Logger log = LogManager.getLogger(ImporterConfigGenerator.class);
 
 	private static final String DEFAULT_OUTPUT_FILE = "calls.xls";
+	
+	/** System property name used to identify the path to the `ffmpeg` command line utilities */
+	private static final String FFMPEG_BIN = "FFMPEG_BIN";
 
 	/**
 	 * SEE: How to parse command line arguments in Java? [closed]
@@ -76,6 +84,9 @@ public class ImporterConfigGenerator {
 		Option configOpt = new Option(OPT_SHORT_CONFIG, OPT_CONFIG, true, "JSON Config file");
 		options.addOption(configOpt);
 
+		Option ffmpegOpt = new Option(OPT_SHORT_FFMPEG_PATH, OPT_FFMPEG_PATH, true, "Path to `ffprobe` executable");
+		options.addOption(ffmpegOpt);		
+		
 		Option outputOpt = new Option(OPT_SHORT_OUTPUT, OPT_OUTPUT, true, "Output file name. 'calls.xls' by default");
 		options.addOption(outputOpt);
 
@@ -100,6 +111,12 @@ public class ImporterConfigGenerator {
 		boolean allAudioFormats = cmd.hasOption(OPT_ALL_AUDIO);
 		
 		String path = cmd.getOptionValue(OPT_PATH);
+		
+		String ffmpegPath = cmd.getOptionValue(OPT_FFMPEG_PATH);
+		if(ffmpegPath != null) {
+			//Define a system
+			System.setProperty(FFMPEG_BIN, ffmpegPath);
+		}
 
 		String output = cmd.getOptionValue(OPT_OUTPUT);
 		if (output == null) {
