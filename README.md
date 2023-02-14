@@ -75,6 +75,9 @@ usage: `java -jar OTQfinitiCallsImporter-23.02.14.jar`
  * **-p**, **--path <arg>**			(Required) UNC Path to the call recordings files (.wav files)
 
 
+> **NOTE:** You can define `FFMPEG_BIN` as a system property or an environment variable in
+> order to provide the path to `ffprobe` executable instead of using `--ffmpeg-path` option.
+
 ### Example of invocation
 
 ```

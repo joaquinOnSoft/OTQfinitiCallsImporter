@@ -61,10 +61,7 @@ public class DurationFromMetadataFiller extends AbstractFiller {
 			duration = getDuration(new JavaMetadataExtractor());
 		}
 		if (duration == null || duration.compareTo("0") == 0) {
-			String ffmpegPath = System.getProperty("FFMPEG_BIN");
-			if(ffmpegPath != null) {
-				duration = getDuration(new JaffreeMetadataExtractor());
-			}
+			duration = getDuration(new JaffreeMetadataExtractor());
 		}		
 		
 		return duration;
